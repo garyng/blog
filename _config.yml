@@ -1,0 +1,23 @@
+# Dependencies
+markdown:         rdiscount
+highlighter:      rouge
+
+# Permalinks
+permalink:        pretty
+
+# Setup
+title:            Gary's Zone
+tagline:          ''
+description:      'Yet another IT blog.'
+url:              ''
+
+author:
+  name:           'GaryNg'
+  url:            ''
+
+paginate:         5
+
+markdown_ext:     markdown,mdown,mkdown,mkdn,mkd,md
+
+github:
+  repo:           ''
