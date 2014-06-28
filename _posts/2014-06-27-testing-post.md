@@ -4,7 +4,7 @@ title: Testing post
 date: 2014-06-27 20:34:39
 ---
 啊阿斯顿了喀纳斯的
-
+<!-- More -->
 {% highlight csharp %}
 Using adfslknasf
 class asd 

@@ -21,7 +21,11 @@ title: Archive
      		<info datetime="{{ page.date | date: "%Y-%m-%d" }}">
           		{{ post.date | date: "%b %d" }}
         	</info>
-     		{{ post.excerpt | strip_html }}
+          {% if post.content contains '<!-- More -->' %}
+            {{ post.content | split:'<!-- More -->' | first | strip_html }}
+          {% else %}
+            {{ post.excerpt | split:'</p>' | first | strip_html }}
+          {% endif %}
      	</div>
      </li>
   {% endfor %}
