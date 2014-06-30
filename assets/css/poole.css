@@ -203,6 +203,7 @@ img {
   margin: 0 0 1rem;
   border-radius: 5px;
   max-width: 100%;
+  height:auto;
 }
 
 /* Tables */
@@ -232,6 +233,16 @@ tbody tr:nth-child(odd) th {
 .lead {
   font-size: 1.25rem;
   font-weight: 300;
+}
+
+/* 
+ * Post info
+ *
+ * The footer of the post
+ */
+.post-info {
+  color: #999;
+  font-style: italic;
 }
 
 /* 

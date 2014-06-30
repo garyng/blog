@@ -8,8 +8,8 @@ permalink:        pretty
 # Setup
 title:            Gary's Zone
 tagline:          'Blog'
-description:      'Yet another IT blog.'
-url:              ''
+description:      'Blog by GaryNg with tutorials, softwares and more.'
+url:              'http://garyng.github.io'
 
 author:
   name:           'GaryNg'
