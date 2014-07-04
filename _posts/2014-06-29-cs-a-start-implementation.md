@@ -272,7 +272,7 @@ G值是从A点开始到当前的点所需要的开销
 
 代表每一个节点
 
-{% highlight cs %}
+{% highlight c# %}
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -553,7 +553,7 @@ namespace PathFinding
 
 这个是初始化一个二维Node 数组的代码：
 
-{% highlight cs %}
+{% highlight c# %}
 private void InitNodes(ref List&lt;List&lt;Node&gt;&gt; nodes)
 {
     for (int x = 0; x &lt; _width; x++)
@@ -597,7 +597,7 @@ private void InitNodes(ref List&lt;List&lt;Node&gt;&gt; nodes)
 
 这个是核心寻路算法：
 
-{% highlight cs %}
+{% highlight c# %}
 private void FindPath(ref List&lt;List&lt;Node&gt;&gt; nodes, Node start, Node end)
 {
     List&lt;Node&gt; open = new List&lt;Node&gt;();
