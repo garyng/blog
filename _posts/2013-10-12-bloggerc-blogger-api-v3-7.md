@@ -29,166 +29,147 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
 # 【获取帖子列表】
     
     
-    有BlogID 了万事好办..
-    
-    
-    Blogger API的数据模型是这样的：
-    ![image_thumb\[3\]](http://lh5.ggpht.com/-KCgonFOCq70/Ule_b43mWnI/AAAAAAAAFIg/WFM4005TLsQ/image_thumb%25255B3%25255D_thumb.png?imgmax=800)
-    
-    
-    Blogs Resource 下有Posts Resource
-    
-    
-    所以我们创建一个PostsResource变量，传入blogService
-    
-    
-    PostsResource postsRes = new PostsResource(blogService);
-    
+有BlogID 了万事好办..
 
-  
 
-    
-    
-     
-    
-    
-    有一API 叫做 posts.list
-    
-    
-    ![image_thumb\[4\]](http://lh3.ggpht.com/-AJ44DHujlgI/Ule_dMy7jaI/AAAAAAAAFIw/2_tHXjfEICQ/image_thumb%25255B4%25255D_thumb.png?imgmax=800)
-    
-    
-     
-    
-    
-    如上面的GetByUrl Request 一般，PostsResource 也有ListRequest
-    
-    
-    呼叫PostsResouce 里面的 .List函数，返回一个PostsResource.ListRequest
-    
-    
-    然后呼叫PostsResource.ListRequest 的.Execute()函数，返回一个PostList 类型
+Blogger API的数据模型是这样的：
+![image_thumb\[3\]](http://lh5.ggpht.com/-KCgonFOCq70/Ule_b43mWnI/AAAAAAAAFIg/WFM4005TLsQ/image_thumb%25255B3%25255D_thumb.png?imgmax=800)
 
-  
 
-    
-    
-    PostsResource postsRes = new PostsResource(blogService);
-    PostsResource.ListRequest postsListReq = postsRes.List(blog.Id);
-    PostList posts = postsListReq.Execute();
-    
+Blogs Resource 下有Posts Resource
 
-  
 
-    
-    
-    Blogger API 默认返回10个posts，储存在Post.Items中
-    
-    
-    现在在遍历.Items 然后输出post的 Title
+所以我们创建一个PostsResource变量，传入blogService
 
-  
 
-    
-    
-    for (int i = 0; i < posts.Items.Count; i++)
-    {
-        Console.WriteLine(posts.Items[i].Title);
-    }
-    
+PostsResource postsRes = new PostsResource(blogService);
 
-  
-  
+
+
+
+
+
+ 
+
+
+有一API 叫做 posts.list
+
+
+![image_thumb\[4\]](http://lh3.ggpht.com/-AJ44DHujlgI/Ule_dMy7jaI/AAAAAAAAFIw/2_tHXjfEICQ/image_thumb%25255B4%25255D_thumb.png?imgmax=800)
+
+如上面的GetByUrl Request 一般，PostsResource 也有ListRequest
+
+呼叫PostsResouce 里面的 .List函数，返回一个PostsResource.ListRequest
+
+然后呼叫PostsResource.ListRequest 的.Execute()函数，返回一个PostList 类型
+
+{% highlight csharp %}
+PostsResource postsRes = new PostsResource(blogService);
+PostsResource.ListRequest postsListReq = postsRes.List(blog.Id);
+PostList posts = postsListReq.Execute();
+{% endhighlight %}
+
+Blogger API 默认返回10个posts，储存在Post.Items中
+
+
+现在在遍历.Items 然后输出post的 Title
+
+for (int i = 0; i < posts.Items.Count; i++)
+{
+    Console.WriteLine(posts.Items[i].Title);
+}
+
+
 完整代码：  
   
 
     
-    
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    
-    using Google.Apis.Blogger.v3;
-    using Google.Apis.Blogger.v3.Data;
-    using Google.Apis.Services;
-    using System.Diagnostics;
-    using Google.Apis.Authentication.OAuth2;
-    using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
-    using DotNetOpenAuth.OAuth2;
-    using Google.Apis.Util;
-    
-    
-    namespace BloggerTest
+{% highlight csharp %}    
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Google.Apis.Blogger.v3;
+using Google.Apis.Blogger.v3.Data;
+using Google.Apis.Services;
+using System.Diagnostics;
+using Google.Apis.Authentication.OAuth2;
+using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
+using DotNetOpenAuth.OAuth2;
+using Google.Apis.Util;
+
+
+namespace BloggerTest
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            string apiKey= "{API-KEY}";
+            string blogUrl= "{BLOG-URL}";
+
+            string clientID = "{CLIENT_ID}";
+            string clientSec = "{CLIENT_SECRET}";
+
+            NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
             {
-                string apiKey= "{API-KEY}";
-                string blogUrl= "{BLOG-URL}";
-    
-                string clientID = "{CLIENT_ID}";
-                string clientSec = "{CLIENT_SECRET}";
-    
-                NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
-                {
-                    ClientIdentifier = clientID,
-                    ClientSecret = clientSec
-                };
-    
-                OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
-    
-                BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
-                {
-                    Authenticator = auth,
-                    ApplicationName = "BloggerTest"
-                });
-    
-    
-                BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
-                getReq.Key = apiKey;
-                Blog blog = getReq.Execute();
-    
-                Console.WriteLine("Blog ID: " + blog.Id);
-                Console.WriteLine();
-    
-                PostsResource postRes = new PostsResource(blogService);
-                PostsResource.ListRequest postsListReq = postRes.List(blog.Id);
-                PostList posts = postsListReq.Execute();
-    
-                for (int i = 0; i < posts.Items.Count; i++)
-                {
-                    Console.WriteLine(posts.Items[i].Title);
-                }
-    
-                Console.WriteLine();
-                Console.WriteLine("Done...");
-    
-                Console.ReadKey();
-    
-    
-    
-            }
-    
-            private static IAuthorizationState getAuth(NativeApplicationClient arg)
+                ClientIdentifier = clientID,
+                ClientSecret = clientSec
+            };
+
+            OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
+
+            BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
             {
-                IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
-                    {
-                        Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
-                    };
-                Uri authUri = arg.RequestUserAuthorization(state);
-                Process.Start(authUri.ToString());
-                Console.WriteLine("Please enter auth code:");
-                string authCode = Console.ReadLine();
-                return arg.ProcessUserAuthorization(authCode, state);
+                Authenticator = auth,
+                ApplicationName = "BloggerTest"
+            });
+
+
+            BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
+            getReq.Key = apiKey;
+            Blog blog = getReq.Execute();
+
+            Console.WriteLine("Blog ID: " + blog.Id);
+            Console.WriteLine();
+
+            PostsResource postRes = new PostsResource(blogService);
+            PostsResource.ListRequest postsListReq = postRes.List(blog.Id);
+            PostList posts = postsListReq.Execute();
+
+            for (int i = 0; i < posts.Items.Count; i++)
+            {
+                Console.WriteLine(posts.Items[i].Title);
             }
-    
-    
+
+            Console.WriteLine();
+            Console.WriteLine("Done...");
+
+            Console.ReadKey();
+
+
+
         }
+
+        private static IAuthorizationState getAuth(NativeApplicationClient arg)
+        {
+            IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
+                {
+                    Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
+                };
+            Uri authUri = arg.RequestUserAuthorization(state);
+            Process.Start(authUri.ToString());
+            Console.WriteLine("Please enter auth code:");
+            string authCode = Console.ReadLine();
+            return arg.ProcessUserAuthorization(authCode, state);
+        }
+
+
     }
-    
+}
+{% endhighlight %}   
     
     
     
@@ -221,12 +202,9 @@ PostList 里面有个.PageToken和.NextPageToken、.PrevPageToken
 然后还要检测当前的PageToken是否为第一个的PageToken （因为我们已经获取过了，所以不用获取了），如果是的话，就break 出 while loop  
   
 所以把之前代码中的  
-  
-
-    
-    
-    PostList posts = postsListReq.Execute();
-    
+{% highlight csharp %}
+PostList posts = postsListReq.Execute();
+{% endhighlight %}
 
   
 删除掉  
@@ -234,50 +212,39 @@ PostList 里面有个.PageToken和.NextPageToken、.PrevPageToken
 现在定义一个string为 firstToken  
   
 用来储存第一个NextPageToken  
-  
-
     
-    
-    string firstToken = "";
-    
+{% highlight csharp %}
+string firstToken = "";
+{% endhighlight %}
 
   
   
 现在就是while loop  
-  
 
-    
-    
-    现在就是while loop
-    
-    while (true)
+{% highlight csharp %}
+while (true)
+{
+    PostList posts = postsListReq.Execute();
+    postsListReq.PageToken = posts.NextPageToken;
+
+    if (firstToken == "")
     {
-        PostList posts = postsListReq.Execute();
-        postsListReq.PageToken = posts.NextPageToken;
-    
-        if (firstToken == "")
-        {
-            firstToken = posts.NextPageToken;
-        }
-        else if (firstToken != "" && posts.NextPageToken == firstToken)
-        {
-            // repeated
-            break;
-        }
-    
-        for (int i = 0; i < posts.Items.Count; i++)
-        {
-            Console.WriteLine("Title: " + posts.Items[i].Title);
-            Console.WriteLine("URL: " + posts.Items[i].Url);
-        }
-    
+        firstToken = posts.NextPageToken;
     }
-    
-    
-    
+    else if (firstToken != "" && posts.NextPageToken == firstToken)
+    {
+        // repeated
+        break;
+    }
 
-  
-}  
+    for (int i = 0; i < posts.Items.Count; i++)
+    {
+        Console.WriteLine("Title: " + posts.Items[i].Title);
+        Console.WriteLine("URL: " + posts.Items[i].Url);
+    }
+
+}
+{% endhighlight %} 
   
   
   
@@ -285,111 +252,111 @@ PostList 里面有个.PageToken和.NextPageToken、.PrevPageToken
   
 
     
-    
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    
-    using Google.Apis.Blogger.v3;
-    using Google.Apis.Blogger.v3.Data;
-    using Google.Apis.Services;
-    using System.Diagnostics;
-    using Google.Apis.Authentication.OAuth2;
-    using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
-    using DotNetOpenAuth.OAuth2;
-    using Google.Apis.Util;
-    
-    
-    namespace BloggerTest
+{% highlight csharp %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using Google.Apis.Blogger.v3;
+using Google.Apis.Blogger.v3.Data;
+using Google.Apis.Services;
+using System.Diagnostics;
+using Google.Apis.Authentication.OAuth2;
+using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
+using DotNetOpenAuth.OAuth2;
+using Google.Apis.Util;
+
+
+namespace BloggerTest
+{
+    class Program
     {
-        class Program
+        static void Main(string[] args)
         {
-            static void Main(string[] args)
+            string apiKey= "{API-KEY}"
+            string blogUrl= "{BLOG-URL}"
+
+            string clientID = "{CLIENT_ID}";
+            string clientSec = "{CLIENT_SECRET}";
+            
+            NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
             {
-                string apiKey= "{API-KEY}"
-                string blogUrl= "{BLOG-URL}"
-    
-                string clientID = "{CLIENT_ID}";
-                string clientSec = "{CLIENT_SECRET}";
-                
-                NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
+                ClientIdentifier = clientID,
+                ClientSecret = clientSec
+            };
+
+            OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
+
+            BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
+            {
+                Authenticator = auth,
+                ApplicationName = "BloggerTest"
+            });
+
+
+            BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
+            getReq.Key = apiKey;
+            Blog blog = getReq.Execute();
+
+            Console.WriteLine("Blog ID: " + blog.Id);
+            Console.WriteLine();
+
+            PostsResource postRes = new PostsResource(blogService);
+            PostsResource.ListRequest postsListReq = postRes.List(blog.Id);
+
+            string firstToken = "";
+
+            while (true)
+            {
+                PostList posts = postsListReq.Execute();
+                postsListReq.PageToken = posts.NextPageToken;
+
+                if (firstToken == "")
                 {
-                    ClientIdentifier = clientID,
-                    ClientSecret = clientSec
-                };
-    
-                OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
-    
-                BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
-                {
-                    Authenticator = auth,
-                    ApplicationName = "BloggerTest"
-                });
-    
-    
-                BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
-                getReq.Key = apiKey;
-                Blog blog = getReq.Execute();
-    
-                Console.WriteLine("Blog ID: " + blog.Id);
-                Console.WriteLine();
-    
-                PostsResource postRes = new PostsResource(blogService);
-                PostsResource.ListRequest postsListReq = postRes.List(blog.Id);
-    
-                string firstToken = "";
-    
-                while (true)
-                {
-                    PostList posts = postsListReq.Execute();
-                    postsListReq.PageToken = posts.NextPageToken;
-    
-                    if (firstToken == "")
-                    {
-                        firstToken = posts.NextPageToken;
-                    }
-                    else if (firstToken != "" && posts.NextPageToken == firstToken)
-                    {
-                        // repeated
-                        break;
-                    }
-    
-                    for (int i = 0; i < posts.Items.Count; i++)
-                    {
-                        Console.WriteLine("Title: " + posts.Items[i].Title);
-                        Console.WriteLine("URL: " + posts.Items[i].Url);
-                    }
-    
+                    firstToken = posts.NextPageToken;
                 }
-    
-                Console.WriteLine();
-                Console.WriteLine("Done...");
-    
-                Console.ReadKey();
-    
-    
-    
+                else if (firstToken != "" && posts.NextPageToken == firstToken)
+                {
+                    // repeated
+                    break;
+                }
+
+                for (int i = 0; i < posts.Items.Count; i++)
+                {
+                    Console.WriteLine("Title: " + posts.Items[i].Title);
+                    Console.WriteLine("URL: " + posts.Items[i].Url);
+                }
+
             }
-    
-            private static IAuthorizationState getAuth(NativeApplicationClient arg)
-            {
-                IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
-                    {
-                        Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
-                    };
-                Uri authUri = arg.RequestUserAuthorization(state);
-                Process.Start(authUri.ToString());
-                Console.WriteLine("Please enter auth code:");
-                string authCode = Console.ReadLine();
-                return arg.ProcessUserAuthorization(authCode, state);
-            }
-    
-    
+
+            Console.WriteLine();
+            Console.WriteLine("Done...");
+
+            Console.ReadKey();
+
+
+
         }
+
+        private static IAuthorizationState getAuth(NativeApplicationClient arg)
+        {
+            IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
+                {
+                    Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
+                };
+            Uri authUri = arg.RequestUserAuthorization(state);
+            Process.Start(authUri.ToString());
+            Console.WriteLine("Please enter auth code:");
+            string authCode = Console.ReadLine();
+            return arg.ProcessUserAuthorization(authCode, state);
+        }
+
+
     }
-    
+}
+{% endhighlight %}
     
     
     

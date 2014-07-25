@@ -95,22 +95,23 @@ Ctrl + Shift + N 创建一个新的 Console Application
   
 10、然后添加以下usings  
 
-    
-    
-    using Google.Apis.Blogger.v3;
-    using Google.Apis.Blogger.v3.Data;
-    using Google.Apis.Services;
-    using System.Diagnostics;
-    using Google.Apis.Authentication.OAuth2;
-    using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
-    using DotNetOpenAuth.OAuth2;
-    using Google.Apis.Util;
-    
-    
-     
-    
-    
-    ![image](http://lh5.ggpht.com/-iTiMhg9SJrY/Ula3BVGZq1I/AAAAAAAAE_I/7BcEnQK4aQM/image_thumb%25255B16%25255D.png?imgmax=800)
+
+{% highlight csharp %}
+using Google.Apis.Blogger.v3;
+using Google.Apis.Blogger.v3.Data;
+using Google.Apis.Services;
+using System.Diagnostics;
+using Google.Apis.Authentication.OAuth2;
+using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
+using DotNetOpenAuth.OAuth2;
+using Google.Apis.Util;
+{% endhighlight %}
+
+
+ 
+
+
+![image](http://lh5.ggpht.com/-iTiMhg9SJrY/Ula3BVGZq1I/AAAAAAAAE_I/7BcEnQK4aQM/image_thumb%25255B16%25255D.png?imgmax=800)
 
   
   

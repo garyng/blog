@@ -25,10 +25,10 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
   
 2、创建两个string，储存Client ID 和 Secret  
 
-    
-    
-    string clientID = "{CLIENT-ID}";
-    string clientSec = "{CLIENT-SECRET}";
+{% highlight csharp %}
+string clientID = "{CLIENT-ID}";
+string clientSec = "{CLIENT-SECRET}";
+{% endhighlight %}
     
 
   
@@ -39,125 +39,129 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
 所以我们只要改一改我们的BloggerService 再加上一个function就行了：  
 先创建NativeApplicationClient  
 
-    
-    
-    NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
-    {
-        ClientIdentifier = clientID,
-        ClientSecret = clientSec
-    };
+
+{% highlight csharp %}
+NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
+{
+    ClientIdentifier = clientID,
+    ClientSecret = clientSec
+};
+{% endhighlight %}
     
 
   
 然后是增加一个函数  
 
     
-    
-    private static IAuthorizationState getAuth(NativeApplicationClient arg)
-    {
-        IAuthorizationState state = new AuthorizationState(new [] {BloggerService.Scopes.Blogger.GetStringValue()})
-            {
-                Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
-            };
-        Uri authUri = arg.RequestUserAuthorization(state);
-        Process.Start(authUri.ToString());
-        Console.WriteLine("Please enter auth code:");
-        string authCode = Console.ReadLine();
-        return arg.ProcessUserAuthorization(authCode, state);
-    }
-    
+{% highlight csharp %}
+private static IAuthorizationState getAuth(NativeApplicationClient arg)
+{
+    IAuthorizationState state = new AuthorizationState(new [] {BloggerService.Scopes.Blogger.GetStringValue()})
+        {
+            Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
+        };
+    Uri authUri = arg.RequestUserAuthorization(state);
+    Process.Start(authUri.ToString());
+    Console.WriteLine("Please enter auth code:");
+    string authCode = Console.ReadLine();
+    return arg.ProcessUserAuthorization(authCode, state);
+}
+{% endhighlight %}
+
 
   
   
 创建OAuth2Authenticator  
 
-    
-    
-    OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
-    
+{% highlight csharp %}
+OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
+{% endhighlight %}
+
 
   
   
 然后更改BloggerService  
 
     
-    
-    BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
-    {
-        Authenticator = auth,
-        ApplicationName = "BloggerTest"
-    });
+{% highlight csharp %}
+BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
+{
+    Authenticator = auth,
+    ApplicationName = "BloggerTest"
+});
+{% endhighlight %}
+
     
 
   
 完整代码如下：  
 
-    
-    
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Google.Apis.Blogger.v3;
-    using Google.Apis.Blogger.v3.Data;
-    using Google.Apis.Services;
-    using System.Diagnostics;
-    using Google.Apis.Authentication.OAuth2;
-    using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
-    using DotNetOpenAuth.OAuth2;
-    using Google.Apis.Util;
-    
-    namespace BloggerTest
+{% highlight csharp %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Google.Apis.Blogger.v3;
+using Google.Apis.Blogger.v3.Data;
+using Google.Apis.Services;
+using System.Diagnostics;
+using Google.Apis.Authentication.OAuth2;
+using Google.Apis.Authentication.OAuth2.DotNetOpenAuth;
+using DotNetOpenAuth.OAuth2;
+using Google.Apis.Util;
+
+namespace BloggerTest
+{
+ class Program
+ {
+  static void Main(string[] args)
+  {
+   string apiKey= "{API-KEY}";
+   string blogUrl= "{BLOG-URL}";
+
+   string clientID = "{CLIENT_ID}";
+   string clientSec = "{CLIENT_SECRET}";
+
+   NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
+   {
+    ClientIdentifier = clientID,
+    ClientSecret = clientSec
+   };
+
+   OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
+
+   BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
+   {
+    Authenticator = auth,
+    ApplicationName = "BloggerTest"
+   });
+
+   BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
+   getReq.Key = apiKey;
+   Blog blog = getReq.Execute();
+   Console.WriteLine(blog.Id);
+
+   Console.ReadKey();
+
+  }
+
+  private static IAuthorizationState getAuth(NativeApplicationClient arg)
+  {
+   IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
     {
-     class Program
-     {
-      static void Main(string[] args)
-      {
-       string apiKey= "{API-KEY}";
-       string blogUrl= "{BLOG-URL}";
-    
-       string clientID = "{CLIENT_ID}";
-       string clientSec = "{CLIENT_SECRET}";
-    
-       NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
-       {
-        ClientIdentifier = clientID,
-        ClientSecret = clientSec
-       };
-    
-       OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
-    
-       BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
-       {
-        Authenticator = auth,
-        ApplicationName = "BloggerTest"
-       });
-    
-       BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
-       getReq.Key = apiKey;
-       Blog blog = getReq.Execute();
-       Console.WriteLine(blog.Id);
-    
-       Console.ReadKey();
-    
-      }
-    
-      private static IAuthorizationState getAuth(NativeApplicationClient arg)
-      {
-       IAuthorizationState state = new AuthorizationState(new[] { BloggerService.Scopes.Blogger.GetStringValue() })
-        {
-         Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
-        };
-       Uri authUri = arg.RequestUserAuthorization(state);
-       Process.Start(authUri.ToString());
-       Console.WriteLine("Please enter auth code:");
-       string authCode = Console.ReadLine();
-       return arg.ProcessUserAuthorization(authCode, state);
-      }
-     }
-    }
-    
+     Callback = new Uri(NativeApplicationClient.OutOfBandCallbackUrl)
+    };
+   Uri authUri = arg.RequestUserAuthorization(state);
+   Process.Start(authUri.ToString());
+   Console.WriteLine("Please enter auth code:");
+   string authCode = Console.ReadLine();
+   return arg.ProcessUserAuthorization(authCode, state);
+  }
+ }
+}
+{% endhighlight %}
+
     
 
   

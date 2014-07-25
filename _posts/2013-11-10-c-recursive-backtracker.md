@@ -92,247 +92,242 @@ tags: ['C#','Maze','原创','教程','算法','迷宫']
 <https://github.com/garyng/Maze>
 
 每一个格子为一个class，名为Node
-    
-    
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Drawing;
-    
-    namespace MazeGen
+  
+{% highlight csharp %}
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Drawing;
+
+namespace MazeGen
+{
+    public class Node
     {
-        public class Node
+        private bool _isFrontier;
+        private List<ParentInfo> _parentInfo = new List<ParentInfo>();
+        private bool _isBacktracked;
+
+        private bool _isStart;
+        private Point _pos;
+        private const int _count = 4;
+        private Node _down;
+        private Node _up;
+        private Node _right;
+        private Node _left;
+
+        /// <summary>
+        /// Status of the four wall
+        /// 0 = still there
+        /// 1 = destroyed
+        ///  ____________________
+        /// |Left|Down|Right| Up |
+        /// |_8__|_4__|__2__|_0__|
+        /// </summary>
+        private int _wall = 0;
+
+        /// <summary>
+        /// Mark the wall as destroyed
+        /// </summary>
+        /// <param name="index">Up = 0 Left = 1 Down = 2 Right = 3</param>
+        public void UnWall(int index)
         {
-            private bool _isFrontier;
-            private List<ParentInfo> _parentInfo = new List<ParentInfo>();
-            private bool _isBacktracked;
-    
-            private bool _isStart;
-            private Point _pos;
-            private const int _count = 4;
-            private Node _down;
-            private Node _up;
-            private Node _right;
-            private Node _left;
-    
-            /// <summary>
-            /// Status of the four wall
-            /// 0 = still there
-            /// 1 = destroyed
-            ///  ____________________
-            /// |Left|Down|Right| Up |
-            /// |_8__|_4__|__2__|_0__|
-            /// </summary>
-            private int _wall = 0;
-    
-            /// <summary>
-            /// Mark the wall as destroyed
-            /// </summary>
-            /// <param name="index">Up = 0 Left = 1 Down = 2 Right = 3</param>
-            public void UnWall(int index)
+            _wall |= 1 << index;
+        }
+
+        /// <summary>
+        /// Get a wall's status
+        /// </summary>
+        /// <param name="index"></param>
+        /// <returns>True = Wall destroyed </returns>
+        public bool GetWall(int index)
+        {
+            return (_wall & (1 << index)) == (1 << index);
+        }
+
+        /// <summary>
+        /// Mark the wall as not destroyed
+        /// </summary>
+        /// <param name="index"></param>
+        public void SetWall(int index)
+        {
+            _wall &= ~(1 << index);
+        }
+
+        public Node this[int index]
+        {
+            get
             {
-                _wall |= 1 << index;
+                return SwitchNodeProp(index);
             }
-    
-            /// <summary>
-            /// Get a wall's status
-            /// </summary>
-            /// <param name="index"></param>
-            /// <returns>True = Wall destroyed </returns>
-            public bool GetWall(int index)
+            set
             {
-                return (_wall & (1 << index)) == (1 << index);
+                SwitchNodeProp(index, value);
             }
-    
-            /// <summary>
-            /// Mark the wall as not destroyed
-            /// </summary>
-            /// <param name="index"></param>
-            public void SetWall(int index)
+        }
+
+        private Node SwitchNodeProp(int index, Node value = null)
+        {
+            switch (index)
             {
-                _wall &= ~(1 << index);
+                case 0:
+                    return ReturnNodeProp(ref _up, value);
+                case 1:
+                    return ReturnNodeProp(ref _right, value);
+                case 2:
+                    return ReturnNodeProp(ref _down, value);
+                case 3:
+                    return ReturnNodeProp(ref _left, value);
             }
-    
-            public Node this[int index]
+
+            return null;
+        }
+        private Node ReturnNodeProp(ref Node prop, Node value = null)
+        {
+            if (value == null)
             {
-                get
-                {
-                    return SwitchNodeProp(index);
-                }
-                set
-                {
-                    SwitchNodeProp(index, value);
-                }
+                return prop;
             }
-    
-            private Node SwitchNodeProp(int index, Node value = null)
+            else
             {
-                switch (index)
-                {
-                    case 0:
-                        return ReturnNodeProp(ref _up, value);
-                    case 1:
-                        return ReturnNodeProp(ref _right, value);
-                    case 2:
-                        return ReturnNodeProp(ref _down, value);
-                    case 3:
-                        return ReturnNodeProp(ref _left, value);
-                }
-    
+                prop = value;
                 return null;
             }
-            private Node ReturnNodeProp(ref Node prop, Node value = null)
+        }
+
+        public Node Left
+        {
+            get
             {
-                if (value == null)
-                {
-                    return prop;
-                }
-                else
-                {
-                    prop = value;
-                    return null;
-                }
+                return _left;
             }
-    
-            public Node Left
+            set
             {
-                get
-                {
-                    return _left;
-                }
-                set
-                {
-                    _left = value;
-                }
+                _left = value;
             }
-            public Node Right
+        }
+        public Node Right
+        {
+            get
             {
-                get
-                {
-                    return _right;
-                }
-                set
-                {
-                    _right = value;
-                }
+                return _right;
             }
-            public Node Up
+            set
             {
-                get
-                {
-                    return _up;
-                }
-                set
-                {
-                    _up = value;
-                }
+                _right = value;
             }
-            public Node Down
+        }
+        public Node Up
+        {
+            get
             {
-                get
-                {
-                    return _down;
-                }
-                set
-                {
-                    _down = value;
-                }
+                return _up;
             }
-            public int Count
+            set
             {
-                get
-                {
-                    return _count;
-                }
+                _up = value;
             }
-            public int Wall
+        }
+        public Node Down
+        {
+            get
             {
-                get
-                {
-                    return _wall;
-                }
-                set
-                {
-                    _wall = value;
-                }
+                return _down;
             }
-            public bool isStart
+            set
             {
-                get
-                {
-                    return _isStart;
-                }
-                set
-                {
-                    _isStart = value;
-                }
+                _down = value;
             }
-            public Point Pos
+        }
+        public int Count
+        {
+            get
             {
-                get
-                {
-                    return _pos;
-                }
-                set
-                {
-                    _pos = value;
-                }
+                return _count;
             }
-    
-            /// <summary>
-            /// For recursive backtracking and Growing Tree
-            /// </summary>
-            public bool isBacktracked
+        }
+        public int Wall
+        {
+            get
             {
-                get
-                {
-                    return _isBacktracked;
-                }
-                set
-                {
-                    _isBacktracked = value;
-                }
+                return _wall;
             }
-    
-            /// <summary>
-            /// For Prim's algorithm
-            /// A list of parents
-            /// </summary>
-            public List<ParentInfo> parentInfo
+            set
             {
-                get
-                {
-                    return _parentInfo;
-                }
-                set
-                {
-                    _parentInfo = value;
-                }
+                _wall = value;
             }
-    
-            /// <summary>
-            /// For Prim's AQlgorithm
-            /// Mark a node as frontier
-            /// </summary>
-            public bool isFrontier
+        }
+        public bool isStart
+        {
+            get
             {
-                get
-                {
-                    return _isFrontier;
-                }
-                set
-                {
-                    _isFrontier = value;
-                }
+                return _isStart;
+            }
+            set
+            {
+                _isStart = value;
+            }
+        }
+        public Point Pos
+        {
+            get
+            {
+                return _pos;
+            }
+            set
+            {
+                _pos = value;
+            }
+        }
+
+        /// <summary>
+        /// For recursive backtracking and Growing Tree
+        /// </summary>
+        public bool isBacktracked
+        {
+            get
+            {
+                return _isBacktracked;
+            }
+            set
+            {
+                _isBacktracked = value;
+            }
+        }
+
+        /// <summary>
+        /// For Prim's algorithm
+        /// A list of parents
+        /// </summary>
+        public List<ParentInfo> parentInfo
+        {
+            get
+            {
+                return _parentInfo;
+            }
+            set
+            {
+                _parentInfo = value;
+            }
+        }
+
+        /// <summary>
+        /// For Prim's AQlgorithm
+        /// Mark a node as frontier
+        /// </summary>
+        public bool isFrontier
+        {
+            get
+            {
+                return _isFrontier;
+            }
+            set
+            {
+                _isFrontier = value;
             }
         }
     }
-    
-    
-
-  
-  
-
+}
+{% endhighlight %}
 
 每一面墙壁的状态储存在一个Int内
 
@@ -368,300 +363,292 @@ tags: ['C#','Maze','原创','教程','算法','迷宫']
   
 迷宫生成的base class 是这样的：  
 
-    
-    
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Windows.Forms;
-    using System.Drawing.Drawing2D;
-    using System.Drawing.Imaging;
-    
-    namespace MazeGen
+{% highlight csharp %}
+  
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+
+namespace MazeGen
+{
+    public abstract class Maze
     {
-        public abstract class Maze
+        public delegate void ProgressChangedEventHandler(int done, int total);
+        public delegate void DoneEventHandler();
+        public event ProgressChangedEventHandler ProgressChanged;
+        public event DoneEventHandler Completed;
+
+        private int _selIndex = 0;
+        private List<List<Node>> _nodes = new List<List<Node>>();
+
+        public Maze(List<List<Node>> nodes)
         {
-            public delegate void ProgressChangedEventHandler(int done, int total);
-            public delegate void DoneEventHandler();
-            public event ProgressChangedEventHandler ProgressChanged;
-            public event DoneEventHandler Completed;
-    
-            private int _selIndex = 0;
-            private List<List<Node>> _nodes = new List<List<Node>>();
-    
-            public Maze(List<List<Node>> nodes)
+            _nodes = nodes;
+        }
+
+        /// <summary>
+        /// Initialize a new 2d array of nodes
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public Maze(int width, int height)
+        {
+            for (int x = 0; x < width; x++)
             {
-                _nodes = nodes;
-            }
-    
-            /// <summary>
-            /// Initialize a new 2d array of nodes
-            /// </summary>
-            /// <param name="width"></param>
-            /// <param name="height"></param>
-            public Maze(int width, int height)
-            {
-                for (int x = 0; x < width; x++)
+                List<Node> nX = new List<Node>();
+                for (int y = 0; y < height; y++)
                 {
-                    List<Node> nX = new List<Node>();
-                    for (int y = 0; y < height; y++)
+                    Node nY = new Node();
+                    nY.Pos = new Point(x, y);
+                    if (y > 0)
                     {
-                        Node nY = new Node();
-                        nY.Pos = new Point(x, y);
-                        if (y > 0)
-                        {
-                            nY.Up = nX[y - 1];
-                            nX[y - 1].Down = nY;
-                        }
-                        if (x > 0)
-                        {
-                            nY.Left = _nodes[x - 1][y];
-                            _nodes[x - 1][y].Right = nY;
-                        }
-                        nX.Add(nY);
+                        nY.Up = nX[y - 1];
+                        nX[y - 1].Down = nY;
                     }
-                    _nodes.Add(nX);
-                }
-            }
-    
-            /// <summary>
-            /// Visualize nodes
-            /// </summary>
-            /// <param name="sz">The size of a node</param>
-            /// <returns></returns>
-            public Bitmap Visualize(Size sz)
-            {
-                Bitmap b = new Bitmap(_nodes.Count * sz.Width + 1, _nodes[0].Count * sz.Height + 1);
-                using (Graphics g = Graphics.FromImage(b))
-                {
-                    for (int x = 0; x < _nodes.Count; x++)
+                    if (x > 0)
                     {
-                        for (int y = 0; y < _nodes[x].Count; y++)
-                        {
-                            if (!_nodes[x][y].GetWall(0))
-                            {
-                                //Up
-                                g.DrawLine(Pens.Black, sz.Height * x, sz.Width * y, sz.Height * (x + 1), sz.Width * y);
-                            }
-                            if (!_nodes[x][y].GetWall(3))
-                            {
-                                //Left
-                                g.DrawLine(Pens.Black, sz.Height * x, sz.Width * y, sz.Height * x, sz.Width * (y + 1));
-                            }
-                            if (!_nodes[x][y].GetWall(1))
-                            {
-                                //Right
-                                g.DrawLine(Pens.Black, sz.Height * (x + 1), sz.Width * y, sz.Height * (x + 1), sz.Width * (y + 1));
-                            }
-                            if (!_nodes[x][y].GetWall(2))
-                            {
-                                //Down
-                                g.DrawLine(Pens.Black, sz.Height * x, sz.Width * (y + 1), sz.Height * (x + 1), sz.Width * (y + 1));
-                            }
-                            if (_nodes[x][y].isBacktracked)
-                            {
-                                g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Pink)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
-                            }
-                            if (_nodes[x][y].isFrontier)
-                            {
-                                g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Purple)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
-                            }
-                            if (_nodes[x][y].isStart)
-                            {
-                                g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Blue)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
-                            }
-                        }
-    
+                        nY.Left = _nodes[x - 1][y];
+                        _nodes[x - 1][y].Right = nY;
                     }
-                };
-                return b;
-            }
-    
-            protected virtual void OnProgressChanged(int done, int total)
-            {
-                if (ProgressChanged != null)
-                {
-                    ProgressChanged(done, total);
+                    nX.Add(nY);
                 }
+                _nodes.Add(nX);
             }
-    
-            protected virtual void OnComplete()
+        }
+
+        /// <summary>
+        /// Visualize nodes
+        /// </summary>
+        /// <param name="sz">The size of a node</param>
+        /// <returns></returns>
+        public Bitmap Visualize(Size sz)
+        {
+            Bitmap b = new Bitmap(_nodes.Count * sz.Width + 1, _nodes[0].Count * sz.Height + 1);
+            using (Graphics g = Graphics.FromImage(b))
             {
-                if (Completed != null)
+                for (int x = 0; x < _nodes.Count; x++)
                 {
-                    Completed();
+                    for (int y = 0; y < _nodes[x].Count; y++)
+                    {
+                        if (!_nodes[x][y].GetWall(0))
+                        {
+                            //Up
+                            g.DrawLine(Pens.Black, sz.Height * x, sz.Width * y, sz.Height * (x + 1), sz.Width * y);
+                        }
+                        if (!_nodes[x][y].GetWall(3))
+                        {
+                            //Left
+                            g.DrawLine(Pens.Black, sz.Height * x, sz.Width * y, sz.Height * x, sz.Width * (y + 1));
+                        }
+                        if (!_nodes[x][y].GetWall(1))
+                        {
+                            //Right
+                            g.DrawLine(Pens.Black, sz.Height * (x + 1), sz.Width * y, sz.Height * (x + 1), sz.Width * (y + 1));
+                        }
+                        if (!_nodes[x][y].GetWall(2))
+                        {
+                            //Down
+                            g.DrawLine(Pens.Black, sz.Height * x, sz.Width * (y + 1), sz.Height * (x + 1), sz.Width * (y + 1));
+                        }
+                        if (_nodes[x][y].isBacktracked)
+                        {
+                            g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Pink)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
+                        }
+                        if (_nodes[x][y].isFrontier)
+                        {
+                            g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Purple)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
+                        }
+                        if (_nodes[x][y].isStart)
+                        {
+                            g.FillRectangle(new SolidBrush(Color.FromArgb(100, Color.Blue)), sz.Height * x, sz.Width * y, sz.Width, sz.Height);
+                        }
+                    }
+
                 }
+            };
+            return b;
+        }
+
+        protected virtual void OnProgressChanged(int done, int total)
+        {
+            if (ProgressChanged != null)
+            {
+                ProgressChanged(done, total);
             }
-    
-            /// <summary>
-            /// Generate a new maze
-            /// </summary>
-            public virtual void Generate()
+        }
+
+        protected virtual void OnComplete()
+        {
+            if (Completed != null)
             {
+                Completed();
             }
-    
-            /// <summary>
-            /// Get the 2d list of nodes
-            /// </summary>
-            public List<List<Node>> Nodes
+        }
+
+        /// <summary>
+        /// Generate a new maze
+        /// </summary>
+        public virtual void Generate()
+        {
+        }
+
+        /// <summary>
+        /// Get the 2d list of nodes
+        /// </summary>
+        public List<List<Node>> Nodes
+        {
+            get
             {
-                get
-                {
-                    return _nodes;
-                }
+                return _nodes;
             }
-    
-            public virtual string Name
+        }
+
+        public virtual string Name
+        {
+            get
             {
-                get
-                {
-                    return "";
-                }
+                return "";
             }
-    
-            /// <summary>
-            /// For Growing Tree Algorithm
-            /// </summary>
-            public int SelectionMethod
+        }
+
+        /// <summary>
+        /// For Growing Tree Algorithm
+        /// </summary>
+        public int SelectionMethod
+        {
+            get
             {
-                get
-                {
-                    return _selIndex;
-                }
-                set
-                {
-                    _selIndex = value;
-                }
+                return _selIndex;
+            }
+            set
+            {
+                _selIndex = value;
             }
         }
     }
-    
-
-  
+}
+{% endhighlight %}  
   
 Visualize 负责将整个迷宫画出来  
   
 这个是Recursive Backtracker 的实现核心（在Generate 函数内）  
 
-    
-    
-    using System;
-    using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.Data;
-    using System.Drawing;
-    using System.Linq;
-    using System.Text;
-    using System.Windows.Forms;
-    using System.Drawing.Drawing2D;
-    using System.Drawing.Imaging;
-    
-    namespace MazeGen
+{% highlight csharp %}
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Windows.Forms;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
+
+namespace MazeGen
+{
+    /// <summary>
+    /// Recursive Backtracking - Maze Generation
+    /// </summary>
+    public class MazeRec : Maze
     {
-        /// <summary>
-        /// Recursive Backtracking - Maze Generation
-        /// </summary>
-        public class MazeRec : Maze
+        public MazeRec(List<List<Node>> nodes)
+            : base(nodes)
         {
-            public MazeRec(List<List<Node>> nodes)
-                : base(nodes)
+        }
+
+        /// <summary>
+        /// Initialize a new 2d array of nodes
+        /// </summary>
+        /// <param name="width"></param>
+        /// <param name="height"></param>
+        public MazeRec(int width, int height)
+            : base(width, height)
+        {
+        }
+
+        public override void Generate()
+        {
+            int visitedCount = 1;
+            int total = this.Nodes.Count * this.Nodes[0].Count;
+            Stack<Node> visitedCell = new Stack<Node>();
+
+            Random r = new Random();
+            //Node current = this.Nodes[r.Next(this.Nodes.Count-1)][r.Next(this.Nodes[0].Count-1)];
+            Node current = this.Nodes[(int)(r.NextDouble() * this.Nodes.Count * 10) % this.Nodes.Count][(int)(r.NextDouble() * this.Nodes[0].Count * 10) % this.Nodes.Count];
+            current.isStart = true;
+
+            //Node end = this.End.X == -1 ? this.Nodes[(int)(r.NextDouble() * this.Nodes.Count * 10) % this.Nodes.Count][(int)(r.NextDouble() * this.Nodes[0].Count * 10) % this.Nodes.Count] : this.Nodes[this.End.X][this.End.Y];
+            //end.isEnd = true;
+
+            while (visitedCount < total)
             {
-            }
-    
-            /// <summary>
-            /// Initialize a new 2d array of nodes
-            /// </summary>
-            /// <param name="width"></param>
-            /// <param name="height"></param>
-            public MazeRec(int width, int height)
-                : base(width, height)
-            {
-            }
-    
-            public override void Generate()
-            {
-                int visitedCount = 1;
-                int total = this.Nodes.Count * this.Nodes[0].Count;
-                Stack<Node> visitedCell = new Stack<Node>();
-    
-                Random r = new Random();
-                //Node current = this.Nodes[r.Next(this.Nodes.Count-1)][r.Next(this.Nodes[0].Count-1)];
-                Node current = this.Nodes[(int)(r.NextDouble() * this.Nodes.Count * 10) % this.Nodes.Count][(int)(r.NextDouble() * this.Nodes[0].Count * 10) % this.Nodes.Count];
-                current.isStart = true;
-    
-                //Node end = this.End.X == -1 ? this.Nodes[(int)(r.NextDouble() * this.Nodes.Count * 10) % this.Nodes.Count][(int)(r.NextDouble() * this.Nodes[0].Count * 10) % this.Nodes.Count] : this.Nodes[this.End.X][this.End.Y];
-                //end.isEnd = true;
-    
-                while (visitedCount < total)
+                //List all available neighbour cells
+                List<Node> readyNeighbourCells = new List<Node>();
+                //Store the index of the neighbour cells
+                List<int> readyNeighbourCellsIndex = new List<int>();
+                for (int i = 0; i < current.Count; i++)
                 {
-                    //List all available neighbour cells
-                    List<Node> readyNeighbourCells = new List<Node>();
-                    //Store the index of the neighbour cells
-                    List<int> readyNeighbourCellsIndex = new List<int>();
-                    for (int i = 0; i < current.Count; i++)
+                    if (current[i] != null && current[i].Wall == 0)
                     {
-                        if (current[i] != null && current[i].Wall == 0)
-                        {
-                            readyNeighbourCells.Add(current[i]);
-                            readyNeighbourCellsIndex.Add(i);
-                        }
-    
+                        readyNeighbourCells.Add(current[i]);
+                        readyNeighbourCellsIndex.Add(i);
                     }
-                    //no cells found
-                    if (readyNeighbourCells.Count == 0)
-                    {
-                        current = visitedCell.Pop();
-                        current.isBacktracked = true;
-                        OnProgressChanged(visitedCount, total);
-                        continue;
-                    }
-    
-                    //Random select a cell
-                    int randIndex = (int)(r.NextDouble() * 10) % readyNeighbourCells.Count;
-                    int index = readyNeighbourCellsIndex[randIndex];
-                    Node neighbour = readyNeighbourCells[randIndex];
-    
-                    // Knock the wall
-                    // 0-2 1-3
-                    current.UnWall(index);
-                    neighbour.UnWall((index + 2) % 4);
-                    visitedCell.Push(neighbour);
-                    current = neighbour;
-                    visitedCount++;
-    
+
+                }
+                //no cells found
+                if (readyNeighbourCells.Count == 0)
+                {
+                    current = visitedCell.Pop();
+                    current.isBacktracked = true;
                     OnProgressChanged(visitedCount, total);
+                    continue;
                 }
-    
-                //Backtrack to start point
-                while (visitedCell.Count>0)
-                {
-                     current = visitedCell.Pop();
-                     current.isBacktracked = true;
-                     OnProgressChanged(visitedCount, total);
-                }
-    
-                OnComplete();
+
+                //Random select a cell
+                int randIndex = (int)(r.NextDouble() * 10) % readyNeighbourCells.Count;
+                int index = readyNeighbourCellsIndex[randIndex];
+                Node neighbour = readyNeighbourCells[randIndex];
+
+                // Knock the wall
+                // 0-2 1-3
+                current.UnWall(index);
+                neighbour.UnWall((index + 2) % 4);
+                visitedCell.Push(neighbour);
+                current = neighbour;
+                visitedCount++;
+
+                OnProgressChanged(visitedCount, total);
             }
-    
-            public override string Name
+
+            //Backtrack to start point
+            while (visitedCell.Count>0)
             {
-                get
-                {
-                    return "Recursive Backtracker";
-                }
+                 current = visitedCell.Pop();
+                 current.isBacktracked = true;
+                 OnProgressChanged(visitedCount, total);
+            }
+
+            OnComplete();
+        }
+
+        public override string Name
+        {
+            get
+            {
+                return "Recursive Backtracker";
             }
         }
     }
-    
-    
-
-  
-  
-
+}
+{% endhighlight %}
 
 ##  【截图】
 

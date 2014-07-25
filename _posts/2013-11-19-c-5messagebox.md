@@ -30,24 +30,11 @@ tags: ['C#','入门','原创','教程','新手']
 双击button，你会看到在原本的代码上加了新的代码：
 
 ![image](http://lh3.ggpht.com/-oAx_rXkiIQc/UhnmLgVP2uI/AAAAAAAAEHY/vKPGnw7t2tY/image_thumb.png?imgmax=800)
-    
-    
-     
-    
-    
-    这就是一个标准的function （其实是个event的function，先别管这些）
-    
-    
-    private、void 等等这些东西先别管，免得混淆了（你只要知道这是一个function就就对了）
-    
-    
-    我们来看看button1_click，很明显吧？
-    
-    
-    就是button1 被click 的时候，这个function就会被运行，至于括弧里面的是参数
-    
-    
-    运行？运行什么？就是运行在花括号内{}的代码！
+这就是一个标准的function （其实是个event的function，先别管这些）
+Private、void 等等这些东西先别管，免得混淆了（你只要知道这是一个function就就对了）
+我们来看看button1_click，很明显吧？
+就是button1 被click 的时候，这个function就会被运行，至于括弧里面的是参数
+运行？运行什么？就是运行在花括号内{}的代码！
     
     
      
