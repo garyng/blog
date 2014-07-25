@@ -214,19 +214,18 @@ KeeCloud的Wiki写着：
 >     dropbox://{full path to file within dropbox}
     
     
-    于是我到dropbox上直接获取share link，然后直接放进去
-    
-    
-    ![image](http://lh5.ggpht.com/-mf1OcfXx55U/UlDwgqdqTNI/AAAAAAAAEyk/G7lnq4hzf4w/image_thumb%25255B51%25255D.png?imgmax=800) 
-    
-    
-    ![image](http://lh4.ggpht.com/-1FS4jlB4xbo/UlDwh-kEKCI/AAAAAAAAEy0/6PEm5Q1PmWk/image_thumb%25255B52%25255D.png?imgmax=800) 
-    
-    
-    结果你知道的..
-    
-    
-    一直出错！
+于是我到dropbox上直接获取share link，然后直接放进去
+
+
+![image](http://lh5.ggpht.com/-mf1OcfXx55U/UlDwgqdqTNI/AAAAAAAAEyk/G7lnq4hzf4w/image_thumb%25255B51%25255D.png?imgmax=800) 
+
+
+![image](http://lh4.ggpht.com/-1FS4jlB4xbo/UlDwh-kEKCI/AAAAAAAAEy0/6PEm5Q1PmWk/image_thumb%25255B52%25255D.png?imgmax=800) 
+
+
+结果你知道的..
+
+一直出错！
 
   
   

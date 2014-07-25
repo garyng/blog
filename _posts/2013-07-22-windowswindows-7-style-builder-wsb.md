@@ -17,29 +17,29 @@ Windows 7 Style Builder 下载地址：[MediaFire](http://www.mediafire.com/down
 
 
 > Start Menu - Right Panel & JumpList  
-[Glowing]  
-Start Menu > Menus > Aero > PlaceList:ListView  
-Start Menu - Right Panel  
-[Text]  
-{Normal}  
-Start Menu > Panels > Aero > Top > ProgramsList  
-{Extended}  
-Start Menu > Panels > Aero > Top > ProgramsListExtended  
-  
-Taskbar Preview Panel  
-[Title]  
-{Text & Glow}  
-Taskbar & System Tray > TaskBand > Aero > TaskBandExtendedUI > Horizontal > Thumbnails & Controls > Title  
-  
-DWM Windows  
-[Glow] - Change Opacity  
-Windows and Caption Buttons > Aero > Dwm Window > Frames > Normal > Top  
-  
-What to add for Glowing properties:  
-TEXTGLOW:BOOL  
-GLOWINTENSITY:INT  
-TEXTGLOWSIZE:INT  
-GLOWCOLOR:COLOR
+>[Glowing]  
+>Start Menu > Menus > Aero > PlaceList:ListView  
+>Start Menu - Right Panel  
+>[Text]  
+>{Normal}  
+>Start Menu > Panels > Aero > Top > ProgramsList  
+>{Extended}  
+>Start Menu > Panels > Aero > Top > ProgramsListExtended  
+>  
+>Taskbar Preview Panel  
+>[Title]  
+>{Text & Glow}  
+>Taskbar & System Tray > TaskBand > Aero > TaskBandExtendedUI > Horizontal > Thumbnails & Controls > Title  
+>  
+>DWM Windows  
+>[Glow] - Change Opacity  
+>Windows and Caption Buttons > Aero > Dwm Window > Frames > Normal > Top  
+>  
+>What to add for Glowing properties:  
+>TEXTGLOW:BOOL  
+>GLOWINTENSITY:INT  
+>TEXTGLOWSIZE:INT  
+>GLOWCOLOR:COLOR
 
   
 
