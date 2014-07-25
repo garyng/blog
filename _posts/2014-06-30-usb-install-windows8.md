@@ -1,10 +1,9 @@
 ---
 layout: post
-title: '[原创][教程] 在USB内直接使用正式版Windows 8'
+title: '[原创][教程] 在USB内直接使用正式版Windows 8'''
 author: 'Gary Ng'
-published: True
 categories: []
-tags: [原创,教程,tesst,test2]
+tags: ['比啊拜上的','''']
 ---
 
 Windows 8 在2012年10月26日正式上市啦！这表示我们可以买到已经安装Windows 8 的电脑咯！<br />
