@@ -246,6 +246,19 @@ tbody tr:nth-child(odd) th {
 }
 
 /* 
+ * Post navigation
+ *
+ * Next and previous link at the bottom of the post
+ */
+.post-nav-prev{
+  float:left;
+}
+
+.post-nav-next{
+  float:right;
+}
+
+/* 
  * Info Date 
  *
  * The info date style inside post excerpt
