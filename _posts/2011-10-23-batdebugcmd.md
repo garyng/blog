@@ -6,1495 +6,282 @@ tags: ['原创','批处理']
 ---
 
 学DEBUG命令时发现的～  
-
-
   
-打开CMD  
-输入DEBUG  
+ 打开CMD  
+ 输入DEBUG  
   
-再输入这些：  
+ 再输入这些：  
   
-
-
 产生黑底黑字  
-F B800:00 F9F 20 00
-
+ F B800:00 F9F 20 00
   
-
-
 产生白底黑字  
-F B800:00 F9F 20 F0[/code]
-
+ F B800:00 F9F 20 F0[/code]
   
-
-
 产生红底黑字  
-F B800:00 F9F 20 40  
+ F B800:00 F9F 20 40  
   
-
-
 产生绿底黑字  
-F B800:00 F9F 20 20  
+ F B800:00 F9F 20 20  
   
-
-
-产生蓝底黑字 
-
+产生蓝底黑字 
 F B800:00 F9F 20 10
-
   
-
-
   
-
-
   
-
-
 而最后两个字便是COLOR命令中的颜色代码！
-
 “10”就是蓝底黑字
-
 与COLOR命令一模一样！
-
 F B800:00 F9F 20 0A
-
 就是亮青色的字和黑底
-
   
-
-
   
-
-
 也许有些人会想：
-
 用COLOR命令不就好了吗？
-
   
-
-
 可是看看：
-
   
-
-
 如果改变
-
-F B800:00 F9F 20 10
-
+F B800:00 F9F 20 10
   
-
-
 中的“20”
-
 看看会得到什么结果：
-
 例如：
-
   
-
-
 F B800:00 F9F 10 10
-
   
-
-
 就会看到：
-
-![](http://4.bp.blogspot.com/-vsQ8b8nfjNs/TqOrm7qzW0I/AAAAAAAAATE/DQn-E_HUNaY/s640/debug.jpg)
-
+[![](http://4.bp.blogspot.com/-vsQ8b8nfjNs/TqOrm7qzW0I/AAAAAAAAATE/DQn-E_HUNaY/s640/debug.jpg)](http://4.bp.blogspot.com/-vsQ8b8nfjNs/TqOrm7qzW0I/AAAAAAAAATE/DQn-E_HUNaY/s1600/debug.jpg)
   
-
-
   
-
-
 如果改成：
-
   
-
-
 F B800:00 F9F 12 34
-
   
-
-
   
-
-
   
-
-
 就会看到：
-
   
-
-
-![](http://3.bp.blogspot.com/-gI7_lLBXQto/TqOsMmcSOMI/AAAAAAAAATM/fInfFw-zkxE/s640/debug1.jpg)
-
+[![](http://3.bp.blogspot.com/-gI7_lLBXQto/TqOsMmcSOMI/AAAAAAAAATM/fInfFw-zkxE/s640/debug1.jpg)](http://3.bp.blogspot.com/-gI7_lLBXQto/TqOsMmcSOMI/AAAAAAAAATM/fInfFw-zkxE/s1600/debug1.jpg)
   
-
-
   
-
-
 如果再改成：
-
   
-
-
 F B800:00 F9F 41 0F  
-
-
   
-
-
 就会看到：
-
-![](http://1.bp.blogspot.com/-aXaEXEMl7a4/TqOtdbvHQaI/AAAAAAAAATU/RyAO0m1Ncmw/s640/debug2.jpg)
-
+[![](http://1.bp.blogspot.com/-aXaEXEMl7a4/TqOtdbvHQaI/AAAAAAAAATU/RyAO0m1Ncmw/s640/debug2.jpg)](http://1.bp.blogspot.com/-aXaEXEMl7a4/TqOtdbvHQaI/AAAAAAAAATU/RyAO0m1Ncmw/s1600/debug2.jpg)
   
-
-
 看出什么了吗？
-
 对了！
-
 对应的16进制ASCII码！
-
   
-
-
 那单调的CMD又有新突破啦！
-
   
-
-
   
-
-
 另外：
-
   
-
-
 F B800:00 F9F
-
 后面还可以添加字符哦！
-
   
-
-
-如果输入F B800:00 F9F 41 42 43 44 45 46 47 48 49 50 
-
+如果输入F B800:00 F9F 41 42 43 44 45 46 47 48 49 50 
   
-
-
 效果：
-
-![](http://2.bp.blogspot.com/-3uaQVzr6zUc/TqPJAnYICcI/AAAAAAAAATk/QhVgSNNzxhE/s640/debug4.jpg)
-
+[![](http://2.bp.blogspot.com/-3uaQVzr6zUc/TqPJAnYICcI/AAAAAAAAATk/QhVgSNNzxhE/s640/debug4.jpg)](http://2.bp.blogspot.com/-3uaQVzr6zUc/TqPJAnYICcI/AAAAAAAAATk/QhVgSNNzxhE/s1600/debug4.jpg)
   
-
-
 F B800:00 F9F  
-
-
 过后的数字的个数不同，产生出来的图案也不同呢！
-
   
-
-
   
-
-
 如果个数是个偶数的话，效果如之前那样
-
 如果是奇数：
-
 例如
-
 F B800:00 F9F 41 42 43 44 45 46 47 48 49
-
   
-
-
 效果图：
-
-![](http://4.bp.blogspot.com/-aP3ywj79Ap4/TqPKSaHIPgI/AAAAAAAAATs/BP4nfmWQ3RE/s640/debug5.jpg)
-
+[![](http://4.bp.blogspot.com/-aP3ywj79Ap4/TqPKSaHIPgI/AAAAAAAAATs/BP4nfmWQ3RE/s640/debug5.jpg)](http://4.bp.blogspot.com/-aP3ywj79Ap4/TqPKSaHIPgI/AAAAAAAAATs/BP4nfmWQ3RE/s1600/debug5.jpg)
   
-
-
   
-
-
 还有：
-
 F B800:00 F9F 2 1  
-
-
-![](http://3.bp.blogspot.com/-Z9Buw7N5pOg/TqPMsGUyhMI/AAAAAAAAAT8/r17OLkrhMD0/s640/debug7.jpg)
-
+[![](http://3.bp.blogspot.com/-Z9Buw7N5pOg/TqPMsGUyhMI/AAAAAAAAAT8/r17OLkrhMD0/s640/debug7.jpg)](http://3.bp.blogspot.com/-Z9Buw7N5pOg/TqPMsGUyhMI/AAAAAAAAAT8/r17OLkrhMD0/s1600/debug7.jpg)
   
   
-
-
 F B800:00 F9F 21
-
-![](http://4.bp.blogspot.com/-EqMAqYeIRfk/TqPNGLebKFI/AAAAAAAAAUE/iaIjqxeTdeg/s640/debug8.jpg)
-
+[![](http://4.bp.blogspot.com/-EqMAqYeIRfk/TqPNGLebKFI/AAAAAAAAAUE/iaIjqxeTdeg/s640/debug8.jpg)](http://4.bp.blogspot.com/-EqMAqYeIRfk/TqPNGLebKFI/AAAAAAAAAUE/iaIjqxeTdeg/s1600/debug8.jpg)
 这个相等于
-
 F B800:00 F9F 21 21
-
   
   
   
-
-
 来张玩玩的：
-
-F B800:00 F9F 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61  
-
-
-![](http://2.bp.blogspot.com/-jGdxLH26qqY/TqPK8UtHFxI/AAAAAAAAAT0/axsoSBaa-Hc/s640/debug6.jpg)
-
+F B800:00 F9F 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59
+60 61  
+[![](http://2.bp.blogspot.com/-jGdxLH26qqY/TqPK8UtHFxI/AAAAAAAAAT0/axsoSBaa-Hc/s640/debug6.jpg)](http://2.bp.blogspot.com/-jGdxLH26qqY/TqPK8UtHFxI/AAAAAAAAAT0/axsoSBaa-Hc/s1600/debug6.jpg)
   
   
-
-
   
-
-
 附上：ASCII码表
-
   
-
-
   
-
-
   
-
-
 控制字符
-
   
-
-
-**二进制******
-
-**十进制******
-
-**十六进制******
-
-**缩写******
-
-**可以显示的表示法******
-
-**名称／意义******
-
-0000 0000
-
+<table>
+<colgroup>
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+<col width="16%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>二进制</strong>
+<strong>十进制</strong>
+<strong>十六进制</strong>
+<strong>缩写</strong>
+<strong>可以显示的表示法</strong>
+<strong>名称／意义</strong></td>
+<td align="left">0000 0000
 0
-
 00
-
 NUL
-
 ␀
-
-空字符（Null）
-
-0000 0001
-
+空字符（Null）</td>
+<td align="left">0000 0001
 1
-
 01
-
 SOH
-
 ␁
-
-标题开始
-
-0000 0010
-
+标题开始</td>
+<td align="left">0000 0010
 2
-
 02
-
 STX
-
 ␂
-
-本文开始
-
-0000 0011
-
+本文开始</td>
+<td align="left">0000 0011
 3
-
 03
-
 ETX
-
 ␃
-
-本文结束
-
-0000 0100
-
+本文结束</td>
+<td align="left">0000 0100
 4
-
 04
-
 EOT
-
 ␄
-
-传输结束
-
-0000 0101
-
-5
-
-05
-
-ENQ
-
-␅
-
-请求
-
-0000 0110
-
-6
-
-06
-
-ACK
-
-␆
-
-确认回应
-
-0000 0111
-
-7
-
-07
-
-BEL
-
-␇
-
-响铃
-
-0000 1000
-
-8
-
-08
-
-BS
-
-␈
-
-退格
-
-0000 1001
-
-9
-
-09
-
-HT
-
-␉
-
-水平定位符号
-
-0000 1010
-
-10
-
-0A
-
-LF
-
-␊
-
-换行键
-
-0000 1011
-
-11
-
-0B
-
-VT
-
-␋
-
-垂直定位符号
-
-0000 1100
-
-12
-
-0C
-
-FF
-
-␌
-
-换页键
-
-0000 1101
-
-13
-
-0D
-
-CR
-
-␍
-
-Enter键
-
-0000 1110
-
-14
-
-0E
-
-SO
-
-␎
-
-取消变换（Shift out）
-
-0000 1111
-
-15
-
-0F
-
-SI
-
-␏
-
-启用变换（Shift in）
-
-0001 0000
-
-16
-
-10
-
-DLE
-
-␐
-
-跳出数据通讯
-
-0001 0001
-
-17
-
-11
-
-DC1
-
-␑
-
-设备控制一（XON 激活软体速度控制）
-
-0001 0010
-
-18
-
-12
-
-DC2
-
-␒
-
-设备控制二
-
-0001 0011
-
-19
-
-13
-
-DC3
-
-␓
-
-设备控制三（XOFF 停用软体速度控制）
-
-0001 0100
-
-20
-
-14
-
-DC4
-
-␔
-
-设备控制四
-
-0001 0101
-
-21
-
-15
-
-NAK
-
-␕
-
-确认失败回应
-
-0001 0110
-
-22
-
-16
-
-SYN
-
-␖
-
-同步用暂停
-
-0001 0111
-
-23
-
-17
-
-ETB
-
-␗
-
-区块传输结束
-
-0001 1000
-
-24
-
-18
-
-CAN
-
-␘
-
-取消
-
-0001 1001
-
-25
-
-19
-
-EM
-
-␙
-
-连接介质中断
-
-0001 1010
-
-26
-
-1A
-
-SUB
-
-␚
-
-替换
-
-0001 1011
-
-27
-
-1B
-
-ESC
-
-␛
-
-退出键
-
-0001 1100
-
-28
-
-1C
-
-FS
-
-␜
-
-文件分区符
-
-0001 1101
-
-29
-
-1D
-
-GS
-
-␝
-
-组群分隔符
-
-0001 1110
-
-30
-
-1E
-
-RS
-
-␞
-
-记录分隔符
-
-0001 1111
-
-31
-
-1F
-
-US
-
-␟
-
-单元分隔符
-
-0111 1111
-
-127
-
-7F
-
-DEL
-
-␡
-
-删除
+传输结束</td>
+</tr>
+</tbody>
+</table>
 
   
-
-
   
-
-
 可显示字符****
-
   
-
-
-**二进制******
-
-**十进制******
-
-**十六进制******
-
-**图形******
-
-0010 0000
-
+<table>
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>二进制</strong>
+<strong>十进制</strong>
+<strong>十六进制</strong>
+<strong>图形</strong></td>
+<td align="left">0010 0000
 32
-
 20
-
-（空格）(␠)
-
-0010 0001
-
+（空格）(␠)</td>
+<td align="left">0010 0001
 33
-
 21
-
-[!](http://zh.wikipedia.org/wiki/%E6%84%9F%E5%8F%B9%E5%8F%B7)
-
-0010 0010
-
+<a href="http://zh.wikipedia.org/wiki/%E6%84%9F%E5%8F%B9%E5%8F%B7" title="感叹号">!</a></td>
+<td align="left">0010 0010
 34
-
 22
-
-"
-
-0010 0011
-
-35
-
-23
-
-[#](http://zh.wikipedia.org/wiki/%E4%BA%95%E8%99%9F)
-
-0010 0100
-
-36
-
-24
-
-$
-
-0010 0101
-
-37
-
-25
-
- %
-
-0010 0110
-
-38
-
-26
-
-&
-
-0010 0111
-
-39
-
-27
-
-['](http://zh.wikipedia.org/wiki/%E5%8D%95%E5%BC%95%E5%8F%B7)
-
-0010 1000
-
-40
-
-28
-
-(
-
-0010 1001
-
-41
-
-29
-
-)
-
-0010 1010
-
-42
-
-2A
-
-*
-
-0010 1011
-
-43
-
-2B
-
-+
-
-0010 1100
-
-44
-
-2C
-
-[,](http://zh.wikipedia.org/wiki/%E9%80%97%E5%8F%B7)
-
-0010 1101
-
-45
-
-2D
-
-[-](http://zh.wikipedia.org/wiki/%E5%87%8F%E5%8F%B7)
-
-0010 1110
-
-46
-
-2E
-
-[.](http://zh.wikipedia.org/wiki/%E5%8F%A5%E7%82%B9)
-
-0010 1111
-
-47
-
-2F
-
-[/](http://zh.wikipedia.org/wiki/%E6%96%9C%E7%B7%9A)
-
-0011 0000
-
-48
-
-30
-
-0
-
-0011 0001
-
-49
-
-31
-
-1
-
-0011 0010
-
-50
-
-32
-
-2
-
-0011 0011
-
-51
-
-33
-
-3
-
-0011 0100
-
-52
-
-34
-
-4
-
-0011 0101
-
-53
-
-35
-
-5
-
-0011 0110
-
-54
-
-36
-
-6
-
-0011 0111
-
-55
-
-37
-
-7
-
-0011 1000
-
-56
-
-38
-
-8
-
-0011 1001
-
-57
-
-39
-
-9
-
-0011 1010
-
-58
-
-3A
-
-[:](http://zh.wikipedia.org/wiki/%E5%86%92%E5%8F%B7)
-
-0011 1011
-
-59
-
-3B
-
-[;](http://zh.wikipedia.org/wiki/%E5%88%86%E5%8F%B7)
-
-0011 1100
-
-60
-
-3C
-
-< 
-
-0011 1101
-
-61
-
-3D
-
-=
-
-0011 1110
-
-62
-
-3E
-
-> 
-
-0011 1111
-
-63
-
-3F
-
-[?](http://zh.wikipedia.org/wiki/%E9%97%AE%E5%8F%B7)
-
-  
-
-
-**二进制******
-
-**十进制******
-
-**十六进制******
-
-**图形******
-
-0100 0000
-
+&quot;</td>
+</tr>
+</tbody>
+</table>
+<br />
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>二进制</strong>
+<strong>十进制</strong>
+<strong>十六进制</strong>
+<strong>图形</strong></td>
+<td align="left">0100 0000
 64
-
 40
-
-@
-
-0100 0001
-
+@</td>
+<td align="left">0100 0001
 65
-
 41
-
-A
-
-0100 0010
-
+A</td>
+<td align="left">0100 0010
 66
-
 42
-
-B
-
-0100 0011
-
-67
-
-43
-
-C
-
-0100 0100
-
-68
-
-44
-
-D
-
-0100 0101
-
-69
-
-45
-
-E
-
-0100 0110
-
-70
-
-46
-
-F
-
-0100 0111
-
-71
-
-47
-
-G
-
-0100 1000
-
-72
-
-48
-
-H
-
-0100 1001
-
-73
-
-49
-
-I
-
-0100 1010
-
-74
-
-4A
-
-J
-
-0100 1011
-
-75
-
-4B
-
-K
-
-0100 1100
-
-76
-
-4C
-
-L
-
-0100 1101
-
-77
-
-4D
-
-M
-
-0100 1110
-
-78
-
-4E
-
-N
-
-0100 1111
-
-79
-
-4F
-
-O
-
-0101 0000
-
-80
-
-50
-
-P
-
-0101 0001
-
-81
-
-51
-
-Q
-
-0101 0010
-
-82
-
-52
-
-R
-
-0101 0011
-
-83
-
-53
-
-S
-
-0101 0100
-
-84
-
-54
-
-T
-
-0101 0101
-
-85
-
-55
-
-U
-
-0101 0110
-
-86
-
-56
-
-V
-
-0101 0111
-
-87
-
-57
-
-W
-
-0101 1000
-
-88
-
-58
-
-X
-
-0101 1001
-
-89
-
-59
-
-Y
-
-0101 1010
-
-90
-
-5A
-
-Z
-
-0101 1011
-
-91
-
-5B
-
-[
-
-0101 1100
-
-92
-
-5C
-
-[\](http://zh.wikipedia.org/wiki/%E6%96%9C%E7%B7%9A)
-
-0101 1101
-
-93
-
-5D
-
-]
-
-0101 1110
-
-94
-
-5E
-
-^
-
-0101 1111
-
-95
-
-5F
-
-_
-
-  
-
-
-**二进制******
-
-**十进制******
-
-**十六进制******
-
-**图形******
-
-0110 0000
-
+B</td>
+</tr>
+</tbody>
+</table>
+<br />
+<table>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<tbody>
+<tr class="odd">
+<td align="left"><strong>二进制</strong>
+<strong>十进制</strong>
+<strong>十六进制</strong>
+<strong>图形</strong></td>
+<td align="left">0110 0000
 96
-
 60
-
-[`](http://zh.wikipedia.org/wiki/%E9%87%8D%E9%9F%B3%E7%AC%A6)
-
-0110 0001
-
+<a href="http://zh.wikipedia.org/wiki/%E9%87%8D%E9%9F%B3%E7%AC%A6" title="重音符">`</a></td>
+<td align="left">0110 0001
 97
-
 61
-
-a
-
-0110 0010
-
+a</td>
+<td align="left">0110 0010
 98
-
 62
-
-b
-
-0110 0011
-
-99
-
-63
-
-c
-
-0110 0100
-
-100
-
-64
-
-d
-
-0110 0101
-
-101
-
-65
-
-e
-
-0110 0110
-
-102
-
-66
-
-f
-
-0110 0111
-
-103
-
-67
-
-g
-
-0110 1000
-
-104
-
-68
-
-h
-
-0110 1001
-
-105
-
-69
-
-i
-
-0110 1010
-
-106
-
-6A
-
-j
-
-0110 1011
-
-107
-
-6B
-
-k
-
-0110 1100
-
-108
-
-6C
-
-l
-
-0110 1101
-
-109
-
-6D
-
-m
-
-0110 1110
-
-110
-
-6E
-
-n
-
-0110 1111
-
-111
-
-6F
-
-o
-
-0111 0000
-
-112
-
-70
-
-p
-
-0111 0001
-
-113
-
-71
-
-q
-
-0111 0010
-
-114
-
-72
-
-r
-
-0111 0011
-
-115
-
-73
-
-s
-
-0111 0100
-
-116
-
-74
-
-t
-
-0111 0101
-
-117
-
-75
-
-u
-
-0111 0110
-
-118
-
-76
-
-v
-
-0111 0111
-
-119
-
-77
-
-w
-
-0111 1000
-
-120
-
-78
-
-x
-
-0111 1001
-
-121
-
-79
-
-y
-
-0111 1010
-
-122
-
-7A
-
-z
-
-0111 1011
-
-123
-
-7B
-
-{
-
-0111 1100
-
-124
-
-7C
-
-|
-
-0111 1101
-
-125
-
-7D
-
-}
-
-0111 1110
-
-126
-
-7E
-
-[~](http://zh.wikipedia.org/wiki/%E6%B3%A2%E6%B5%AA%E8%99%9F)
+b</td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
 
   
-
-
   
 

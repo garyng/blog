@@ -7,48 +7,61 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
 
 # 【这个系列中..】
 
-[[教程][Blogger][C#] Blogger API v3教程#1 —— 前言](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v31.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#2 —— 申请 Blogger API 的使用权限](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-2-blogger-api.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#3 —— 获取API Key、Client ID 和 Client Secret](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-3-api-keyclient.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#4 —— 设置开发环境、安装插件、添加Reference](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-4-reference.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#5 —— 获取Blog Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#6——OAuth 2.0 认证](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-6oauth-20.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#7——获取帖子列表](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-7.html)  
-[[教程][Blogger][C#] Blogger API v3 教程#8——更改帖子标题](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-8.html)  
+[[教程][Blogger][C\#] Blogger API v3教程\#1 ——
+前言](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v31.html)  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#2 —— 申请 Blogger API
+的使用权限](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-2-blogger-api.html)  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#3 —— 获取API Key、Client ID
+和 Client
+Secret](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-3-api-keyclient.html)  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#4 ——
+设置开发环境、安装插件、添加Reference](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-4-reference.html)  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#5 —— 获取Blog
+Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.html)  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#6——OAuth 2.0
+认证](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-6oauth-20.html)  
+ [[教程][Blogger][C\#] Blogger API v3
+教程\#7——获取帖子列表](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-7.html)  
+ [[教程][Blogger][C\#] Blogger API v3
+教程\#8——更改帖子标题](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-8.html)  
   
-Blogger 有一个API 叫做blogger.pages.update  
-对应.net 库PostsResource中的.Update() 函数  
-返回一个PostsResource.UpdateRequest 类型  
-![image](http://lh3.ggpht.com/-KkXKuDKU3Pg/UlgJzlIYnXI/AAAAAAAAFKA/IOAEhWBbFNQ/image_thumb.png?imgmax=800)  
+ Blogger 有一个API 叫做blogger.pages.update  
+ 对应.net 库PostsResource中的.Update() 函数  
+ 返回一个PostsResource.UpdateRequest 类型  
+
+[![image](http://lh3.ggpht.com/-KkXKuDKU3Pg/UlgJzlIYnXI/AAAAAAAAFKA/IOAEhWBbFNQ/image_thumb.png?imgmax=800 "image")](http://lh6.ggpht.com/-B3xaO76CXOM/UlgJy5WO-EI/AAAAAAAAFJ4/P28HKhAnGqU/s1600-h/image%25255B2%25255D.png)  
   
   
-先拿出其中一个post：  
-{% highlight csharp %}
+ 先拿出其中一个post：  
+
+```
 Post postUpdate = postsListReq.Execute().Items[0];
-{% endhighlight %}
-    
+```
 
   
   
-然后更改标题：  
-{% highlight csharp %}
+ 然后更改标题：  
+
+```
 postUpdate.Title = "Title Changed";
-{% endhighlight %}
-    
+```
 
   
   
-创建一个UpdateRequest  
-然后执行.Execute()  
-{% highlight csharp %}
-PostsResource.UpdateRequest blogUpdate = postRes.Update(postUpdate, blog.Id, 
-postUpdate.Id);
+ 创建一个UpdateRequest  
+ 然后执行.Execute()  
+  
+
+```
+PostsResource.UpdateRequest blogUpdate = postRes.Update(postUpdate, blog.Id, postUpdate.Id);
 blogUpdate.Execute();
-{% endhighlight %}
+```
+
   
   
-完整代码如下：    
-{% highlight csharp %}
+ 完整代码如下：  
+
+```
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -158,20 +171,21 @@ namespace BloggerTest
 
     }
 }
-{% endhighlight %}
 
 
+```
+
   
-运行结果：  
   
-![image](http://lh4.ggpht.com/-eEFR9HEe5e0/UlgJ1R5Sf2I/AAAAAAAAFKQ/uZ-cwQOQwE0/image_thumb%25255B2%25255D.png?imgmax=800)  
+ 运行结果：  
   
 
+[![image](http://lh4.ggpht.com/-eEFR9HEe5e0/UlgJ1R5Sf2I/AAAAAAAAFKQ/uZ-cwQOQwE0/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-vmOYN_mEQso/UlgJ0T0ev9I/AAAAAAAAFKI/Pn9TLpv4yFo/s1600-h/image%25255B8%25255D.png)  
+  
 
 # 【后记】
 
 这应该是这个系列的最后一个帖子了..当然还有很多API我没示范..  
-还有整个系列的完整源码我已经发在 Github 上了：  
-
+ 还有整个系列的完整源码我已经发在 Github 上了：  
 
 ### <https://github.com/garyng/BloggerAPIv3Samples>
