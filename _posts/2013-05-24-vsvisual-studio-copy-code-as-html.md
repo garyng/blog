@@ -28,7 +28,7 @@ tags: ['VS','插件','教程']
 当你重Edit 切换到Preview 在切换回Edit 时，整个代码就乱掉了…  
 Windows Live Writer 下测试：  
 
-
+{% highlight csharp %}
 public Size BoxSize
 
 {
@@ -75,7 +75,7 @@ public Size PicBoxSize
     }
 
 }
-
+{% endhighlight %}
   
 
 
