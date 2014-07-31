@@ -11,7 +11,7 @@ description: "An archive of posts sorted by tag."
   <ul>
   {% for item in (0..site.tags.size) %}{% unless forloop.last %}
     {% capture this_word %}{{ tag_words[item] | strip_newlines }}{% endcapture %}
-    <li><a href="#{{ this_word | cgi_escape }}">{{ this_word }}<sup>{{ site.tags[this_word].size }}</sup></a></li>
+    <a class="tags-link" href="#{{ this_word | cgi_escape }}">{{ this_word }}<sup>{{ site.tags[this_word].size }}</sup></a>
   {% endunless %}{% endfor %}
   </ul>
 

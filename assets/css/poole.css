@@ -259,6 +259,17 @@ tbody tr:nth-child(odd) th {
 }
 
 /* 
+ * Tags
+ *
+ * Style for tags-link
+ */
+a.tags-link{
+  color: #717171;
+  background-color: #f9f9f9;
+  padding: 0 0.5em;
+}
+
+/* 
  * Info Date 
  *
  * The info date style inside post excerpt
