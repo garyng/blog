@@ -52,18 +52,18 @@ string clientSec = "{CLIENT-SECRET}";
  所以我们只要改一改我们的BloggerService 再加上一个function就行了：  
  先创建NativeApplicationClient  
 
-```
+{% highlight csharp %}
 NativeApplicationClient provider = new NativeApplicationClient(GoogleAuthenticationServer.Description)
 {
     ClientIdentifier = clientID,
     ClientSecret = clientSec
 };
-```
+{% endhighlight %}
 
   
  然后是增加一个函数  
 
-```
+{% highlight csharp %}
 private static IAuthorizationState getAuth(NativeApplicationClient arg)
 {
     IAuthorizationState state = new AuthorizationState(new [] {BloggerService.Scopes.Blogger.GetStringValue()})
@@ -76,32 +76,32 @@ private static IAuthorizationState getAuth(NativeApplicationClient arg)
     string authCode = Console.ReadLine();
     return arg.ProcessUserAuthorization(authCode, state);
 }
-```
+{% endhighlight %}
 
   
   
  创建OAuth2Authenticator  
 
-```
+ {% highlight csharp %}
 OAuth2Authenticator<NativeApplicationClient> auth = new OAuth2Authenticator<NativeApplicationClient>(provider, getAuth);
-```
+{% endhighlight %}
 
   
   
  然后更改BloggerService  
 
-```
+ {% highlight csharp %}
 BloggerService blogService = new BloggerService(new BaseClientService.Initializer()
 {
     Authenticator = auth,
     ApplicationName = "BloggerTest"
 });
-```
+{% endhighlight %}
 
   
  完整代码如下：  
 
-```
+{% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -165,7 +165,7 @@ namespace BloggerTest
   }
  }
 }
-```
+{% endhighlight %}
 
   
   

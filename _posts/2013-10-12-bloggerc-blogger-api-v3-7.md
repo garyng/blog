@@ -44,53 +44,49 @@ Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.
 
     所以我们创建一个PostsResource变量，传入blogService
 
-```
+{% highlight csharp %}
 PostsResource postsRes = new PostsResource(blogService);
-```
+{% endhighlight %}
+
+
+有一API 叫做 posts.list
+
+
+如上面的GetByUrl Request 一般，PostsResource 也有ListRequest
+
+呼叫PostsResouce 里面的 .List函数，返回一个PostsResource.ListRequest
+
+然后呼叫PostsResource.ListRequest 的.Execute()函数，返回一个PostList 类型
 
   
 
-     
-
-    有一API 叫做 posts.list
-
-     
-
-    如上面的GetByUrl Request 一般，PostsResource 也有ListRequest
-
-    呼叫PostsResouce 里面的 .List函数，返回一个PostsResource.ListRequest
-
-    然后呼叫PostsResource.ListRequest 的.Execute()函数，返回一个PostList 类型
-
-  
-
-```
+{% highlight csharp %}
 PostsResource postsRes = new PostsResource(blogService);
 PostsResource.ListRequest postsListReq = postsRes.List(blog.Id);
 PostList posts = postsListReq.Execute();
-```
+{% endhighlight %}
 
   
 
-    Blogger API 默认返回10个posts，储存在Post.Items中
+Blogger API 默认返回10个posts，储存在Post.Items中
 
-    现在在遍历.Items 然后输出post的 Title
+现在在遍历.Items 然后输出post的 Title
 
   
 
-```
+{% highlight csharp %}
 for (int i = 0; i < posts.Items.Count; i++)
 {
     Console.WriteLine(posts.Items[i].Title);
 }
-```
+{% endhighlight %}
 
   
   
  完整代码：  
   
 
-```
+ {% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -175,9 +171,7 @@ namespace BloggerTest
 
     }
 }
-
-
-```
+{% endhighlight %}
 
   
   
@@ -212,9 +206,9 @@ loop
  所以把之前代码中的  
   
 
-```
+{% highlight csharp %}
 PostList posts = postsListReq.Execute();
-```
+{% endhighlight %}
 
   
  删除掉  
@@ -224,18 +218,15 @@ PostList posts = postsListReq.Execute();
  用来储存第一个NextPageToken  
   
 
-```
+ {% highlight csharp %}
 string firstToken = "";
-```
+{% endhighlight %}
 
-  
-  
+
  现在就是while loop  
   
 
-```
-现在就是while loop
-
+{% highlight csharp %}
 while (true)
 {
     PostList posts = postsListReq.Execute();
@@ -258,18 +249,14 @@ while (true)
     }
 
 }
-
-```
-
-  
- }  
+{% endhighlight %}
   
   
   
  完整代码：  
   
 
-```
+{% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -374,12 +361,9 @@ namespace BloggerTest
     }
 }
 
+{% endhighlight %}
 
-```
 
-  
-  
-  
   
  输出结果：  
   

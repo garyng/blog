@@ -34,17 +34,17 @@ Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.
   
  先拿出其中一个post：  
 
-```
+ {% highlight csharp %}
 Post postUpdate = postsListReq.Execute().Items[0];
-```
+{% endhighlight %}
 
   
   
- 然后更改标题：  
+ 然后更改标题： 
 
-```
+{% highlight csharp %}
 postUpdate.Title = "Title Changed";
-```
+{% endhighlight %}
 
   
   
@@ -52,16 +52,16 @@ postUpdate.Title = "Title Changed";
  然后执行.Execute()  
   
 
-```
+ {% highlight csharp %}
 PostsResource.UpdateRequest blogUpdate = postRes.Update(postUpdate, blog.Id, postUpdate.Id);
 blogUpdate.Execute();
-```
+{% endhighlight %}
 
   
   
  完整代码如下：  
 
-```
+ {% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -172,8 +172,7 @@ namespace BloggerTest
     }
 }
 
-
-```
+{% endhighlight %}
 
   
   

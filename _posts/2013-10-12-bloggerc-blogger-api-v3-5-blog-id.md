@@ -44,54 +44,54 @@ blogID 和 postID 是最重要的，很多API操作都需要用到它
  blogID 可以以Blog URL 来获取，所以我们创建两个string  
  一个储存API Key， 另一个储存blog URL  
 
-```
+{% highlight csharp %}
 string apiKey = "{YOUR-API-KEY}";
 string blogUrl = "{YOUR-BLOG-URL}";
-```
+{% endhighlight %}
 
   
 
 要用到Blogger API 就需要创建一个Blogger Service，里面传入一个Initializer
 参数：  
 
-```
+{% highlight csharp %}
 BloggerService blogService = new BloggerService(new BaseClientService.Initializer()); 
-```
+{% endhighlight %}
 
-    Google APIs Explorer 里面有一个API 是：
+Google APIs Explorer 里面有一个API 是：
 
-     
+[![image](http://lh5.ggpht.com/-wvOEHV7qd7s/UldGIH4x8PI/AAAAAAAAFC4/BuHaNe_2-yk/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-8LlV5my2VFM/UldGHjgCVnI/AAAAAAAAFCw/iAJUR1foB5Y/s1600-h/image%25255B8%25255D.png)
 
-    所以从blogUrl 获取blogID的API 就会在BloggerService 下的 Blogs.GetByURL()
+所以从blogUrl 获取blogID的API 就会在BloggerService 下的 Blogs.GetByURL()
 
-    而Google 的 getByUrl referece（https://developers.google.com/blogger/docs/3.0/reference/blogs/getByUrl）
+而Google 的 getByUrl referece（https://developers.google.com/blogger/docs/3.0/reference/blogs/getByUrl）
 
-    说GetByUrl 会返回一个GetByUrl
+说GetByUrl 会返回一个GetByUrl
 
-    对应.net 的BlogResource.GetByUrlRequest
+对应.net 的BlogResource.GetByUrlRequest
 
-    还需要执行.Execute()函数才能开始获取blogID
+还需要执行.Execute()函数才能开始获取blogID
 
-    .Execute() 函数返回一个Blog类型
+.Execute() 函数返回一个Blog类型
 
-    记得必须给GetUrlRequest 的变量传入API Key，要不然不会收到任何回复的
+记得必须给GetUrlRequest 的变量传入API Key，要不然不会收到任何回复的
 
-```
+{% highlight csharp %}
 BloggerService blogService = new BloggerService(new BaseClientService.Initializer());
 BlogsResource.GetByUrlRequest getReq = blogService.Blogs.GetByUrl(blogUrl);
 getReq.Key = apiKey;
 Blog blog = getReq.Execute();
-```
+{% endhighlight %}
 
-    然后返回的blog 变量里面就有一个参数叫Id,里面储存的就是Blog 的 ID了
+然后返回的blog 变量里面就有一个参数叫Id,里面储存的就是Blog 的 ID了
 
-```
+{% highlight csharp %}
 Console.WriteLine(blog.Id);
-```
+{% endhighlight %}
 
-    完整代码如下：
+完整代码如下：
 
-```
+{% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -127,28 +127,24 @@ namespace BloggerTest
   }
  }
 }
-```
+{% endhighlight %}
 
-  
-  
-  
 
-     
+当你第一次编译运行时，可能会出现这个Open File Dialog
 
-    当你第一次编译运行时，可能会出现这个Open File Dialog
+[![image](http://lh3.ggpht.com/-KPeaOlQPQM8/UldjN6eAocI/AAAAAAAAFEM/ESlR7jnOwX4/image_thumb%25255B5%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-GGz3DpJy_FM/UldjM-1gohI/AAAAAAAAFEE/wefFMUWd4_U/s1600-h/image%25255B17%25255D.png)
+ 
+找到下载回来的API dot net client 代码
 
-     
+去到Src/GoogleApis/Apis/Requests/
 
-    找到下载回来的API dot net client 代码
+点击Open 就行了
 
-    去到Src/GoogleApis/Apis/Requests/
+[![image](http://lh5.ggpht.com/-2xXB873hDsU/UldjPER5nbI/AAAAAAAAFEc/HJnxwM3NuYk/image_thumb%25255B7%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-p7IlwKa85Do/UldjOQYW1MI/AAAAAAAAFEU/FsticVJY-y0/s1600-h/image%25255B23%25255D.png)
 
-    点击Open 就行了
 
-     
+PS：似乎不用这个file 也可以编译..
 
-    PS：似乎不用这个file 也可以编译..
+运行结果
 
-    运行结果
-
-     
+[![image](http://lh4.ggpht.com/-OGyaTtd-HwE/UldjQfgrPgI/AAAAAAAAFEs/wpQx3vr1fFE/image_thumb%25255B8%25255D.png?imgmax=800 "image")](http://lh6.ggpht.com/-lwgNkv-OkUE/UldjPvMk2EI/AAAAAAAAFEk/LAtGfIAH_9A/s1600-h/image%25255B26%25255D.png)

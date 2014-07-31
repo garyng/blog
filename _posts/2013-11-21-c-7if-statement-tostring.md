@@ -50,9 +50,9 @@ tags: ['C#','入门','原创','教程','新手']
  现在用吧！  
  我们知道  
 
-```
+ {% highlight csharp %}
 MessageBox.Show("Yes/No","If tests..",MessageBoxButtons.YesNo).ToString() 
-```
+{% endhighlight %}
 
   
 
@@ -77,18 +77,18 @@ MessageBox.Show("Yes/No","If tests..",MessageBoxButtons.YesNo).ToString()
  正题来了，先删除之前写过的代码，我们“砍掉”重练！  
  if 的格式是这样的：  
 
-```
+{% highlight csharp %}
 if ( Boolean Expression)
 {
     //Body
 }
-```
+{% endhighlight %}
 
 而  
 
-```
+{% highlight csharp %}
 //Body
-```
+{% endhighlight %}
 
 里面就是当Boolean Expression 为True 时运行的代码  
  你：Boolean Expression是啥？  
@@ -133,17 +133,17 @@ Example</td>
 
 [![image](http://lh4.ggpht.com/-yCnHDK1MDsM/Uk2EVvGgdgI/AAAAAAAAEkg/cWXbmzJsI7o/image_thumb%25255B10%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-nt1BNVu2moI/Uk2EVLFRZSI/AAAAAAAAEkc/x4gAKdkFoGs/s1600-h/image%25255B32%25255D.png)  
 
-    现在来看看 == 运算符吧
+现在来看看 == 运算符吧
 
-     
+ 
 
-    然后运行看看
+然后运行看看
 
-    MessageBox 并没有弹出来
+MessageBox 并没有弹出来
 
-    你：为啥？
+你：为啥？
 
-    我：因为A 不等于 B 咯！
+我：因为A 不等于 B 咯！
 
   
  再试试!= 看看：  

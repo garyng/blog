@@ -31,19 +31,18 @@ tags: ['C#','入门','原创','教程','新手']
 
 [![image](http://lh3.ggpht.com/-oAx_rXkiIQc/UhnmLgVP2uI/AAAAAAAAEHY/vKPGnw7t2tY/image_thumb.png?imgmax=800 "image")](http://lh5.ggpht.com/-nEHaT3ostSI/UhnmLE5zvPI/AAAAAAAAEHQ/fwxB-rcN-Oc/s1600-h/image%25255B2%25255D.png)
 
-     
+ 
 
-    这就是一个标准的function （其实是个event的function，先别管这些）
+这就是一个标准的function （其实是个event的function，先别管这些）
 
-    private、void 等等这些东西先别管，免得混淆了（你只要知道这是一个function就就对了）
+private、void 等等这些东西先别管，免得混淆了（你只要知道这是一个function就就对了）
 
-    我们来看看button1_click，很明显吧？
+我们来看看button1_click，很明显吧？
 
-    就是button1 被click 的时候，这个function就会被运行，至于括弧里面的是参数
+就是button1 被click 的时候，这个function就会被运行，至于括弧里面的是参数
 
-    运行？运行什么？就是运行在花括号内{}的代码！
+运行？运行什么？就是运行在花括号内{}的代码！
 
-     
 
   
 

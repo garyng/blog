@@ -67,20 +67,19 @@ Views](http://www.southernspeakers.net/2012/09/scrollbar-for-sidebar-posts-in-bl
 
   
 
-``` prettyprint
+{% highlight css %}
 .sidebar #sidebar, .ss{
 margin-top: 12px !important;  /*12px就是滚动条距离headerbar 的距离，笔者的为0px，表示无距离*/
 overflow-y: scroll !important;
 }
-```
-
+{% endhighlight %}
   
   
 
 更改滚动条样式的代码如下：  
   
 
-``` prettyprint
+{% highlight css %}
 ::-webkit-scrollbar {
 margin-right: 5px;
 background-color: #EEE;
@@ -104,7 +103,7 @@ transition: all .3s ease-out;
 -webit-box-shadow: 0 0 2px #ccc;
 box-shadow: 0 0 2px #ccc;
 }
-```
+{% endhighlight %}
 
  
 
@@ -121,7 +120,7 @@ View](http://www.southernspeakers.net/2012/08/adding-author-name-below-post-titl
 
   
 
-``` prettyprint
+{% highlight css %}
 .article .article-header h1.title:after, .ss{
 content:"by XXX"; /*把XXX换成作者名字*/
 display: block;
@@ -129,7 +128,7 @@ padding-top: 10px;
 font-size: 14px !important;
 color: grey !important;
 }
-```
+{% endhighlight %}
 
   
 
@@ -145,11 +144,11 @@ Views](http://www.southernspeakers.net/2012/07/show-date-ribbon-in-blogger-sideb
 打开Add CSS 加入以下代码：  
   
 
-``` prettyprint
+{% highlight css %}
 .sidebar .article .article-header .date, .ss {
 display: block !important;
 }
-```
+{% endhighlight %}
 
   
 
@@ -181,11 +180,11 @@ display: block !important;
 View](http://www.southernspeakers.net/2011/12/remove-loading-gear-from-blogger.html)，原本的代码是去掉Blogger
 的Loading gear：
 
-``` prettyprint
+{% highlight css %}
 .ss,.blogger-gear{
 display: none;
 }
-```
+{% endhighlight %}
 
   
 
@@ -193,11 +192,11 @@ display: none;
 
 笔者照着这个源码改成了更改Loading Gear的代码：
 
-``` prettyprint
+{% highlight css %}
 .ss,.blogger-gear{
-background-image: url('XXX); /*把XXX 换成自定义的载入动画
+background-image: url('XXX); /*把XXX 换成自定义的载入动画*/
 }
-```
+{% endhighlight %}
 
   
 
@@ -220,12 +219,11 @@ Views](http://www.southernspeakers.net/2012/03/centering-header-links-in-blogger
 
 在Add CSS中添加以下代码：  
 
-``` prettyprint
-.tabs{
+{% highlight css %}.tabs{
 width: 80% !important;
 text-align: center !important;
 }
-```
+{% endhighlight %}
 
   
 
@@ -250,7 +248,7 @@ Views](http://www.southernspeakers.net/2012/05/change-add-comment-in-blogger-dyn
 
   
 
-``` prettyprint
+{% highlight css %}
 .comments-header h3{
 font-size: 0px;
 }
@@ -258,4 +256,4 @@ font-size: 0px;
 content: "Drop some words!"; /*把Drop Some Words! 换成想要显示的提示信息，比如笔者的是Give Some Comments!*/
 font-size: 14px;
 }
-```
+{% endhighlight %}

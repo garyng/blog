@@ -119,7 +119,7 @@ A\*寻路算法入门——详解+实现](http://garyngzhongbo.blogspot.com/2013
 
 每一个格子为一个class，名为Node
 
-```
+{% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -353,7 +353,7 @@ namespace MazeGen
         }
     }
 }
-```
+{% endhighlight %}
 
   
   
@@ -386,7 +386,7 @@ namespace MazeGen
   
  迷宫生成的base class 是这样的：  
 
-```
+{% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -556,7 +556,7 @@ namespace MazeGen
         }
     }
 }
-```
+{% endhighlight %}
 
   
   
@@ -564,7 +564,7 @@ namespace MazeGen
   
  这个是Recursive Backtracker 的实现核心（在Generate 函数内）  
 
-```
+ {% highlight csharp %}
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -672,7 +672,7 @@ namespace MazeGen
         }
     }
 }
-```
+{% endhighlight %}
 
   
   

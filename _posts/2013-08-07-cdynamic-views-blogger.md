@@ -23,7 +23,7 @@ Views(动态视图)咋搞都装不上，过后在StackOverflow看到了一片文
   
  然后在<head\> 之后的空白部分加入以下代码：  
 
-```
+{% highlight js %}
 <link href='http://alexgorbatchev.com/pub/sh/2.1.364/styles/shCore.css' rel='stylesheet' type='text/css'/> 
 <link href='http://alexgorbatchev.com/pub/sh/2.1.364/styles/shThemeDefault.css' rel='stylesheet' type='text/css'/> 
 <script src='http://alexgorbatchev.com/pub/sh/2.1.364/scripts/shCore.js' type='text/javascript'></script> 
@@ -40,16 +40,13 @@ Views(动态视图)咋搞都装不上，过后在StackOverflow看到了一片文
 <script src='http://alexgorbatchev.com/pub/sh/2.1.364/scripts/shBrushXml.js' type='text/javascript'></script> 
 <script src='http://alexgorbatchev.com/pub/sh/2.1.364/scripts/shBrushPerl.js' type='text/javascript'></script> 
 <script language='javascript'> 
-SyntaxHighlighter.config.bloggerMode = true;
-SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/2.1.364/scripts/clipboard.swf';
-SyntaxHighlighter.all();
+	SyntaxHighlighter.config.bloggerMode = true;
+	SyntaxHighlighter.config.clipboardSwf = 'http://alexgorbatchev.com/pub/sh/2.1.364/scripts/clipboard.swf';
+	SyntaxHighlighter.all();
 </script>
-```
+{% endhighlight %}
 
-  
 
-  
-  
     
  当然你可以去除一些没有用到的css  
   
@@ -61,7 +58,6 @@ SyntaxHighlighter.all();
  然后点击保存模板！  
   
   
-  
  如果你要贴代码，在Blogger 的帖子编辑器哪儿，选择HTML  
   
  先把代码HTML Encode 先（这边）  
@@ -69,11 +65,11 @@ SyntaxHighlighter.all();
  贴以下代码：  
   
 
-```
+{% highlight html %}
 <pre class="brush: 这边是语言">
 YOUR CODE HERE << 这边放代码
 </pre>
-```
+{% endhighlight %}
 
   
   
@@ -84,11 +80,11 @@ YOUR CODE HERE << 这边放代码
   
   
 
-```
+{% highlight html %}
 <script type="text/javascript">
 SyntaxHighlighter.highlight();
 </script>
-```
+{% endhighlight %}
 
   
   
@@ -107,8 +103,7 @@ SyntaxHighlighter.highlight();
   
   
   
- 这边是源代码（VS2010
-C\#）：[Dropbox](https://dl.dropboxusercontent.com/u/43619472/%E6%89%B9%E5%A4%84%E7%90%86/C%23/SyntaxHighlighter/SyntaxHighlighter.zip)  
+ 这边是源代码（VS2010C\#）：[Dropbox](https://dl.dropboxusercontent.com/u/43619472/%E6%89%B9%E5%A4%84%E7%90%86/C%23/SyntaxHighlighter/SyntaxHighlighter.zip)  
 [MEGA](https://mega.co.nz/#!HMQhgA6B!Zymk43i0UuNMDzUMb0n2TigQwQEaNUfwGyZaeQZscGk)  
 [Mediafire](http://www.mediafire.com/download/gth9g20k0k11lnu/SyntaxHighlighter.zip)  
   

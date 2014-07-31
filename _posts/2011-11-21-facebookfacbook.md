@@ -45,59 +45,24 @@ B、在URL栏上会看到类似的链接：‎http://www.facebook.com/profile.ph
   }
 ```
 
-```
-```
-
-```
   在"id":后面的那些数字便是ID号了（记要拿双引号去掉！）！
-```
 
-```
-```
-
-```
 3、过后把@@[0:[ID号:0:文字]] 中的文字  换成读者自己的留言就可以啦！
-```
 
-```
-```
-
-```
 注：留言中不可以有英文的冒号（:），但应该可以有中文的冒号（：）
-```
 
-```
-```
-
-```
 例如：
-```
 
-```
 笔者的ID号是100001049371211
-```
 
-```
 笔者想要留的言：测试
-```
 
-```
-```
-
-```
 就要打成：@@[0:[100001049371211:0:测试]]
-```
 
-```
 效果：
-```
 
-```
-```
-
-```
 在状态中：
-```
+
 
 [![](http://4.bp.blogspot.com/-oNEe9CzSqPs/TsoI2dJ9_SI/AAAAAAAAAzU/hEPuurQPaCM/s1600/2011-11-21+16-10-18.jpg)](http://4.bp.blogspot.com/-oNEe9CzSqPs/TsoI2dJ9_SI/AAAAAAAAAzU/hEPuurQPaCM/s1600/2011-11-21+16-10-18.jpg)
 
@@ -111,47 +76,17 @@ B、在URL栏上会看到类似的链接：‎http://www.facebook.com/profile.ph
 
   
   
- 在留言中也可以哦！  
+在留言中也可以哦！  
 
 [![](http://1.bp.blogspot.com/-KOMpB-00OnA/TsoI5MXpSxI/AAAAAAAAAzo/oMmyH_C1ko0/s1600/2011-11-21+16-12-05.jpg)](http://1.bp.blogspot.com/-KOMpB-00OnA/TsoI5MXpSxI/AAAAAAAAAzo/oMmyH_C1ko0/s1600/2011-11-21+16-12-05.jpg)
 
-```
-```
 
-```
-```
-
-```
-```
-
-```
 4、
-```
 
-```
 @@[0:[ID号:0:文字]] 中的ID号也可以换成其他人的ID号哦！
-```
 
-```
-```
-
-```
 效果就是把人家TAG出来！
-```
 
-```
-```
-
-```
-```
-
-```
 好玩么？
 去炫炫吧！XD
-```
 
-```
-```
-
-```
-```
