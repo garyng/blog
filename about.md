@@ -4,27 +4,15 @@ title: About
 ---
 
 <p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
+  大家好，我是GaryNg！
+
+                          - 一个经典的自我介绍
 </p>
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+部落格创办于14/07/09 7:36:33 PM（这Google都有记录啦，不是我记起来的，哈哈）， 最初是架设在Google Blogspot 上面的（[在这里](http://garyngzhongbo.blogspot.com)）， 不过因为越来越臃肿的原因（当然还有因为最近静态部落格不知怎么地又开始流行了起来），便自己写了几个工具，把整个部落格从Blogspot搬到了Github上。
 
-There are currently two themes built on Poole:
+本来是转载其他人的文章的，不过转载久了，慢慢发觉到，到底一直盲目的装载他人的文章，那自己的部落格架起来到底有啥用呢？于是“悔过自新”，自己动手写文章，两三年了，累计下来也有近百篇原创文章了（当然还有随手写的程序，不过似乎大多都没用到）
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+之前在Blogspot 的部落格不知怎么地，越来越慢了（估计是N多代码+CSS的关系吧），又看到最近慢慢红起来的static site，于是试了试，挺不错的——除了快，还是快。不过文章的格式再也不是HTML+JS了，而是Markdown 了，倒是需要一点时间适应。
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+而我呢，98年生（很接近00后啦）。恩，就这样（哈哈）
