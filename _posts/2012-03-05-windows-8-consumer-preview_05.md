@@ -9,7 +9,7 @@ tags: ['vmware','windows 8','windows 8 Consumer preview','windows 8 install','�
 CP”）下载完了，就是为了这篇教程 和 笔者自己想试玩的欲望。  
  （什么？还没下载？快到这里下载吧！—— [【操作系统】万众期待的Windows 8
 Consumer
-Preview终于释出啦！](http://garyngzhongbo.blogspot.com/2012/03/windows-8-consumer-preview.html)）  
+Preview终于释出啦！]({% post_url 2012-03-01-windows-8-consumer-preview %})）  
  为了电脑内的文件的安全，笔者选把Windows 8 CP
 安装在虚拟机内，以防出了什么差错，后悔都来不及了。  
 
@@ -31,7 +31,7 @@ CP，原因是笔者花了几个小时在VirtualBox上安装Windows 8 CP
 CP，设置方法与安装Windows 8 Developer
 Preview一样（更多详情请浏览[【原创教程】【Windows 8预览版介绍】Virtual
 Box玩Windows
-8!](http://garyngzhongbo.blogspot.com/2011/10/windows-8virtual-boxwindows-8.html)）！  
+8!]({% post_url 2011-10-19-windows-8virtual-boxwindows-8 %})）！  
  注：笔者测试Windows 8 CP 的操作环境是 Windows Vista Home Premium x86
 SP2  
   

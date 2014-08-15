@@ -5,9 +5,7 @@ author: 'Gary Ng'
 tags: ['windows','windows 8','操作系统']
 ---
 
-还记得本部落格的这边文章么？——[【原创教程】【Windows
-8预览版介绍】Virtual Box玩Windows
-8!](http://garyngzhongbo.blogspot.com/2011/10/windows-8virtual-boxwindows-8.html)  
+还记得本部落格的这边文章么？——[【原创教程】【Windows8预览版介绍】Virtual Box玩Windows8!]({% post_url 2011-10-19-windows-8virtual-boxwindows-8 %})  
  2月29日22时35分，千呼万唤始出来的Windows8消费者预览版(Windows 8
 Consumer Preview)终于发布了！  
  Windows 8带来全新的用户体验：  

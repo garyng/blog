@@ -5,8 +5,7 @@ author: 'Gary Ng'
 tags: ['Desktop Spammer','VB6','原创','整人类程序']
 ---
 
-续
-『[屏幕融化](http://garyngzhongbo.blogspot.com/2011/11/vb6_23.html)』这个恶搞小程序过后  
+续『[屏幕融化]({% post_url 2011-11-23-vb6_23 %})』这个恶搞小程序过后  
   
  总觉得 这一些些不够  
  便写了一个：**Desktop Spammer**  

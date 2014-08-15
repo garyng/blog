@@ -6,9 +6,9 @@ tags: ['vmware','Windows 8.1','原创','教程']
 ---
 
 Windows 8 正式版发出有好一段时间了（这里有[USB内安装试玩Windows 8
-正式版](http://garyngzhongbo.blogspot.com/2012/11/usbwindows-8.html)、还有[激活Windows
+正式版]({% post_url 2012-11-01-usbwindows-8 %})、还有[激活Windows
 8
-正式版的方法](http://garyngzhongbo.blogspot.com/2012/11/windows-8.html)）。  
+正式版的方法]({% post_url 2012-11-03-windows-8 %})）。  
  但是Windows 8
 正式版本的发布却遭到了很多负面的评论：比如去除了传统的Start
 Menu啦、增加了Metro Start Screen 啦等等等等。。。  

@@ -6,8 +6,7 @@ tags: ['Facebook Chat Triks','VB6','原创']
 ---
 
 还记得这篇教程么？  
- [【原创教程】Facebook的新功能 -
-聊天内打出图片](http://garyngzhongbo.blogspot.com/2012/01/facebook.html)  
+ [【原创教程】Facebook的新功能 - 聊天内打出图片]({% post_url 2012-01-07-facebook %})  
   
  我就想 能不能简便一点呢？  
  于是  

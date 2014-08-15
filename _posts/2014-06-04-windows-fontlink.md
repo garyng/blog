@@ -7,7 +7,7 @@ tags: ['原创','教程']
 
 笔者最近才装好Windows 8 （记得么—— [[原创][教程]
 在USB内直接使用正式版Windows
-8](http://garyngzhongbo.blogspot.com/2012/11/usbwindows-8.html)）  
+8]({% post_url 2012-11-01-usbwindows-8 %})）  
  打开Notepad 将字体设置为Consolas 后，输入中文字显示一堆乱码（Windows
 Live Writer 内也是……）  
  Google了很久却无果  

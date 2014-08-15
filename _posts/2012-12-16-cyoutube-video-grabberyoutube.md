@@ -16,11 +16,11 @@ Grabber（当然，当初不是这个名字的），起初被队员强力反对�
   
  **PS：还记得前3个版本么？他们在这里——[【原创】【VB6】AG Youtube
 Downloader -
-免费的Youtube视频下载器](http://garyngzhongbo.blogspot.com/2012/03/vb6ag-youtube-downloader-youtube.html)、[【原创】【VB6】AG
+免费的Youtube视频下载器]({% post_url 2012-03-20-vb6ag-youtube-downloader-youtube %})、[【原创】【VB6】AG
 Youtube Downloader 正式更名为 AG Youtube Video
-Grabber](http://garyngzhongbo.blogspot.com/2012/04/vb6ag-youtube-downloader-ag-youtube.html)、[【原创】【VB6】YouTube
+Grabber]({% post_url 2012-04-14-vb6ag-youtube-downloader-ag-youtube %})、[【原创】【VB6】YouTube
 Video Grabber
-大翻新！](http://garyngzhongbo.blogspot.com/2012/05/vb6youtube-video-grabber.html)**  
+大翻新！]({% post_url 2012-05-30-vb6youtube-video-grabber %})**  
   
 
 功能越来越多时，问题就来了——整个软件变得很复杂，操作变难了，用VB6来写越来越力不从心，代码越来越难管理（没办法啊，初学VB6的代码风格就是很烂啊），又不适合搞个稳定的多线程，队员没有一个可以看懂VB6代码，于是我有了个念头：放弃更新VB6版本的Grabber，把代码开放出来，用.net重写整个Grabber！  

@@ -14,7 +14,7 @@ tags: ['SP1','Sp2','SP3','修改Service Pack 版本号','教程','转载']
   
   
 
-这时，我们可以打开注册表编辑器（Regedit--查看[【转载】【电脑小窍门】如何修改注册表](http://garyngzhongbo.blogspot.com/2011/10/blog-post_15.html)）  
+这时，我们可以打开注册表编辑器（Regedit--查看[【转载】【电脑小窍门】如何修改注册表]({% post_url 2011-10-15-blog-post_15 %})）  
  HKEY\_LOCAL\_MACHINE\\SYSTEM\\CurrentControlSet\\Control\\Windows，找到
 DWORD 值 CSDVerision。这个值如果是十六进制的 100、十进制的
 256，系统显示的 Service Pack 版本就是 SP1，如果是十六进制的

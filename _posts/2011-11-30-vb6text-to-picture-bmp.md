@@ -5,7 +5,7 @@ author: 'Gary Ng'
 tags: ['Text To Picture','VB6','原创','字串隐藏']
 ---
 
-还记得笔者写过这篇文章吗？[【转载】【题外话】超猛的C语言编程](http://garyngzhongbo.blogspot.com/2011/10/c.html)  
+还记得笔者写过这篇文章吗？[【转载】【题外话】超猛的C语言编程]({% post_url 2011-10-29-c %})  
   
  里面写了个牛人用了系统自带的Paint程序以图画的方式写了个C++语言的Hello
 World  

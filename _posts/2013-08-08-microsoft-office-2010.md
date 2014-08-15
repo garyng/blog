@@ -16,7 +16,7 @@ tags: []
 
 先到这边：<http://www.mirrorcreator.com/files/1PPSHO4Q/_NNM-Club.ru__Microsoft.Office.Professional.Plus.2010.with.SP1.Volume.torrent_links>
 下载torrent file，然后用uTorrent或者BitTorrent 还是qBitTorrent
-来下载（当然你可以加一些Tracker来增加一点点速度，看这边[：【分享】【Trackers】【BAT】500个目前可用的Tracker列表](http://garyngzhongbo.blogspot.com/2013/04/trackersbat500tracker_28.html)）  
+来下载（当然你可以加一些Tracker来增加一点点速度，看这边[：【分享】【Trackers】【BAT】500个目前可用的Tracker列表]({% post_url 2013-04-28-trackersbat500tracker_28 %})）  
  注：里面有很多不同版本的Office 2010 Pro Plus Retail x32/x64
 的，只要勾选需要下载的就好了，这里以qBitTorrent 为例子（笔者选English 32
 Bit）：  

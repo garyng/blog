@@ -7,7 +7,7 @@ tags: ['C#','原创','教程']
 
 折腾了那么久，发现之前发过的[【教程】【VS插件】Visual Studio Copy Code
 As
-HTML](http://garyngzhongbo.blogspot.com/2013/05/vsvisual-studio-copy-code-as-html.html)
+HTML]({% post_url 2013-05-24-vsvisual-studio-copy-code-as-html %})
 又不能用了，于是花了整个下午来研究研究。  
  刚开始我突然想到了Google Code Prettify
 (<http://code.google.com/p/google-code-prettify/>)，但是Blogger Dynamic

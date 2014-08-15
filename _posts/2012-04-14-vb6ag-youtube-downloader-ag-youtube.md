@@ -7,7 +7,7 @@ tags: ['VB6','Youtube Downloader','下载','下载youtube影片','原创']
 
 相隔一个月，终于到了公测版啦！  
  之前的 [AG Youtube
-Downloader](http://garyngzhongbo.blogspot.com/2012/03/vb6ag-youtube-downloader-youtube.html)
+Downloader]({% post_url 2012-03-20-vb6ag-youtube-downloader-youtube %})
 现在正式更名为 “AG Youtube Video Grabber”!  
  为什么 花了一个多月才释出最新版本呢？也许有人会问，
 让我来告诉你们吧！  

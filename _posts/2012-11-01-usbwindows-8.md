@@ -218,5 +218,5 @@ Prompt，现在输入这个命令：
   
   
  激活Windows 8
-看这里》》http://garyngzhongbo.blogspot.com/2012/11/windows-8.html
+看这里》》{% post_url 2012-11-03-windows-8 %}
 

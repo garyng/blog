@@ -8,41 +8,34 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
 # 【这个系列中..】
 
 [[教程][Blogger][C\#] Blogger API v3教程\#1 ——
-前言](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v31.html)
-
-[[教程][Blogger][C\#] Blogger API v3 教程\#2 —— 申请 Blogger API
-的使用权限](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-2-blogger-api.html)
-
-[[教程][Blogger][C\#] Blogger API v3 教程\#3 —— 获取API Key、Client ID
+前言]({% post_url 2013-10-10-bloggerc-blogger-api-v31 %})  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#2 —— 申请 Blogger API
+的使用权限]({% post_url 2013-10-12-bloggerc-blogger-api-v3-2-blogger-api %})  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#3 —— 获取API Key、Client ID
 和 Client
-Secret](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-3-api-keyclient.html)
-
-[[教程][Blogger][C\#] Blogger API v3 教程\#4 ——
-设置开发环境、安装插件、添加Reference](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-4-reference.html)
-
-[[教程][Blogger][C\#] Blogger API v3 教程\#5 —— 获取Blog
-Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.html)
-
-[[教程][Blogger][C\#] Blogger API v3 教程\#6——OAuth 2.0
-认证](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-6oauth-20.html)
-
-[[教程][Blogger][C\#] Blogger API v3
-教程\#7——获取帖子列表](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-7.html)
-
-[[教程][Blogger][C\#] Blogger API v3
-教程\#8——更改帖子标题](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-8.html)
+Secret]({% post_url 2013-10-12-bloggerc-blogger-api-v3-3-api-keyclient %})  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#4 ——
+设置开发环境、安装插件、添加Reference]({% post_url 2013-10-12-bloggerc-blogger-api-v3-4-reference %})  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#5 —— 获取Blog
+Id]({% post_url 2013-10-12-bloggerc-blogger-api-v3-5-blog-id %})  
+ [[教程][Blogger][C\#] Blogger API v3 教程\#6——OAuth 2.0
+认证]({% post_url 2013-10-12-bloggerc-blogger-api-v3-6oauth-20 %})  
+ [[教程][Blogger][C\#] Blogger API v3
+教程\#7——获取帖子列表]({% post_url 2013-10-12-bloggerc-blogger-api-v3-7 %})  
+ [[教程][Blogger][C\#] Blogger API v3
+教程\#8——更改帖子标题]({% post_url 2013-10-12-bloggerc-blogger-api-v3-8 %})
 
   
 
 # 【获取帖子列表】
 
-    有BlogID 了万事好办..
+有BlogID 了万事好办..
 
-    Blogger API的数据模型是这样的：
+Blogger API的数据模型是这样的：
 
-    Blogs Resource 下有Posts Resource
+Blogs Resource 下有Posts Resource
 
-    所以我们创建一个PostsResource变量，传入blogService
+所以我们创建一个PostsResource变量，传入blogService
 
 {% highlight csharp %}
 PostsResource postsRes = new PostsResource(blogService);

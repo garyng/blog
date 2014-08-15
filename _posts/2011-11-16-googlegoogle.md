@@ -5,8 +5,7 @@ author: 'Gary Ng'
 tags: ['Google','google triks','Google特效','Google的小花样','原创']
 ---
 
-上次看过了Google的"[Do A Barrel
-Roll](http://garyngzhongbo.blogspot.com/2011/11/google.html)"  
+上次看过了Google的"[Do A Barrel Roll]({% post_url 2011-11-06-google %})"  
   
  笔者又在网络上发现了大量关于Google的小花样，特此收集后，与大家分享～  
   
@@ -14,8 +13,8 @@ Roll](http://garyngzhongbo.blogspot.com/2011/11/google.html)"
  笔者的Google Chrome全都测试通过～  
   
   
- 1、还是那大名鼎鼎的"[Do A Barrel
-Roll](http://garyngzhongbo.blogspot.com/2011/11/google.html)（点击链接直接带搜索页面，下同～）"  
+ 1、还是那大名鼎鼎的
+ "[Do A Barrel Roll]({% post_url 2011-11-06-google %})（点击链接直接带搜索页面，下同～）"  
   
  2、Google
 Search另外一个花样："[Askew](http://www.lmgtfy.com/?q=askew)"  

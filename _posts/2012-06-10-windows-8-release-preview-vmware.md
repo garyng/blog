@@ -6,9 +6,9 @@ tags: ['vmware','windows','windows 8','windows 8 install','windows 8 preview','�
 ---
 
 光阴似箭啊～很快的，续[Windows 8 Developer
-Preview](http://garyngzhongbo.blogspot.com/2011/10/windows-8virtual-boxwindows-8.html)
+Preview]({% post_url 2011-10-19-windows-8virtual-boxwindows-8 %})
 和 [Windows 8 Consumer
-Preview](http://garyngzhongbo.blogspot.com/2012/03/windows-8-consumer-preview_05.html)
+Preview]({% post_url 2012-03-05-windows-8-consumer-preview_05 %})
 后，Windows 最近又释放出了新版本的 **Windows 8 Release Preview
 （一下简称Windows 8 RP）**啦！  
  首先呢，当然是下载Windows 8 RP 的ISO文件啦！  

@@ -5,7 +5,7 @@ author: 'Gary Ng'
 tags: ['原创','教程','防毒']
 ---
 
-前几天某个闪盘把剧毒带进了电脑内，几乎感染了所有的EXE文件。存放本站资源的DropBox也无能幸免（[【紧急】本站DropBox中毒了](http://garyngzhongbo.blogspot.com/2012/09/dropbox.html)）。
+前几天某个闪盘把剧毒带进了电脑内，几乎感染了所有的EXE文件。存放本站资源的DropBox也无能幸免（[【紧急】本站DropBox中毒了]({% post_url 2012-09-08-dropbox %})）。
 翻了整个橱柜，找到了几片启动光盘，里面有个N年前的AVG的Rescue
 Disk，花了几个小时扫描，终于还是把大部分的病毒清除了。（笔者还不确定是不是全部都清干净了呢！）  
   
@@ -34,7 +34,7 @@ N久前在笔者混的Facebook群组[《~大家e起学编程~》](https://www.fa
 如果幸运的话，可能会看到PEid显示该病毒是.net 写的，这是就拿出神器[.net
 Reflector](http://www.mediafire.com/download.php?9dfffi6xdgaqoxm)，反汇编吧！（很好的一个软件，直接把.net写的软件反汇编后转换成代码！），赶紧分析出病毒编写者的邮件和密码吧！（似乎.net写不出大型的病毒，不可能要让受害者装个几百MB的.net
 framework吧？笔者看过的就是几个盗号、键盘记录，然后保存后把信息发送到一个邮箱，而且有只要细心的分析就会找出该邮箱的密码！）
-**所以只要能，就查壳、脱壳、反汇编！**其实，只要有功底的话，也可以用OllyDbg反汇编的～（[【原创】第一次使用OllyDbg](http://garyngzhongbo.blogspot.com/2012/09/ollydbg.html)）。可惜笔者功底不好、不会手动脱壳，所以只要依赖杀毒软件了。  
+**所以只要能，就查壳、脱壳、反汇编！**其实，只要有功底的话，也可以用OllyDbg反汇编的～（[【原创】第一次使用OllyDbg]({% post_url 2012-09-01-ollydbg %})）。可惜笔者功底不好、不会手动脱壳，所以只要依赖杀毒软件了。  
   
 如果不能脱壳（或者你是新手哈哈），那就为电脑来个全盘扫描吧！比较推荐的防毒软件有[avast!](http://www.avast.com/)，[AVG](http://www.avg.com/ww-en/homepage)，[Avira](http://www.avira.com/en/index)，[Kaspersky](http://www.kaspersky.com/products)，还有Windows自行出品的[Windows
 Security
@@ -75,7 +75,7 @@ Device）了，然后就选择Antivirus
 **杀毒软件虽重要，启动盘也不能少，强烈建议现在开始烧录一个启动盘做备用！**有一天肯定会用到的！假如连杀毒都救不了，那只好掏钱给电脑店重装系统（其实也可以自己来的！）了。
   
   
-还有，笔者之前说了本站的DropBox文件被感染了吧（[【紧急】本站DropBox中毒了](http://garyngzhongbo.blogspot.com/2012/09/dropbox.html)）？现在分享下Dropbox救了本站资料一命的功能——View
+还有，笔者之前说了本站的DropBox文件被感染了吧（[【紧急】本站DropBox中毒了]({% post_url 2012-09-08-dropbox %})）？现在分享下Dropbox救了本站资料一命的功能——View
 Versions。先登录网页版本的Dropbox：[www.dropbox.com](http://www.dropbox.com/)，然后在需要恢复到之前版本的文件上点击右键，在弹出的菜单上选择“Previous
 Versions”，然后就会看到一个显示文件版本历史的表，点击其中一个version，按下左下角的“restore”就好啦！
 [![image](http://lh4.ggpht.com/-nL1R0_Dr8Cw/UEycj_u43GI/AAAAAAAAB50/f4WpVyyaUrU/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-8FAcomo09VY/UEyci9rIH-I/AAAAAAAAB5o/6XvFmWyzUNw/s1600-h/image%25255B6%25255D.png)

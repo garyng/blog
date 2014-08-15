@@ -8,22 +8,23 @@ tags: ['blogger','Blogger API','C#','Gdata','Google','OAuth','原创','教程']
 # 【这个系列中..】
 
 [[教程][Blogger][C\#] Blogger API v3教程\#1 ——
-前言](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v31.html)  
+前言]({% post_url 2013-10-10-bloggerc-blogger-api-v31 %})  
  [[教程][Blogger][C\#] Blogger API v3 教程\#2 —— 申请 Blogger API
-的使用权限](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-2-blogger-api.html)  
+的使用权限]({% post_url 2013-10-12-bloggerc-blogger-api-v3-2-blogger-api %})  
  [[教程][Blogger][C\#] Blogger API v3 教程\#3 —— 获取API Key、Client ID
 和 Client
-Secret](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-3-api-keyclient.html)  
+Secret]({% post_url 2013-10-12-bloggerc-blogger-api-v3-3-api-keyclient %})  
  [[教程][Blogger][C\#] Blogger API v3 教程\#4 ——
-设置开发环境、安装插件、添加Reference](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-4-reference.html)  
+设置开发环境、安装插件、添加Reference]({% post_url 2013-10-12-bloggerc-blogger-api-v3-4-reference %})  
  [[教程][Blogger][C\#] Blogger API v3 教程\#5 —— 获取Blog
-Id](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-5-blog-id.html)  
+Id]({% post_url 2013-10-12-bloggerc-blogger-api-v3-5-blog-id %})  
  [[教程][Blogger][C\#] Blogger API v3 教程\#6——OAuth 2.0
-认证](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-6oauth-20.html)  
+认证]({% post_url 2013-10-12-bloggerc-blogger-api-v3-6oauth-20 %})  
  [[教程][Blogger][C\#] Blogger API v3
-教程\#7——获取帖子列表](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-7.html)  
+教程\#7——获取帖子列表]({% post_url 2013-10-12-bloggerc-blogger-api-v3-7 %})  
  [[教程][Blogger][C\#] Blogger API v3
-教程\#8——更改帖子标题](http://garyngzhongbo.blogspot.com/2013/10/bloggerc-blogger-api-v3-8.html)  
+教程\#8——更改帖子标题]({% post_url 2013-10-12-bloggerc-blogger-api-v3-8 %})
+ 
   
  至于OAuth 是啥，这里不做详细介绍  
  就是类似这样的东东：  
@@ -177,7 +178,7 @@ namespace BloggerTest
   
   
  然后就有一长串字符，Copy 了 paste 进程序内 （[[教程] 如何在CMD中Copy &
-Paste](http://garyngzhongbo.blogspot.com/2013/10/cmdcopy-paste.html)）  
+Paste]({% post_url 2013-10-11-cmdcopy-paste %})）  
 
 [![image](http://lh6.ggpht.com/-2Nj1_EIyY9g/UleX8TLBGgI/AAAAAAAAFH4/BcJ7oOKnJx4/image_thumb%25255B4%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-RwljnDEuO2g/UleX7yq0MRI/AAAAAAAAFHw/h8biK1DCJxY/s1600-h/image%25255B14%25255D.png)  
   

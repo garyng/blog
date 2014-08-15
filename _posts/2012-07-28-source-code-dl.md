@@ -6,7 +6,7 @@ tags: ['C','C++','原创']
 ---
 
 发了[【原创】【C】恶搞Windows 计算器——Windows Calculator
-Prank](http://garyngzhongbo.blogspot.com/2012/07/calc-prank.html) 这篇文章过后，网友的反应很不错热烈，Gnix
+Prank]({% post_url 2012-07-23-calc-prank %}) 这篇文章过后，网友的反应很不错热烈，Gnix
 的DLL 注射器有点点BUG，我的计算器Prank 不支持x64的电脑。  
 
 所以，开了一个比较简单的网页（我对HTML等不熟悉啊，请见谅啊。。），专门给大家下载我上载到DropBox的东西——[garyzone.tk](http://garyzone.tk/)  
