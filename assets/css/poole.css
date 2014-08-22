@@ -235,6 +235,7 @@ tbody tr:nth-child(odd) th {
   font-weight: 300;
 }
 
+
 /* 
  * Post info
  *
@@ -376,9 +377,10 @@ info {
   margin-top: 0;
 }
 
+
 /* Meta data line below post title */
-.post-date {
-  display: block;
+.post-date,.post-comments-count {
+  display: inline;
   margin-top: -.5rem;
   margin-bottom: 1rem;
   color: #9a9a9a;
