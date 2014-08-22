@@ -26,7 +26,7 @@ title: Archive
           {% else %}
             {{ post.excerpt | split:'</p>' | first | strip_html }}
           {% endif %}
-          <a href="{{site.url}}{{post.url}}" class="post-more">Read More » </a>
+          <a href="{{ post.url }}" class="post-more">Read More » </a>
      	</div>
      </li>
   {% endfor %}
