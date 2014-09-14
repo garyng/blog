@@ -10,6 +10,7 @@ title:            Gary's Zone
 tagline:          'Blog'
 description:      'Blog by GaryNg with tutorials, softwares and many more. Enjoy!'
 url:              'http://garyng.github.io'
+isBeta:           true
 
 author:
   name:           'GaryNg'

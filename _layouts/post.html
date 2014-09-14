@@ -7,11 +7,7 @@ layout: default
   <div class="post-meta">
     <span class="post-date">{{ page.date | date_to_string }}</span>
     <a class="post-comments-count" href="{{ site.url }}{{ page.url }}#disqus_thread">Comments</a>
-  </div>
-  {{ content }}
-  <small class="post-info">Published at {{ page.date | date_to_string }} by {{ page.author }}</small>
-  {% if page.tags %}
-    <br />
+    {% if page.tags %}
     <small class="post-tags">
         {% for tag in page.tags %}
           <a href="{{ site.url }}/tags/#{{ tag | cgi_escape }}" title="Pages tagged {{ tag }}" rel="tag">{{ tag }}</a>{% unless forloop.last %}
@@ -19,7 +15,11 @@ layout: default
           {% endunless %}
         {% endfor %}
     </small>
-  {% endif %}
+    {% endif %}
+  </div>
+  {{ content }}
+  <small class="post-info">Published at {{ page.date | date_to_string }} by {{ page.author }}</small>
+  
   <div class="post-nav">
     {% if page.previous.url %}
       <a class="post-nav-prev" href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>

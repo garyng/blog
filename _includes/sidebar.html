@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
-      <h1>{{ site.title }}</h1>
+      <h1>{{ site.title }}{% if site.isBeta %}<sup class="sidebar-beta">BETA!</sup>{% endif %}</h1>
       <p class="lead">{{ site.description }}</p>
     </div>
     <ul class="sidebar-nav">
