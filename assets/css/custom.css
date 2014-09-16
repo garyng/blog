@@ -46,7 +46,7 @@
 
 
 /* Meta data line below post title */
-.post-date,.post-comments-count, .post-comments {
+.post-date,.post-comments-count, .post-comments, .post-tags {
   display: inline;
   margin-top: -.5rem;
   margin-bottom: 1rem;
