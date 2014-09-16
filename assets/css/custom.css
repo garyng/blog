@@ -76,3 +76,12 @@ info {
   color: #999;
   font-style: italic;
 }
+
+/* 
+ * Posts text shadow
+ *
+ *
+ */
+.content {
+  text-shadow: #909090 0.05em 0.05em 0.5em;
+}
