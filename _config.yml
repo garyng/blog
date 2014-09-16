@@ -20,6 +20,3 @@ author:
 paginate:         5
 
 markdown_ext:     markdown,mdown,mkdown,mkdn,mkd,md
-
-github:
-  repo:           ''

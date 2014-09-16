@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Archive
+icon: "fa-bars"
 ---
 <ul>
   {% for post in site.posts %}
