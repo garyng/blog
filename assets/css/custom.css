@@ -12,6 +12,35 @@
 	font-family: serif;
 }
 
+/*
+ * Links transition
+ *
+ *
+ */
+a {
+  transition: 0.2s color ease;
+}
+
+/* 
+ * Links
+ * 
+ *
+ */
+
+.sidebar a:hover, .sidebar a:focus {
+  color: #268bd2;
+  text-decoration: none
+}
+
+.content a:hover, .content a:focus {
+  color: #b10dc9;
+  text-decoration: none;
+}
+
+.post-title a:hover, .post-title a:focus {
+  color: #505050;
+  text-decoration: none;
+}
 
 /* 
  * Post info
@@ -53,6 +82,9 @@
   color: #9a9a9a;
 }
 
+.post-comments a {
+  color: #9a9a9a;
+}
 
 /* 
  * Tags

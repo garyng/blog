@@ -13,7 +13,10 @@ title: Home
     </h1>
     <small class="post-meta">
       <span class="post-date"><span class="fa fa-calendar"></span> {{ post.date | date_to_string }}</span>
-      <a class="post-comments" href="{{ site.url }}{{ post.url }}#disqus_thread"><span class="fa fa-comments"></span> Comments</a>
+      <div class="post-comments">
+        <span class="fa fa-comments"></span>
+        <a href="{{ site.url }}{{ post.url }}#disqus_thread"> Comments</a>
+      </div>
       {% if post.tags %}
       <div class="post-tags">
         <span class="fa fa-tags"></span>  
