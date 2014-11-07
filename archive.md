@@ -17,7 +17,7 @@ icon: "fa-bars"
     {% endunless %}
 
      <li>
-     	<a href="{{site.url}}{{post.url}}">{{ post.title }}</a>
+     	<a href="{{ post.url }}">{{ post.title }}</a>
      	<div class="post-excerpt">
      		<info datetime="{{ page.date | date: "%Y-%m-%d" }}">
           		{{ post.date | date: "%b %d" }}
