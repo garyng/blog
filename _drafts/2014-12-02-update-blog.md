@@ -1,7 +1,7 @@
 ---
 layout: post
 title: '[其他] 部落格搬家记 + 发布几道工具'
-author: 'Gary Ng'
+published: True
 tags: ['其他','原创','教程']
 ---
 
@@ -135,7 +135,7 @@ Blogger 的帖子转到Jekyll这里来，基本上就是个煎熬啊...然后我
 
 最终我还是选了Hyde，主要的原因就是比较简单，customize起来也算很容易..
 然后离开Blogger的最大问题来了——我的SEO、网站数据、评论等等全都没有了，SEO这个累计起来需要时间的啊...
-于是就加了个disqus 评论进来，加了GA，还有FA（猜猜GA 和 FA 都代表啥），还有一些CSS（目前还有没有用到~~Javascipt~~ jQuery 娃哈哈）
+于是就加了个Discuz 评论进来，加了GA，还有FA（猜猜GA 和 FA 都代表啥），还有一些CSS（目前还有没有用到~~Javascipt~~ jQuery 娃哈哈）
 
 <hr/>
 
