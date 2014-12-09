@@ -83,7 +83,7 @@ tags: ['其他','原创','教程']
 6.然后就好了！
 [![image](https://lh3.googleusercontent.com/-9ykkfgDwMAM/VH0zXqLPWUI/AAAAAAAAHdU/rFAUhXCJ1Cc/s800/02-12-2014_113446.png "image")](https://lh3.googleusercontent.com/-9ykkfgDwMAM/VH0zXqLPWUI/AAAAAAAAHdU/rFAUhXCJ1Cc/s1600/02-12-2014_113446.png)
 
-gBloggerToJekyll是从html转markdown是基于pandoc的（当然还支持html2text，但是默认是pandoc，还有没得换 xD）
+gBloggerToJekyll从html转markdown是基于pandoc的（当然还支持html2text，但是默认是pandoc，而且每选项可以换 xD 原因是测试时 html2text 的格式转换不太好 所以就放弃了）
 
 所以convert出来的post肯定有些的format会跑掉的
 
