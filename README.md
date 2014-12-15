@@ -8,5 +8,5 @@ GaryNg
 
 Licenses
 =============
-You may not reuse anthing there are, without permission:
+You may not reuse anything there are, without permission:
 - '_post'
