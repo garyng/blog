@@ -3,6 +3,7 @@ layout: post
 title: '[原创][教程] GitHub SSH 生成 + ssh-agent 自动登录 + SublimeGit 支持'
 tags: ['原创','教程','Git','Sublime Text']
 author: 'Gary Ng'
+description: 'GitHub SSH 以及 SublimeGit 的详细设置教程'
 ---
 
 这是纯属拿来存档的
