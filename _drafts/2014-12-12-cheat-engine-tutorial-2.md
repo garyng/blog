@@ -3,7 +3,7 @@ layout: post
 title: '[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #2'
 tags: ['教程','原创','Cheat Engine']
 author: 'Gary Ng'
-description: 'Cheat Engine Tutorial 破关攻略！'
+description: 'Cheat Engine Tutorial 闯关教程 + ASM 基础入门教程！'
 ---
 
 如果还没看完和掌握 ['[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程#1']({% post_url 2014-12-09-cheat-engine-tutorial-1 %}) 的话，赶快去看看吧
@@ -38,6 +38,8 @@ description: 'Cheat Engine Tutorial 破关攻略！'
 没关系，接着看吧
 
 ASM AHEAD！
+
+[![image](https://lh4.googleusercontent.com/-O3ac1eTakak/VJWQG0SnB8I/AAAAAAAAHy0/QL2g0sA4jFI/s800/20-12-2014_230418.png "image")](https://lh4.googleusercontent.com/-O3ac1eTakak/VJWQG0SnB8I/AAAAAAAAHy0/QL2g0sA4jFI/s1600/20-12-2014_230418.png)
 
 首先要做的就是找出value 的address了（不解释了哈）：
 
@@ -192,13 +194,13 @@ Google去吧（或者看看zypeh 大大的 [Register 的那些事](http://zypeh.
 
 ## mov？
 
-mov 是拿来干嘛的很容易猜吧？
+`mov` 是拿来干嘛的很容易猜吧？
 
 就是move 的缩写呗
 
 将数据从一个地方copy到另一个地方（尽管他叫move，但是他不是**移动**数据，而是**拷贝**）
 
-mov 有一下的5种形式：
+`mov` 有一下的5种形式：
 
 {% highlight asm %}
 mov reg,reg
@@ -212,9 +214,9 @@ mov mem,const
 
 `reg` 代表任何一种register（`EAX`,`EBX`,`ECX`,`AX`,`BX`,`CX`,`AH`,`BH`等等...）
 
-`mem` 代表一个地址，比如说[eax]之类的
+`mem` 代表一个地址，比如说`[eax]`之类的
 
-`const` 指的是一个constant（1,2,3,4 什么之类的）
+`const` 指的是一个constant（`1`,`2`,`3`,`4` 什么之类的）
 
 一些例子：
 
@@ -222,25 +224,25 @@ mov mem,const
 mov eax,ebx
 {% endhighlight %}
 
-就是将ebx中的value copy 到 eax中
+就是将`ebx`中的value copy 到 `eax`中
 
 {% highlight asm %}
 mov eax,5
 {% endhighlight %}
 
-就是将 5 储存到eax中
+就是将 5 储存到`eax`中
 
 {% highlight asm %}
 mov ebx,[eax]
 {% endhighlight %}
 
-就是将地址为eax的value copy 到 ebx中
+就是将地址为`eax`的value copy 到 `ebx`中
 
 如果有方括号的(square bracket)就表示那是一个地址
 
-比如说eax的值是00228D68
+比如说`eax`的值是`00228D68`
 
-然后地址00228D68中储存的值是100的话
+然后地址`00228D68`中储存的值是100的话
 
 那么`mov ebx,[eax]` 简单来说就是将100~~移到~~拷贝到ebx去 
 
@@ -250,13 +252,13 @@ mov [eax],ebx
 
 这就不难理解了吧
 
-就是将ebx 中的值~~移到~~拷贝地址为eax那里去
+就是将ebx 中的值~~移到~~拷贝地址为`eax`那里去
 
-如果ebx 储存的值是100
+如果`ebx` 储存的值是100
 
-而eax 是 00228D68
+而`eax` 是 `00228D68`
 
-那么这段指令就是将100拷贝到 00228D68 中去
+那么这段指令就是将100拷贝到 `00228D68` 中去
 
 你可能会想
 
@@ -279,7 +281,7 @@ mov reg,reg
 
 ## NOP ？
 
-nop 又是啥？
+`nop` 又是啥？
 
 很简单
 
@@ -287,7 +289,7 @@ nop 又是啥？
 
 什么都不做就是了
 
-nop 占了1 byte
+`nop` 占了1 byte
 
 所以大多数的时候
 
