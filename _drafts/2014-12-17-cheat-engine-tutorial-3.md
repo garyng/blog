@@ -3,12 +3,12 @@ layout: post
 title: '[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #3'
 tags: ['教程','原创','Cheat Engine']
 author: 'Gary Ng'
-description: 'Cheat Engine Tutorial 闯关攻略'
+description: 'Cheat Engine Tutorial 第六关闯关教程'
 ---
 
-教程 #1： ['[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #1']({% post_url 2014-12-09-cheat-engine-tutorial-1 %})
+教程 #1： [[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #1]({% post_url 2014-12-09-cheat-engine-tutorial-1 %})
 
-教程 #2： ['[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #2']({% post_url 2014-12-12-cheat-engine-tutorial-2 %})
+教程 #2： [[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #2]({% post_url 2014-12-12-cheat-engine-tutorial-2 %})
 
 看完然后了解了才看这一篇哦
 
@@ -281,8 +281,8 @@ Change Pointer 呢，就是“屋主搬家”呗
 
 点击Change Pointer
 
-嘿嘿 再狠狠的点击Next 按钮吧
-
 [![image](https://lh6.googleusercontent.com/-DcpH1CUR-ME/VKlqC9YxBBI/AAAAAAAAH2g/KWVCdGXw37Q/s800/04-01-2015_190555.png "image")](https://lh6.googleusercontent.com/-DcpH1CUR-ME/VKlqC9YxBBI/AAAAAAAAH2g/KWVCdGXw37Q/s1600/04-01-2015_190555.png)
+
+嘿嘿 再狠狠的点击Next 按钮吧
 
 [![image](https://lh4.googleusercontent.com/-7NzQoKU4pi4/VKlrY7if3KI/AAAAAAAAH24/nQwfNk_n2rs/s800/04-01-2015_190623.png "image")](https://lh4.googleusercontent.com/-7NzQoKU4pi4/VKlrY7if3KI/AAAAAAAAH24/nQwfNk_n2rs/s1600/04-01-2015_190623.png)

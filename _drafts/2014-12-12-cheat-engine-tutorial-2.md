@@ -3,10 +3,10 @@ layout: post
 title: '[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #2'
 tags: ['教程','原创','Cheat Engine']
 author: 'Gary Ng'
-description: 'Cheat Engine Tutorial 闯关教程 + ASM 基础入门教程！'
+description: 'Cheat Engine Tutorial 超级浅白的第五关闯关教程 + ASM 基础入门教程！'
 ---
 
-如果还没看完和掌握 ['[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程#1']({% post_url 2014-12-09-cheat-engine-tutorial-1 %}) 的话，赶快去看看吧
+如果还没看完和掌握 [[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程#1]({% post_url 2014-12-09-cheat-engine-tutorial-1 %}) 的话，赶快去看看吧
 
 ## Step 5
 
