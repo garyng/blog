@@ -1,6 +1,7 @@
 <head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  
   <meta name="author" content="{{ site.author.name }}">
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description}} {% endif %}">
 
@@ -8,17 +9,12 @@
   <meta property="og:type" content="article">
   <meta name="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description}} {% endif %}">  
   <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}"/>
 
   <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
+  <title>{% if page.title == "Home" %}{{ site.title }} &middot; {{ site.tagline }}{% else %}      {{ page.title }} &middot; {{ site.title }}{% endif %}</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/poole.css">
@@ -29,7 +25,7 @@
   <link rel="stylesheet" href="/assets/css/font-awesome.min.css"
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/icons/114x114.png">
-  <link rel="shortcut icon" href="/assets/icons/favicon64.png" sizes="64x64">
+  <link rel="icon" href="/assets/icons/favicon64.png">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">

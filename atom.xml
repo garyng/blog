@@ -1,5 +1,5 @@
 ---
-layout: nil
+layout: null
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -12,7 +12,7 @@ layout: nil
     <name>{{ site.author.name }}</name>
   </author>
 
-  {% for post in site.posts limit:1000 %}
+  {% for post in site.posts %}
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
