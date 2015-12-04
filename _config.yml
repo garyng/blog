@@ -9,8 +9,8 @@ permalink:        pretty
 title:            Gary's Zone
 tagline:          'Blog'
 description:      'Blog by GaryNg with tutorials, softwares and many more. Enjoy!'
-#url:              'http://garyng.github.io'
-url:              'http://garyszone.me'
+url:              'http://garyng.github.io'
+#url:              'http://garyszone.me'
 isBeta:           true
 
 author:
