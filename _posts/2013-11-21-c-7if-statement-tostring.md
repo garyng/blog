@@ -19,6 +19,7 @@ tags: ['C#','入门','原创','教程','新手']
 我：如果的英文叫啥？  
  你：If！  
  我：厉害厉害！  
+ <!-- More -->  
  先让我们看看MessageBox的代码咋写：  
  在Windows Form 上添加一个Button  
  然后双击Button  
@@ -55,9 +56,7 @@ MessageBox.Show("Yes/No","If tests..",MessageBoxButtons.YesNo).ToString()
 {% endhighlight %}
 
   
-
-  
-  
+ 
   
  是string吧！创建一个string变量来储存MessageBox返回的参数  
  然后在用MessageBox show 那个变量里面的值：  

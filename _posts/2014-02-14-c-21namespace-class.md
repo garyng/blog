@@ -12,6 +12,7 @@ namespace 是什么？
   
  你：namespace 用在哪里的啊？  
  其实namespace 和 class 一直在你左右！  
+<!-- More -->  
  每当你创建一个新的 project 的时候：  
 
 [![image](http://lh6.ggpht.com/-JWDPLy1KCmc/UpbWxcfeF5I/AAAAAAAAGgs/Io61Yln3QH0/image_thumb.png?imgmax=800 "image")](http://lh3.ggpht.com/-8Jb26Bw9geo/UpbWwr0C0AI/AAAAAAAAGgk/tnpvyOZZgRg/s1600-h/image2.png)  

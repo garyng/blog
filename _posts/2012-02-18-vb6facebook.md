@@ -25,7 +25,9 @@ tags: ['Facebook Chat Triks','VB6','原创']
  1、将英文字母转换成 Facebook Chat 特有
 的图片代码（目前只支援**英文大写字母**）  
  2、自动将转换后的代码 Copy 到 Clipbord  
-  
+
+<!-- More -->
+ 
  介绍：  
  -主界面  
 [![](http://1.bp.blogspot.com/-ZovaCSXpuoM/Tz93OT9A7NI/AAAAAAAABME/tgmf0kj_j3Y/s1600/2012-02-18+17-59-21.png)](http://1.bp.blogspot.com/-ZovaCSXpuoM/Tz93OT9A7NI/AAAAAAAABME/tgmf0kj_j3Y/s1600/2012-02-18+17-59-21.png)

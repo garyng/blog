@@ -13,7 +13,9 @@ tags: ['Notepad++','原创','教程']
 
 如果你不知道Notepad++，或者是没有听过呢..那我告诉你：Notepad++是一个非常非常非常非常棒的Text
 Editor，比一些语言的IDE还好很多，而且支持各种各样的语言，还有语法高亮、多个Theme等等，总之，如果你是写代码的，你不能不试试看！  
-  
+
+<!-- More --> 
+
  首先呢，先下载NppExec这个插件——  
  1、打开Notepad++，然后点击Plugin \> Plugin Manager \> Show Plugin
 Manager  

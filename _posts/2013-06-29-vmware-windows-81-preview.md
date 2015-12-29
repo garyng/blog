@@ -19,7 +19,9 @@ Menu啦、增加了Metro Start Screen 啦等等等等。。。
  2、Windows Store 直接下载，自动化升级。  
  但是为了保险起见，我们还是一如往常的使用虚拟机试玩Windows 8.1
 Preview（一下简称Windows 8.1 Pre）！  
-  
+
+<!-- More -->
+
  【工具】  
  1、俗语说，“工欲善其事，必先利其器”，欲玩Win 8.1
 Pre，需装虚拟机。（怎么搞起语文来了？），这里笔者选者了VMWare

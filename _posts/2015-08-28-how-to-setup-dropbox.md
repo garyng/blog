@@ -20,7 +20,7 @@ Dropbox on iTunes (iOS) : [https://www.dropbox.com/](https://itunes.apple.com/us
 Dropbox on Google Play (Android) : [https://www.dropbox.com/](https://play.google.com/store/apps/details?id=com.dropbox.android)
 
 <hr/>
-
+<!-- More -->  
 # Setting Up Dropbox
 
 > This step is required for those who **does not** have a Dropbox account

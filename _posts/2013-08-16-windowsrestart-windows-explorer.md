@@ -25,7 +25,7 @@ Del容易按多了），点击File \> New Task
   
 
 [![image](http://lh3.ggpht.com/-Vp5P6443dnI/Ug2w1wzylcI/AAAAAAAAD9M/q0VtR8iG64s/image_thumb%25255B1%25255D.png?imgmax=800 "image")](http://lh5.ggpht.com/-VvakAcpRKYU/Ug2w1dbin2I/AAAAAAAAD9E/Xl5Dom5YoMI/s1600-h/image%25255B5%25255D.png)  
-  
+<!-- More -->  
   
  如果你的Windows Explorer已经crash了，连Start menu
 都开不了，但是你还能呼叫你的救命武器——Windows Task Manager  

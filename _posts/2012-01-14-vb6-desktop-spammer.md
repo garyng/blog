@@ -13,7 +13,7 @@ tags: ['Desktop Spammer','VB6','原创','整人类程序']
  **主要功能：**  
  **1、Spam 桌面**  
  **2、能更改文字**  
-  
+<!-- More -->
  Desktop Spammer嘛～  
  怎样说呢？  
  来点截图～  

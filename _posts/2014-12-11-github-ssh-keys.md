@@ -29,7 +29,7 @@ SublimeGit 是一个合成Sublime 和 Git的Sublime Text Plugin
 **请选择Windows Installer**
 
 <hr/>
-
+<!-- More -->  
 ## SSH Keys
 
 1. 打开Git Bash，输入：

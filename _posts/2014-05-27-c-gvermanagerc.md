@@ -9,7 +9,7 @@ gVerManager 一个非常简单，用来AssemblyInfo.cs 之中的[assembly:
 AssemblyVersion(“XX”)]项  
  开源版本，源代码：<https://github.com/garyng/gVerManager>  
  \*需要.net 3.5  
-
+<!-- More -->  
 # 【使用教程】
 
 1、到我的github上下载整个repo  

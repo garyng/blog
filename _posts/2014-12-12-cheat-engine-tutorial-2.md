@@ -25,6 +25,7 @@ description: 'Cheat Engine Tutorial 超级浅白的第五关闯关教程 + ASM �
 > 
 > Note: When you're freezing the address with a high enough speed it may happen that next becomes visible anyhow
 
+<!-- More -->  
 主界面：
 
 [![image](https://lh6.googleusercontent.com/-CRzFHs9surc/VI2HFr5yTEI/AAAAAAAAHo8/5OPDeokIfuM/s800/14-12-2014_191702.png "image")](https://lh6.googleusercontent.com/-CRzFHs9surc/VI2HFr5yTEI/AAAAAAAAHo8/5OPDeokIfuM/s1600/14-12-2014_191702.png)

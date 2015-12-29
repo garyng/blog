@@ -14,7 +14,7 @@ tags: ['C#','入门','原创','教程','新手']
 [![image](http://lh6.ggpht.com/-cdbCZgNaZcU/Uo72BjH51sI/AAAAAAAAGPo/9sR8_Nb-tIc/image_thumb%25255B1%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-0rXShI8UPbI/Uo72A2z68QI/AAAAAAAAGPg/Ehr-5gRfDPY/s1600-h/image%25255B5%25255D.png)  
   
  VS 罢工了！  
-
+<!-- More -->  
 [![image](http://lh6.ggpht.com/-La06guqOpC4/Uo72DFC7lRI/AAAAAAAAGP0/TA533iz6PVM/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-oZF5S4lAHhc/Uo72CRDbx1I/AAAAAAAAGPw/RFj3-pbWzEc/s1600-h/image%25255B8%25255D.png)  
  为什么？  
  因为  

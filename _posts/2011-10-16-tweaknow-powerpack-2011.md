@@ -27,7 +27,7 @@ PowerPack 2011，就让它来帮助你解决这个问题吧！
                        [TweakNow WinSecret
 2011](http://tweaknow.com/download/WinSecret351.exe)  
   
-  
+<!-- More -->
   
  今天介绍这套免费的TweakNow PowerPack
 2011可是个功能相当完整的系统和各种隐藏功能的设定工具，可称它为“系统超人”。  

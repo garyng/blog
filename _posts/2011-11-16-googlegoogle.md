@@ -12,7 +12,8 @@ tags: ['Google','google triks','Google特效','Google的小花样','原创']
  注：某些特效可能在一些浏览器上没作用！  
  笔者的Google Chrome全都测试通过～  
   
-  
+<!-- More -->
+ 
  1、还是那大名鼎鼎的
  "[Do A Barrel Roll]({% post_url 2011-11-06-google %})（点击链接直接带搜索页面，下同～）"  
   

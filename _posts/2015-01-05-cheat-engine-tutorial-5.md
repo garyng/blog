@@ -16,7 +16,7 @@ image: 'https://lh6.googleusercontent.com/-RnFCie_5q5U/VKqGzSAW1sI/AAAAAAAAH5g/E
 教程 #4：[[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #4]({% post_url 2015-01-05-cheat-engine-tutorial-4 %})
 
 表示写到这里，笔者我都要吐血了...
-
+<!-- More -->  
 <hr/>
 
 > Step 8: Multilevel pointers: **(PW=525927)**

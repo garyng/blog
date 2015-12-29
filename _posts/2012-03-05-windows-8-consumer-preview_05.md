@@ -24,7 +24,7 @@ Preview终于释出啦！]({% post_url 2012-03-01-windows-8-consumer-preview %})
 >  只能说：好事多磨啊！
 
 好啦好啦，转入正题！  
-  
+<!-- More -->  
  这次笔者选用 VMware Workstation 来安装Windows 8
 CP，原因是笔者花了几个小时在VirtualBox上安装Windows 8 CP
 没一次能成功，读者们可以自己试用VirtualBox来安装Windows 8

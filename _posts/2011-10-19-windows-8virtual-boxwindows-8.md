@@ -14,8 +14,7 @@ Preview官方网站：[dev.windows.com](http://dev.windows.com/)
  下载地址：[点我下载Windows 8 Developer Preview English, 32-bit
 (x86)](http://wdp.dlws.microsoft.com/WDPDL/9B8DFDFF736C5B1DBF956B89D8A9D4FD925DACD2/WindowsDeveloperPreview-32bit-English.iso)  
   
-  
-  
+ 
   
  丫丫～等等～笔者就是因为以下的问题困扰了很久啊！所以请读者们注意：  
  在开始安装Windows 8之前，读者必须拥有一个具有Hardware Virtualization
@@ -34,6 +33,8 @@ virtualization
  其他结果看这里：  
 
 <http://www.microsoft.com/windows/virtual-pc/support/configure-bios.aspx>  
+  
+<!-- More -->
   
  1、安装最新版本的Virtual Box（至19-10-2011最新版本是4.1.4）  
  官方网站：<https://www.virtualbox.org/wiki/Downloads>  

@@ -23,6 +23,8 @@ tags: ['Ag','VB6','Youtube Downloader','下载youtube影片','原创']
 > Flashget + YouTube Video Grabber = 下载YouTube 视频的利器  
 >  ————Ray Mai，资深程序员
 
+<!-- More -->
+
 **【AG Youtube Video Grabber 功能 +更新】**  
  **→更新**  
   

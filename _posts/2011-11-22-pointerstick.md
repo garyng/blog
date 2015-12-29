@@ -10,7 +10,7 @@ tags: ['滑鼠指标【PointerStick】','虚拟简报指示棒','转载','软件
   
  官方网站： <http://www.softwareok.com/?seite=Freeware/PointerStick>  
   
-  
+<!-- More --> 
 
 这软体不需要安装，解压缩后就可以使用，执行就会立即出现那支简报指示棒，主要设定的项目如下：
 

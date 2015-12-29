@@ -25,7 +25,7 @@ Id]({% post_url 2013-10-12-bloggerc-blogger-api-v3-5-blog-id %})
  [[教程][Blogger][C\#] Blogger API v3
 教程\#8——更改帖子标题]({% post_url 2013-10-12-bloggerc-blogger-api-v3-8 %})
  
-  
+<!-- More -->    
  至于OAuth 是啥，这里不做详细介绍  
  就是类似这样的东东：  
 

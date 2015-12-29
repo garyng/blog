@@ -14,7 +14,7 @@ tags: ['CMD','Copy','Paste','原创','教程']
  然后点击Properties  
 
 [![image](http://lh5.ggpht.com/-F-MkOGE3wnE/UleUimw_CcI/AAAAAAAAFFU/13oqNjd06fA/image_thumb%25255B1%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-libz8hX7_zg/UleUiJnEI7I/AAAAAAAAFFM/aFHoff3x5oE/s1600-h/image%25255B5%25255D.png)  
-  
+<!-- More -->  
  2、勾上QuickEdit Mode  
  点击OK  
 

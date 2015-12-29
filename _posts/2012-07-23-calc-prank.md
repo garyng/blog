@@ -33,7 +33,7 @@ tags: ['C','Prank','原创']
 
   
  hwnd就是控件的句柄啦！  
-  
+
  在Code::Blocks
 内写DLL时发现一个问题，但是还是被解决了——那就是DLL\_PROCESS\_ATTACH等事件竟然没被激活  
   
@@ -41,6 +41,7 @@ tags: ['C','Prank','原创']
   
  真是的，废话说太多了啊，跑题了。。  
   
+<!-- More -->
 
 **注意：此DLL在32bit的环境下编译，与64bit的机器不兼容！还有此DLL对Windows
 XP 下的计算器无效**（怀疑Windows XP的Calculator

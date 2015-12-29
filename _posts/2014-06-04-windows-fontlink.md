@@ -13,7 +13,7 @@ Live Writer 内也是……）
  Google了很久却无果  
  突然想到FontLink 便着手试试  
  没想到成功了 xD  
-
+<!-- More -->  
 # 【步骤】
 
 1、打开regedit  

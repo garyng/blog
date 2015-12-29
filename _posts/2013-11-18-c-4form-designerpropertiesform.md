@@ -25,7 +25,7 @@ Designer！它的功能就是给你添加、删除控件，编辑“可视化”
 
 [![image](http://lh3.ggpht.com/-Z98A9uEkvq8/UhnWvoEj2oI/AAAAAAAAEDw/uprvizgAJ_w/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh3.ggpht.com/-vDDAEVn5xZE/UhnWvBvlmII/AAAAAAAAEDo/7dGPB4zlFmo/s1600-h/image%25255B8%25255D.png)  
   
-
+<!-- More -->  
 # 【更改Form大小】
 
 如果要更改Form大小，拖着Form框边的小正方形：

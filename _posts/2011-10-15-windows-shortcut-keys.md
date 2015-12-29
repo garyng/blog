@@ -13,7 +13,7 @@ tags: ['ALT','CTRL','Shift','Shortcut Keys','Windows Logo','教程','转载']
  \* CTRL+Z (Undo)  
  \* DELETE (Delete)  
   
-  
+<!-- More -->
   
  \* SHIFT+DELETE (Delete the selected item permanently without placing
 the item in the Recycle Bin)  

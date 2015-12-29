@@ -20,7 +20,9 @@ Views(动态视图)咋搞都装不上，过后在StackOverflow看到了一片文
 （以前不能修改，现在能了）  
 
 [![image](http://lh6.ggpht.com/-9stKwoauYzw/UgJWwpm1KBI/AAAAAAAADqQ/lRZ-Ng7GfN0/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh6.ggpht.com/-2mWMLtbl5IE/UgJWv1NAzGI/AAAAAAAADqI/0hrJaBh50P4/s1600-h/image%25255B4%25255D.png)  
-  
+
+<!-- More -->
+
  然后在<head\> 之后的空白部分加入以下代码：  
 
 {% highlight js %}

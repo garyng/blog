@@ -20,6 +20,7 @@ web-plugin ，然后你能管理、维护，就像操作普通git repo一样
 
 > 注：本文章需要先了解Git
 
+<!-- More -->  
 # 【使用Git Subtree】
 
 很简单  

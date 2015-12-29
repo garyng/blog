@@ -5,7 +5,6 @@ author: 'Gary Ng'
 tags: ['C#','入门','原创','教程','新手']
 ---
 
-# 
 
 # 【Solution Explorer里面的东西都是啥？】
 
@@ -19,7 +18,7 @@ tags: ['C#','入门','原创','教程','新手']
 
 [![image](http://lh5.ggpht.com/-yrGpLR7SH_k/UgsyAL55ElI/AAAAAAAAD1s/2URTNDwu6MY/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh4.ggpht.com/-kxitDU9ntTQ/Ugsx_s5yihI/AAAAAAAAD1k/4LYfKX6NSZ4/s1600-h/image%25255B8%25255D.png)
 
-  
+<!-- More -->    
 
 2、References
 

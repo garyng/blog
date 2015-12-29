@@ -25,6 +25,8 @@ Preview]({% post_url 2012-03-05-windows-8-consumer-preview_05 %})
 > GB)                    Sha 1 hash —
 > 0x8BED436F0959E7120A44BF7C29FF0AA962BDEFC9  
 >  Product Key:   TK8TP-9JN6P-7X7WW-RFFTV-B7QPF
+>  
+<!-- More -->
 
 2、当然还要看看Windows 8 RP的系统要求啦！  
 

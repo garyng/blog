@@ -35,7 +35,7 @@ A、BackTrack 5 r 3 的ISO映象档
  B、UNetBootin  
  下载地址：<http://unetbootin.sourceforge.net/>  
   
-
+<!-- More -->
 ## 【开始将BT5装进闪盘】
 
 **注：闪盘大小最好8GB或以上**  

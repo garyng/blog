@@ -46,6 +46,7 @@ Windows 8 在2012年10月26日正式上市啦！这表示我们可以买到已�
 >
 > 你可以运行[升级助手](http://windows.microsoft.com/zh-CN/windows-8/upgrade-to-windows-8)以检查你的电脑是否满足这些要求。
 
+<!-- More -->
    
  笔者拖到现在才下载Windows 8（正式版，下同），其实是因为Windows 8
 没有下载速度比较快的链接，只有ed2k资源的，下载速度相对的比较不稳定。  

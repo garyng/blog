@@ -19,7 +19,7 @@ Views）过后，笔者鉴于他的简洁度而使用了动态视图的Sidebar�
 直到最近，Blogger
 才逐一加入并完善了这些功能，现在的动态视图也可以加入gadget了！
 
-  
+<!-- More --> 
 
 前几天，笔者找到了这个部落格——[Southern
 Speakers](http://www.southernspeakers.net/)，大多数的部落格教程都是为旧版的blog写的（即非动态视图的部落格），然而[Southern

@@ -25,6 +25,8 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 > - Board
 > - 和其他几个struct
 
+<!-- More -->
+
 ## `Game` 类
 
 在`程序的base address + .data 段的virtual address + 0x88B4` 处储存的是一个指针，这个指针指向扫雷的全局`Game`类（或者直接是`base address + 0x868B4`）
@@ -32,6 +34,7 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 就是这样（Cheat Engine 的 base address 就直接是minesweeper.exe）：
 
 [![image](https://lh3.googleusercontent.com/-_yL1gubXDMc/VoGGzw5cpJI/AAAAAAAAIZw/R3DLfAjBxlM/s800/29-12-2015_015451.png "image")](https://lh3.googleusercontent.com/-_yL1gubXDMc/VoGGzw5cpJI/AAAAAAAAIZw/R3DLfAjBxlM/s1600/29-12-2015_015451.png)
+
 
 而这个`Game`的结构如下（摘自[关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)）：
 

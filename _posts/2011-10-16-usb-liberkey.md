@@ -13,7 +13,7 @@ Drive中的绿色软件，官方网站提供海量的开源软件让用户下载
  Liber
 Key提供四个版本下载，即Platform、Basic、Standard、Ultimate。其中Platform版本内不含软件，让用户自行加入软件，而Ultimate版本含有大部分的软件。  
   
-  
+<!-- More --> 
   
  官方网站：[www.liberkey.com](http://www.liberkey.com/)  
   

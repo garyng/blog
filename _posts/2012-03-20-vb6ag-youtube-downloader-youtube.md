@@ -52,8 +52,10 @@ High、Optimal、Medium和Low
 Mode“，功能是实时显示视频转换功能，运用多线程技术以降低程序不响应的状况  
  - 视频转换器能开启转换后的视频所在目录  
  - 下载器中的进度条有个小彩蛋～  
-  
- **【程序下载地址】**  
+
+<!-- More -->
+ 
+**【程序下载地址】**  
 
 [![arrow, box, download, green, wooden
 icon](http://cdn1.iconfinder.com/data/icons/CrystalClear/128x128/apps/ark2.png)](http://dl.dropbox.com/u/43619472/%E6%89%B9%E5%A4%84%E7%90%86/VB6/Youtube%20Downloader/AG%20Youtube%20Downloader%20-%20By%20GaryNg.zip "AG Youtube Downloader")[点击以下载](http://dl.dropbox.com/u/43619472/%E6%89%B9%E5%A4%84%E7%90%86/VB6/Youtube%20Downloader/AG%20Youtube%20Downloader%20-%20By%20GaryNg.zip)

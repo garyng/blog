@@ -24,6 +24,8 @@ tags: ['WinToFlash','教程','用USB随身碟重灌Windows','转载']
 </tbody>
 </table>
 
+<!-- More -->
+
 1.  
  WinToFlash
 软体不需要安装，执行后会出现同意条款，按下﹝同意﹞往下进行。  

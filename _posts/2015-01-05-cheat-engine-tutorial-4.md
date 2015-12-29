@@ -22,7 +22,7 @@ image: 'https://lh6.googleusercontent.com/-1QZm1GUdO94/VKoewRSiDZI/AAAAAAAAH3U/k
 [![image](https://lh6.googleusercontent.com/-yWqSoboR8PA/VKoegiY9dAI/AAAAAAAAH3M/kMCANSptIX4/s800/05-01-2015_131719.png "image")](https://lh6.googleusercontent.com/-yWqSoboR8PA/VKoegiY9dAI/AAAAAAAAH3M/kMCANSptIX4/s1600/05-01-2015_131719.png)
 
 <hr/>
-
+<!-- More -->  
 ## Step 7
 
 > Step 7: Code Injection: **(PW=013370)**

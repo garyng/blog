@@ -14,7 +14,7 @@ description: 'Cheat Engine Tutorial 第一关至第四关闯关攻略！'
 
 你估计应该可以跳过这篇文章了.. xD
 
-
+<!-- More -->  
 ## Cheat Engine 是啥？
 
 如果你真的真的不知道，或者你已经知道了，也就读读看吧

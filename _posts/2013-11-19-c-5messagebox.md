@@ -18,7 +18,7 @@ tags: ['C#','入门','原创','教程','新手']
 
 [![image](http://lh4.ggpht.com/-00cpJhcY858/UhnmJtaIEPI/AAAAAAAAEG4/WdMXAl3VKqs/image_thumb1.png?imgmax=800 "image")](http://lh5.ggpht.com/-1u-rjvx1yDk/UhnmJG6HNNI/AAAAAAAAEGw/BjEPufUaBNg/s1600-h/image5.png)  
   
-
+<!-- More -->  
 # 【基本设置】
 
 先不谈代码，往form添加一个新的button，然后更改text 为 "Click Me!"

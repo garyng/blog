@@ -40,6 +40,7 @@ Consumer Preview)终于发布了！
 > E29A2072745A48C14A1C2E5A61F5230841BEDB45  
 > **序列号:   DNJXJ-7XBW8-2378T-X22TX-BKG7J**
 
+<!-- More -->
 **系统需求**  
  Windows 8 Consumer Preview 能够在支持 Windows7 的相同硬件上平稳运行！  
 

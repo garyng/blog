@@ -21,7 +21,6 @@ Ass的游戏](http://erkie.github.com/)，代码如下：（用了一个js文件
 
 很类似的
 
-  
 
 > javascript:var s=document.createElement(‘script’);
 > s.type=’text/javascript’;document.body.appendChild(s);

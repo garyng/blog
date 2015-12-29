@@ -17,7 +17,9 @@ Tor 有专门给Firefox
  3、运行目录下的Start Tor Browser.exe  
 
 [![image](http://lh4.ggpht.com/-e7hqSt8kp-g/UgzHoMCzCiI/AAAAAAAAD50/uf1r3gYQLp0/image_thumb%25255B2%25255D.png?imgmax=800 "image")](http://lh5.ggpht.com/-JSthHXh2AIc/UgzHnZlnoiI/AAAAAAAAD5s/BMx-gRiwk-c/s1600-h/image%25255B8%25255D.png)  
-  
+
+<!-- More --> 
+
  4、等待完毕  
 
 [![1](http://lh6.ggpht.com/-YjNpdKrGZUc/UgzHpcf0IwI/AAAAAAAAD6E/n10cVve_LmA/1_thumb.png?imgmax=800 "1")](http://lh5.ggpht.com/-oe9t6MBNfWk/UgzHovKmQRI/AAAAAAAAD58/lb9bWIy9x28/s1600-h/1%25255B2%25255D.png)  

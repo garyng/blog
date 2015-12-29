@@ -11,7 +11,7 @@ tags: ['Virtual Box教程','原创','教程','虚拟机','软件']
 
 下载地址：[点我下载](http://download.virtualbox.org/virtualbox/4.1.4/VirtualBox-4.1.4-74291-Win.exe)  
   
-  
+<!-- More -->
   
  Windows 8预览版出咯～  
  下载了.iso文件的，真的要烧成光碟，然后在找台电脑来安装吗？  

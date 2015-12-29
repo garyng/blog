@@ -21,7 +21,9 @@ tags: ['工具','网站']
  The Wayback
 Machine，网页时光机。这个网站从1996年开始到最近的几个月保存备份了全世界月150亿个从不同网站、站点的网页。只要把欲查看的网页输入，The
 Wayback Machine 就会显示一个时间线，让用户选择特定时间的网页备份。  
-  
+
+<!-- More -->
+
  我们拿微软的官方网站开开刀吧：  
 
 去到[**http://web.archive.org**](http://web.archive.org/)，输入[http://microsoft.com](http://microsoft.com/)，然后点击“Take

@@ -7,8 +7,7 @@ tags: ['Windows Live Writer Portable','Windows Live Writer 便携版','Windows L
 
 之前笔者介绍了Windows Live
 Writer，它确实是一款很棒的部落格文章编辑软体。
-所以今天就来跟大家介绍一下Windows Live
-Writer的进阶应用：免安装版制作。  
+所以今天就来跟大家介绍一下Windows Live Writer的进阶应用：免安装版制作。  
 
 -   **Windows Live Writer 2011（只能在Vista、Windows
     7以上安裝）：**[**http://explore.live.com/windows-live-writer**](http://explore.live.com/windows-live-writer)
@@ -16,6 +15,8 @@ Writer的进阶应用：免安装版制作。
     Writer用于XP的版本：**[**http://explore.live.com/windows-live-writer-xp**](http://explore.live.com/windows-live-writer-xp)
 -   **Windows Live Writer
     portable：<http://www.techlifeweb.com/download/WLWPortable2.zip>**
+
+<!-- More -->
 
 将Windows Live
 Writer打造成免安装的方法非常简单，网路上已经有高手放出了免安装版的制作程式，只要几个步骤就可以将你目前系统内的Windows

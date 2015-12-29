@@ -24,7 +24,9 @@ Bit）：
 [![image](http://lh6.ggpht.com/-9lnLfX5OLJg/UgM8P3QvW-I/AAAAAAAADrU/2rxifxdszco/image_thumb.png?imgmax=800 "image")](http://lh4.ggpht.com/-uW5Fbdmzxw8/UgM8PIecR7I/AAAAAAAADrM/7d2-J-oylzA/s1600-h/image%25255B2%25255D.png)  
   
  等着下载完呗..  
-  
+ 
+<!-- More -->
+
  2、虚拟光驱  
  用来挂载Office 2010 ISO 的，这里推荐 软媒魔方 的 虚拟光驱  
 

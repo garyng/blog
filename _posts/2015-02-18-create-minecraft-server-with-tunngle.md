@@ -41,7 +41,7 @@ description: '图文教程详解Tunngle(Hamachi代替品)来创建Minecraft Serv
 下载地址：[http://downloads.tunngle.us/software/Tunngle_Setup_v5.1.exe](http://downloads.tunngle.us/software/Tunngle_Setup_v5.1.exe)
 
 [![image](https://lh3.googleusercontent.com/-fAFySFzgdLg/VORhuQsF9HI/AAAAAAAAICI/m4-qCMyN-r8/s800/18-02-2015_152800.png "image")](https://lh3.googleusercontent.com/-fAFySFzgdLg/VORhuQsF9HI/AAAAAAAAICI/m4-qCMyN-r8/s1600/18-02-2015_152800.png)
-
+<!-- More -->  
 ## 准备步骤
 ### Tunngle 帐号
 1、 先到Tunngle网站注册一个新的账户：[http://www.tunngle.net/en/user/register](http://www.tunngle.net/en/user/register)

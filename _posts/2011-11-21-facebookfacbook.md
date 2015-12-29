@@ -21,7 +21,7 @@ tags: ['原创','怎样在Facbook以蓝字留言？','教程']
 B、在URL栏上会看到类似的链接：‎http://www.facebook.com/profile.php?id=一些数字  
    C、在id=后尾的数字就是所谓的ID号啦！  
   
-  
+<!-- More -->  
   
 可是有些人的并不是ID号，而是像笔者那样的：http://www.facebook.com/ZhongBii  
    甭担心！  
@@ -31,7 +31,7 @@ B、在URL栏上会看到类似的链接：‎http://www.facebook.com/profile.ph
 例如笔者的就是：[graph.facebook.com/Zhongbii](http://graph.facebook.com/Zhongbii)  
   
   
-   B、会刊到类似的信息：  
+   B、会看到类似的信息：  
   
 
 ```

@@ -27,7 +27,7 @@ Id]({% post_url 2013-10-12-bloggerc-blogger-api-v3-5-blog-id %})
  
   
  我的环境是：Visual Studio 2012 Update 3 @ Windows 7  
-
+<!-- More -->  
 # 【工具】
 
 1、Visual Studio 2012  

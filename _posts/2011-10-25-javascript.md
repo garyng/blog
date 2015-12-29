@@ -14,15 +14,6 @@ tags: ['原创','教程']
 
 # [崩壞の天空の城](http://antifblike.com/)
 
-  
-
-  
-
-  
-
-  
-
-  
 
   
 
@@ -32,7 +23,7 @@ tags: ['原创','教程']
 
 > “如果发现书签失效或是新的滥赞网站，请通报至damagedlaputa@gmail.com，或至意见留言区留下您的回报和回馈！”
 
-  
+<!-- More -->
 
 说说使用方法（在Google Chrome下）：
 

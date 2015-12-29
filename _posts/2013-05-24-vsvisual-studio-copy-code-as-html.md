@@ -18,7 +18,8 @@ Tools
  就可以用Copy Code As Html 了：  
 
 <http://visualstudiogallery.msdn.microsoft.com/d0d33361-18e2-46c0-8ff2-4adea1e34fef/>  
-  
+
+<!-- More -->
   
  安装后，可以直接开启VS2010的project 文件，然后选者一段代码，左键\>Copy
 就好了！  

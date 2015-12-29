@@ -25,9 +25,9 @@ Id]({% post_url 2013-10-12-bloggerc-blogger-api-v3-5-blog-id %})
  [[教程][Blogger][C\#] Blogger API v3
 教程\#8——更改帖子标题]({% post_url 2013-10-12-bloggerc-blogger-api-v3-8 %})
 
-  
- 新版本创建的App 获得的Client ID 和 Client Secret 都似乎不能用..  
 
+ 新版本创建的App 获得的Client ID 和 Client Secret 都似乎不能用..  
+<!-- More -->  
 # 【Client ID 和 Client Secret】
 
 1、先登录：<https://cloud.google.com/console#/project>  

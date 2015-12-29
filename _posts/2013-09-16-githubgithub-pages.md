@@ -16,7 +16,7 @@ Pages..
 
 当然先得有一个GitHub的账户，没有的话，来这边注册——<https://github.com/>  
   
-
+<!-- More -->
 # 【步骤】
 
 1、注册好GitHub 后，你默认会看到这个页面：  
