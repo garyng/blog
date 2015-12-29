@@ -28,7 +28,12 @@ title: Home
       </div>
       {% endif %}
     </small>
-    {{ post.content }}
+    {% if post.content contains site.excerpt_separator %}
+      {{ post.excerpt }}
+      <a href="{{ post.url }}" class="post-more">Click to continue » </a>
+    {% else %}
+      {{ post.content }}
+    {% endif %}
   </div>
   {% endfor %}
 </div>
