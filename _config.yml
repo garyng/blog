@@ -18,7 +18,7 @@ author:
   url:            ''
   email:          'garyng.zhongbo@gmail.com'
 
-paginate:         5
+paginate:         20
 
 markdown_ext:     markdown,mdown,mkdown,mkdn,mkd,md
 
