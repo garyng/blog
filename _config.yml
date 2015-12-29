@@ -24,3 +24,6 @@ markdown_ext:     markdown,mdown,mkdown,mkdn,mkd,md
 
 gems:
   - jekyll-sitemap
+
+# Style
+excerpt_separator: <!-- More -->
