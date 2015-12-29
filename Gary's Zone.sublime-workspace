@@ -1,0 +1,1133 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"el",
+				"elsif	elsif"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "---\nlayout: post\ntitle: '[C#][原创] Minesweeper Auto Solver （Windows 7 版本）'\ntags: ['C#','原创']\nimage: ''\ndescription: 'C# 实现Windows 7 自动扫雷'\nauthor: 'Gary Ng'\n---\n\n很久很久很久很久以前，我写了个[[原创][开源][C#] Minesweeper 外挂（Windows XP）]({% post_url 2013-01-06-cminesweeper-windows-xp %})\n\n很久很久很久很久之后，我就写了这篇（PS:看回去之前的代码完全惨不忍睹啊）\n\n#原理解析\n\n因为自己对逆向分析没有很了解，所以这个自动扫雷是参考别人逆向的成果和代码的：\n\n> 参考文献 ：\n> - [关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)\n> - [Win7AutoMineSweeper.cpp (Github)](https://github.com/xfgryujk/Win7AutoMineSweeper/blob/master/Win7AutoMineSweeper.cpp)\n\nWindows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是C++写的）：\n> - Game\n> - Board\n> - 和其他几个struct\n\n## `Game` 类\n\n在`程序的base address + .data 段的virtual address + 0x88B4` 处储存的是一个指针，这个指针指向扫雷的全局`Game`类（或者直接是`base address + 0x868B4`）\n\n就是这样（Cheat Engine 的 base address 就直接是minesweeper.exe）：\n\n[![image](https://lh3.googleusercontent.com/-_yL1gubXDMc/VoGGzw5cpJI/AAAAAAAAIZw/R3DLfAjBxlM/s800/29-12-2015_015451.png \"image\")](https://lh3.googleusercontent.com/-_yL1gubXDMc/VoGGzw5cpJI/AAAAAAAAIZw/R3DLfAjBxlM/s1600/29-12-2015_015451.png)\n\n而这个`Game`的结构如下（摘自[关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)）：\n\n```\n+8		DWORD\n+12		UIBoardCanvas *\n+16		Board* \n+24		bool\n+25		bool\n+26		bool\n+27		bool\n+28		bool\n+29		bool\n+30		bool\n+32		int\n+36		int\n+40		int state\n+48		DWORD\n+52		DWORD\n+56		Array<UITile *>*\n+72		Array<UITile *>*\n+88		Array<UITile *>*\n+104	Array<UITile *>*\n+120	Array<UITile *>*\n+136	Array<UITile *>*\n+152	CSQMTimeRecorder*\n+188	DWORD\n+192	bool\n+193	bool\n+194	bool\n+195	bool\n+196	bool\n+197	bool\n\n+200	Difficulty	\n+204	Width 		\n+208	Height		\n+212	MineCount	\n+216	bool\n+217	bool\n+218	bool IsTimerEnabled\n```\n\n所以`Game`类的`+16`（偏移`0x10`，如果你比较喜欢HEX的话）处是一个指向`Board`类的指针\n\n## `Board`\n\n`Board`的结构如下：\n\n```\n+4		MineCount\n+8		Height\n+12		Width\n+24		\n+28		float \n+32		Difficulty	\n+36		HitX\n+40		HitY\n+44\n+68		MineArrayPointer\n```\n\n找到了`Board`大概就可以拿到很多信息了\n比如说，`MineCount`：\n\n[![image](https://lh3.googleusercontent.com/-w6XygySV6og/VoGG0Q3bwOI/AAAAAAAAIZ8/xQ_zK3AhuTM/s800/29-12-2015_020410.png \"image\")](https://lh3.googleusercontent.com/-w6XygySV6og/VoGG0Q3bwOI/AAAAAAAAIZ8/xQ_zK3AhuTM/s1600/29-12-2015_020410.png)\n\n或者`Height`：\n\n[![image](https://lh3.googleusercontent.com/-XipewSluhng/VoGG3TflPNI/AAAAAAAAIaE/O3jIpFAjvt0/s800/29-12-2015_020448.png \"image\")](https://lh3.googleusercontent.com/-XipewSluhng/VoGG3TflPNI/AAAAAAAAIaE/O3jIpFAjvt0/s1600/29-12-2015_020448.png)\n\n或者`Width`(十进制12=十六进制C)：\n\n[![image](https://lh3.googleusercontent.com/-9Scr0Y9QuTY/VoGG4PQwroI/AAAAAAAAIaM/HkEuQsCQBBo/s800/29-12-2015_020612.png \"image\")](https://lh3.googleusercontent.com/-9Scr0Y9QuTY/VoGG4PQwroI/AAAAAAAAIaM/HkEuQsCQBBo/s1600/29-12-2015_020612.png)\n\n还有`Difficulty`(Beginner, Intermediate, Advanced 分别对应1, 2, 3)：\n\n[![image](https://lh3.googleusercontent.com/-hRVPE9DYp78/VoGG7MQY6QI/AAAAAAAAIaQ/3hFSqyq2yew/s800/29-12-2015_020821.png \"image\")](https://lh3.googleusercontent.com/-hRVPE9DYp78/VoGG7MQY6QI/AAAAAAAAIaQ/3hFSqyq2yew/s1600/29-12-2015_020821.png)\n\n当然偏移`68`（`0x44`）处指向的另一个类，索性就叫做ArrayA吧（代码中我是这样写的xDD）\n\n## `ArrayA`\n\n`ArrayA`的结构是这样的：\n\n```\n+0\n+4\n+8\n+12 ArrayBPointer[]\n```\n\n`+12`处是一个指向类型为ArrayB的指针数组，长度为`Height`\n\n## `ArrayB`\n\n`ArrayB`的结构跟`ArrayA`大同小异：\n\n```\n+0\n+4\n+8\n+12 ByteArrayPointer[]\n```\n\n`+12`处是一个指向一个类型为byte的指针数组，长度为`Width`\n\n而这里就是储存地雷的地方，`0` 是没有雷，`1`是有雷\n\n##所以是要怎么看(x,y)是不是雷？\n\n给定坐标(x,y)，是不是雷就read 这个address（偏移量全部转为Hex了）：\n\n`[[[[[[[minesweeper.exe + 0x868B4]+0x10]+0x44]+0x0C]+X*4]+0x0C]+Y]`\n\n（众表示这是啥？）\n额..就像multi level pointer那样吧\n储存地雷的变量的指针的指针的指针.....的指针...的指针...\n（可以去翻翻我的CE教程来看看xDD）\n\n如果搬到CE中呢，就是这样的（想上手CE看看这里的教程吧：[[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #1]({% post_url 2014-12-09-cheat-engine-tutorial-1 %})）\n\n我们取(1,0)处为例子，很显然那是个雷（为什么我知道？因为Auto Solver 已经帮我截出来了 xDD）：\n\n[![image](https://lh3.googleusercontent.com/-m8W654095hA/VoGG8ACKn5I/AAAAAAAAIaY/J9YmZUOTEEI/s800/29-12-2015_024021.png \"image\")](https://lh3.googleusercontent.com/-m8W654095hA/VoGG8ACKn5I/AAAAAAAAIac/mfcHdbXsIK8/s1600/29-12-2015_024021.png)\n\n所以大概知道怎么判断哪里是雷哪里不是雷了吧？\n\n是不是很简单呢？\n\n只要遍历x和y就行啦！（当然程序内的实现比较复杂一点点）\n\n\n# 主程序\n\n要解扫雷当然是得打开扫雷先嘛~~\n\n然后run solver\n\n然后就tada!\n\n[![image](https://lh3.googleusercontent.com/-rTqqZGVfDGA/VoGHAgwRdAI/AAAAAAAAIas/QXOyDAoRKRY/s800/29-12-2015_024944.png \"image\")](https://lh3.googleusercontent.com/-rTqqZGVfDGA/VoGHAgwRdAI/AAAAAAAAIas/QXOyDAoRKRY/s1600/29-12-2015_024944.png)\n\n[![image](https://lh3.googleusercontent.com/-UZkXLFNWpY4/VoGHEqX5xeI/AAAAAAAAIbE/083kcYYmSlQ/s800/29-12-2015_025200.png \"image\")](https://lh3.googleusercontent.com/-UZkXLFNWpY4/VoGHEqX5xeI/AAAAAAAAIbE/083kcYYmSlQ/s1600/29-12-2015_025200.png)\n\n[![image](https://lh3.googleusercontent.com/-4pFjlpaNz-k/VoGG933m6xI/AAAAAAAAIak/dqJXdOXixV0/s800/29-12-2015_024830.png \"image\")](https://lh3.googleusercontent.com/-4pFjlpaNz-k/VoGG933m6xI/AAAAAAAAIak/dqJXdOXixV0/s1600/29-12-2015_024830.png)\n\n# BUG\n\n不过有时候还是会少点的...\n\n[![image](https://lh3.googleusercontent.com/-xH5r5efw5CQ/VoGHBgJ2GNI/AAAAAAAAIa0/BtiOFjjiVfQ/s800/29-12-2015_025029.png \"image\")](https://lh3.googleusercontent.com/-xH5r5efw5CQ/VoGHBgJ2GNI/AAAAAAAAIa0/BtiOFjjiVfQ/s1600/29-12-2015_025029.png)\n\n或者是点错...\n\n[![image](https://lh3.googleusercontent.com/-VBlwnGjhVek/VoGHDn6jQkI/AAAAAAAAIa8/Fzozx9UhNTk/s800/29-12-2015_025120.png \"image\")](https://lh3.googleusercontent.com/-VBlwnGjhVek/VoGHDn6jQkI/AAAAAAAAIa8/Fzozx9UhNTk/s1600/29-12-2015_025120.png)\n\n\n# 下载地址\n\n## 需要先安装.net 4.0！\n\n还在等什么呢？\n\n赶快下载去跟小伙伴们炫耀啊~ xDD\n\nGithub 地址：[https://github.com/garyng/gMinesweeperSolver7/releases/tag/v1.0](https://github.com/garyng/gMinesweeperSolver7/releases/tag/v1.0)\n\nEXE 下载地址：[https://github.com/garyng/gMinesweeperSolver7/releases/download/v1.0/gMinesweeperSolver7.exe](https://github.com/garyng/gMinesweeperSolver7/releases/download/v1.0/gMinesweeperSolver7.exe)",
+			"file": "_drafts/minesweeper-auto-solver-windows-7.md",
+			"file_size": 7325,
+			"file_write_time": 130958042929139837,
+			"settings":
+			{
+				"buffer_size": 5718,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_drafts/2015-01-05-cheat-engine-tutorial-5.md",
+			"settings":
+			{
+				"buffer_size": 19051,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "_posts/2015-12-29-minesweeper-auto-solver-windows-7.md",
+			"settings":
+			{
+				"buffer_size": 5828,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "# MarkdownEditing\n\nMarkdown plugin for Sublime Text. Provides a decent Markdown color scheme (light and dark) with more __robust__ syntax highlighting and useful Markdown editing features for Sublime Text. 3 flavors are supported: Standard Markdown, __GitHub flavored Markdown__, MultiMarkdown.\n\n![MarkdownEditing][github]\n\n[Dark][github 2] and [yellow][github 3] theme available.\n\n## Overview\n\n* [Features](#features)\n* [Key Bindings](#key-bindings)\n* [GFM Specific Features](#gfm-specific-features)\n* [Commands for Command Palette](#commands-for-command-palette)\n* [Installation](#installation)\n* [Configuration](#configuration)\n* [Tips](#tips)\n* [Similar Plugins](#similar-plugins)\n* [Known Bugs](#known-bugs)\n* [Contributing](#contributing)\n* [Credits](#credits)\n* [Donation](#donation)\n* [License](#license)\n\n## Features\n\n* Asterisks and underscores are autopaired and will wrap selected text\n    - If you start an empty pair and hit backspace, both elements are deleted\n    - If you start an empty pair and hit space, the right element is deleted\n* Backticks are paired\n* At the end of a list item, pressing <kbd>Enter</kbd> will automatically insert the new list item bullet.\n    - Pressing <kbd>Tab</kbd> on the blank list item will indent it and switch the list bullet to another one (Order is `*`, `-`, `+` in a cycle).\n    - Pressing <kbd>Shift</kbd> <kbd>Tab</kbd> on the blank list item will unindent it in the same way as above.\n    - Sequential <kbd>Tab</kbd> s or <kbd>Shift</kbd> <kbd>Tab</kbd> s are supported.\n    - You can disable automatic bullet switching or choose which bullets to be used, in your settings file.\n    - If a list item contains a [GFM task][GFM], pressing <kbd>Enter</kbd> at the end of the line will continue with a new blank task.\n* At the end of a blockquote line, pressing <kbd>Enter</kbd> will automatically extend blockquote.\n* Selecting some text and pressing <kbd>&gt;</kbd> will convert it to blockquote. The first and the last line don't have to be fully selected; partial select works, too.\n* Left bracket pairing is modified to eliminate the selection and leave the cursor at a point where you can insert a `[]` or `()` pair for a link\n* Displays Markdown headers in the Project Symbol List (<kbd>Ctrl</kbd> <kbd>Shift</kbd> <kbd>R</kbd>). They will start with `#`, so you will know they belong to markdown files at a glance. Also they will be on top of the list because of the presedence of `#`.\n* <kbd>~</kbd> wraps selected text with `~~` (strikethrough).\n* Typing `#` when there's a selection will surround it with `#` to make it a headline. Multiple presses add additional hashes, increasing the level of the header. Once you hit 6 hashes, it will reset to 0 on the next press. The `mde.match_header_hashes` will determine if the `#` are mirrored on both sides or just at the beginning of the line.\n* Typing return at the end of a line that begins with hashmarks will insert closing hashmarks on the headline. They're not required for Markdown, it's just aesthetics, and you can change the `mde.match_header_hashes` option in your settings to disable.\n* Setext-style headers can be completed with `Tab`. That is, typing `Tab` on a line containing only `=` or `-` characters will add or remove enough characters to it to match the length of the line above.\n* New documents will be named automatically based on the first header.\n\n## Key Bindings\n\n| OS X | Windows/Linux | Description |\n|------|---------------|-------------|\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>V</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>V</kbd> | Pastes the contents of the clipboard as an inline link on selected text.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>R</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>R</kbd> | Pastes the contents of the clipboard as a reference link.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>K</kbd> | <kbd>Ctrl</kbd><kbd>Win</kbd><kbd>K</kbd> | Inserts a standard inline link.\n| <kbd>⌘</kbd><kbd>⇧</kbd><kbd>K</kbd> | <kbd>Shift</kbd><kbd>Win</kbd><kbd>K</kbd> | Inserts an inline image.\n| <kbd>⌘</kbd><kbd>⌥</kbd><kbd>B</kbd> <kbd>⌘</kbd><kbd>⌥</kbd><kbd>I</kbd> | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>B</kbd> <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>I</kbd> | These are bound to bold and italic. They work both with and without selections. If there is no selection, they will just transform the word under the cursor. These keybindings will unbold/unitalicize selection if it is already bold/italic.\n| <kbd>⌘</kbd><kbd>^</kbd><kbd>1...6</kbd> | <kbd>Ctrl</kbd><kbd>1...6</kbd> | These will add the corresponding number of hashmarks for headlines. Works on blank lines and selected text in tandem with the above headline tools. If you select an entire existing headline, the current hashmarks will be removed and replaced with the header level you requested. This command respects the `mde.match_header_hashes` preference setting.\n| <kbd>⌘</kbd><kbd>⇧</kbd><kbd>6</kbd> | <kbd>Ctrl</kbd><kbd>Shift</kbd><kbd>6</kbd> | Inserts a footnote and jump to its definition. If your cursor is in a definition, it will jump back to the marker.\n| <kbd>⌥</kbd><kbd>⇧</kbd><kbd>F</kbd> | <kbd>Alt</kbd><kbd>Shift</kbd><kbd>F</kbd> | Locates footnote markers without definitions and inserts their markers for the definition.\n| <kbd>⌥</kbd><kbd>⇧</kbd><kbd>G</kbd> | <kbd>Alt</kbd><kbd>Shift</kbd><kbd>G</kbd> | Locates link references without definitions and inserts their labels at the bottom for the definition.\n\n## GFM Specific Features\n\nUnderscores in words doesn't mess with bold or italic style:\n\n![underscore-in-words][github 5]\n\nFenced code blocks gets syntax highlighting inside:\n\n![fenced-code-block][github 6]\n\nKeyboard shortcuts gets highlighted like in GitHub:\n\n![keyboard-shortcut][github 7]\n\nStrikethrough is supported:\n\n![strikethrough][github 8]\n\n## Commands for Command Palette\n\n### Fix Underlined Headers\n\nAdjusts every setext-style header to add or remove `=` or `-` characters as needed to match the lengths of their header text.\n\n### Convert Underlined Headers to ATX\n\nConverts every setext-style header into an ATX style header. If something is selected only the headers in the selections will be converted, otherwise the conversion will be applied to the whole view.\n\n### Add Missing Link Labels\n\nScans document for referenced link usages (`[some link][some_ref]` and `[some link][]`) and checks if they are all defined. If there are undefined link references, command will automatically create their definition snippet at the bottom of the file.\n\n### Markdown Lint\n\nPerforms lint on current Markdown file. See [lint rules](lint_docs/RULES.md). Some of the linting rules are customizable via user settings file.\n\n### Switch List Bullet Type\n\nSwitches the highlighted list between numbered and bulleted style.\n\n## Installation\n\n> __Important Note About Installation__\n> \n> Are you getting this error after installation: _**Error loading syntax file** \"Packages/Markdown/Markdown.tmLanguage\": Unable to open Packages/Markdown/Markdown.tmLanguage_? This is caused by open markdown files at the install time. You have to __manually change their syntax to your newly installed Markdown syntax__. Read the below paragraph for more details on this.\n\n_Note_: Sublime text has a native tiny package for Markdown. However, when MarkdownEditing is enabled, native package causes some conflicts. For this reason, MarkdownEditing will automatically disable it. Since it doesn't bring anything new over MarkdownEditing, this is not a loss. But remember, when you disable MarkdownEditing, you have to reenable the native one manually (if you want).\n\nIf you are using Sublime Text 2, you have to disable the native package _manually_. To do that, add `Markdown` to your `ignored_packages` list in ST user settings:\n\n    \"ignored_packages\": [..., \"Markdown\"],\n\n### Package Control\n\nThe preferred method of installation is via [Sublime Package Control][wbond].\n\n1. [Install Sublime Package Control][wbond 2]\n2. From inside Sublime Text, open Package Control's Command Pallet: <kbd>CTRL</kbd> <kbd>SHIFT</kbd> <kbd>P</kbd> (Windows, Linux) or <kbd>CMD</kbd> <kbd>SHIFT</kbd> <kbd>P</kbd> on Mac.\n3. Type `install package` and hit Return. A list of available packages will be displayed.\n4. Type `MarkdownEditing` and hit Return. The package will be downloaded to the appropriate directory.\n5. Restart Sublime Text to complete installation. Open a Markdown file and this custom theme. The features listed above should now be available.\n\n### Manual Installation\n\n1. Download or clone this repository to a directory `MarkdownEditing` in the Sublime Text Packages directory for your platform:\n    * Mac: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git ~/Library/Application\\ Support/Sublime\\ Text\\ 2/Packages/MarkdownEditing`\n    * Windows: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git %APPDATA%\\Sublime/ Text/ 2/\\MarkdownEditing`\n    * Linux: `git clone https://github.com/SublimeText-Markdown/MarkdownEditing.git ~/.Sublime\\ Text\\ 2/Packages/MarkdownEditing`\n2. Restart Sublime Text to complete installation. Open a Markdown file and this custom theme. The features listed above should now be available.\n\n## Configuration\n\nThe plugin contains 3 different Markdown flavors: Standard Markdown, GitHub flavored Markdown, MultiMarkdown. Default is GitHub flavored Markdown. If you want to set another one as default, open a Markdown file and select your flavor from the menu: `View > Syntax > Open all with current extension as`. You're done.\n\nYou may want to have a look at the default settings files. They are located at:\n\n    Packages/MarkdownEditing/Markdown.sublime-settings         [GitHub flavored Markdown]\n    Packages/MarkdownEditing/Markdown (Standard).sublime-settings\n    Packages/MarkdownEditing/MultiMarkdown.sublime-settings\n\nIf you want to override any of the default settings, you can open the appropriate user settings file using the `Preferences > Package Settings > Markdown Editing` menu. Each flavor has a different settings file.\n\nBold and italic markers are configurable through ST shell variables. You can use `Preferences > Package Settings > Markdown Editing` menu to see the default settings file. In order to override it, copy & paste its content into the user settings file (`Packages/User/Bold and Italic Markers.tmPreferences`) from the menu and make your edits. It is pretty straightforward.\n\nIn order to activate the dark or the yellow theme, put one of these lines to your user settings file of the flavor (`Packages/User/[flavor].sublime-settings`):\n\n    \"color_scheme\": \"Packages/MarkdownEditing/MarkdownEditor-Dark.tmTheme\",\n    \"color_scheme\": \"Packages/MarkdownEditing/MarkdownEditor-Yellow.tmTheme\",\n\nIf you want to go with your already existing theme, you can reenable it with the same method as above. Keep in mind that, that theme may not cover all the parts of the Markdown syntax that this plugin defines.\n\nBy default, when you install the plugin, files with these extensions will be assigned to Markdown syntax: \"md\", \"txt\", \"mdown\", \"markdown\", \"markdn\". If you want to prevent any of these extensions to be opened as Markdown, follow these steps:\n\n1. Click on the language menu at bottom right\n2. Select \"Open all with current extension as\"\n3. Choose your preferred syntax for that extension\n\n## Tips\n\nWe are maintaining a [tips section][tips] in our [Wiki][]. Jump there to learn from others or share your experiences with others.\n\n## Similar Plugins\n\n* [Knockdown][]\n\n     Knockdown offers useful Markdown features and a custom Markdown theme. All of its unique features except its theme are ported to MarkdownEditing and some of them are actually improved further in MarkdownEditing.\n* [Sublime Markdown Extended][]\n* [SmartMarkdown][]\n\n## Known Bugs\n\n* Setext-style headers (`===` and `---`) do not show up in the symbol list. This is due to a Sublime Text limitation (see [#158][]). However, we are able to put a placeholder to indicate the existence of the header. We encourage you to use Atx-style headers (`#`).\n\n* Installing for the first time while having markdown files opened may cause MarkdownEditing to behave unexpectedly on those files. Close and reopen those files to fix it.\n\n## Contributing\n\nSee `CONTRIBUTING.md` file.\n\n## Credits\n\nMarkdownEditing was originally created by [Brett Terpstra][brettterpstra] and has become a community project with the goal of consolidating the best features from the varied collection of Markdown packages for Sublime Text. Current development is headed up by [Ali Ayas][github 9].\n\nRelated blog posts from Brett:\n* http://brettterpstra.com/2012/05/17/markdown-editing-for-sublime-text-2-humble-beginnings/\n* http://brettterpstra.com/2013/11/23/markdownediting-for-sublime-text-updates/\n\nThis plugin contains portions of code from [Knockdown][].\n\nFootnote commands were submitted by [J. Nicholas Geist][github 4] and originated at [geekabouttown][geekabouttown].\n\n## Donation\n\nYou can support [contributors](https://github.com/SublimeText-Markdown/MarkdownEditing/graphs/contributors) of this project individually. Every contributor is welcomed to add his/her line below with any content. Ordering shall be alphabetically by GitHub username.\n\n* [@maliayas](https://github.com/maliayas): <a href=\"https://www.paypal.com/cgi-bin/webscr?cmd=_donations&amp;business=W2NXRPD43YSCU&amp;lc=TR&amp;item_name=open-source&amp;item_number=markdown-editing&amp;currency_code=USD&amp;bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHosted\"><img src=\"https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif\" alt=\"[paypal]\" /></a> ![donation received](http://maliayas.com/business/donation/badge.php?project=markdown_editing)\n\n## License\n\nMarkdownEditing is released under the [MIT License][opensource].\n\n[TableEditor]:                 https://github.com/vkocubinsky/SublimeTableEditor\n[Knockdown]:                   https://github.com/aziz/knockdown/\n[Sublime Markdown Extended]:   https://github.com/jonschlinkert/sublime-markdown-extended\n[SmartMarkdown]:               https://github.com/demon386/SmartMarkdown\n[Typewriter]:                  https://github.com/alehandrof/Typewriter\n[OpenUrl]:                     https://github.com/noahcoad/open-url\n[brettterpstra]: http://brettterpstra.com\n[geekabouttown]: http://geekabouttown.com/posts/sublime-text-2-markdown-footnote-goodness\n[github]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/light.png\n[github 2]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/dark.png\n[github 3]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/yellow.png\n[github 4]: https://github.com/jngeist\n[github 5]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/underscore-in-words.png\n[github 6]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/fenced-code-block.png\n[github 7]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/keyboard-shortcut.png\n[github 8]: https://raw.github.com/SublimeText-Markdown/MarkdownEditing/master/screenshots/strikethrough.png\n[github 9]: https://github.com/maliayas\n[opensource]: http://www.opensource.org/licenses/MIT\n[wbond]: http://wbond.net/sublime_packages/package_control\n[wbond 2]: http://wbond.net/sublime_packages/package_control/installation\n[FullScreenStatus]: https://github.com/maliayas/SublimeText_FullScreenStatus\n[macstories]: http://www.macstories.net/roundups/sublime-text-2-and-markdown-tips-tricks-and-links/\n[tips]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki/Tips\n[Wiki]: https://github.com/SublimeText-Markdown/MarkdownEditing/wiki\n[GFM]: https://help.github.com/articles/github-flavored-markdown\n[#158]: https://github.com/SublimeText-Markdown/MarkdownEditing/issues/158\n",
+			"file": "/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+			"file_size": -1,
+			"file_write_time": -1,
+			"settings":
+			{
+				"buffer_size": 15800,
+				"line_ending": "Windows",
+				"read_only": true,
+				"scratch": true
+			}
+		}
+	],
+	"build_system": "Packages/User/Jekyll.sublime-build",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 354.0,
+		"last_filter": "pro",
+		"selected_items":
+		[
+			[
+				"pro",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"prei",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"preiv",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Pirew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"Preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"cheat",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"draf",
+				"Jekyll: New draft"
+			],
+			[
+				"C++",
+				"Set Syntax: C++"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"C#",
+				"Set Syntax: C#"
+			],
+			[
+				"lines",
+				"Permute Lines: Unique"
+			],
+			[
+				"reverse",
+				"Permute Lines: Reverse"
+			],
+			[
+				"preivew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"draft to",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"draft",
+				"Jekyll: New draft"
+			],
+			[
+				"new pos",
+				"Jekyll: New post"
+			],
+			[
+				"post",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"new dra",
+				"Jekyll: New draft"
+			],
+			[
+				"new draf",
+				"Jekyll: New draft"
+			],
+			[
+				"previ",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"new po",
+				"Jekyll: New post"
+			],
+			[
+				"new d",
+				"Jekyll: New draft"
+			],
+			[
+				"decode",
+				"StringEncode: URL Decode"
+			],
+			[
+				"plain",
+				"Set Syntax: Plain Text"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"PEWVI",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"pewvi",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"dra",
+				"Jekyll: New draft"
+			],
+			[
+				"batch",
+				"Set Syntax: Batch File"
+			],
+			[
+				"psot",
+				"Jekyll: New post"
+			],
+			[
+				"jekyll",
+				"Set Syntax: HTML (Jekyll)"
+			],
+			[
+				"new dr",
+				"Jekyll: New draft"
+			],
+			[
+				"promote",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"prmo",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"url en",
+				"StringEncode: URL Encode"
+			],
+			[
+				"url enceo",
+				"StringEncode: URL Encode"
+			],
+			[
+				"prmote",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"html",
+				"Set Syntax: HTML (Jekyll)"
+			],
+			[
+				"java",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"new file",
+				"ANF: New File"
+			],
+			[
+				"git push",
+				"Git: Push"
+			],
+			[
+				"git status",
+				"Git: Status"
+			],
+			[
+				"git log",
+				"Git: Log"
+			],
+			[
+				"git st",
+				"Git: Stash"
+			],
+			[
+				"git sta",
+				"Git: Stash"
+			],
+			[
+				"review",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"promotre",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"prview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"cheat ",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"git statu",
+				"Git: Status"
+			],
+			[
+				"promte",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"promoe",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"remo",
+				"Package Control: Remove Package"
+			],
+			[
+				"prev",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"PREVIEW",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"preiew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdown",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"previe",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdow",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"new post",
+				"Jekyll: New post"
+			],
+			[
+				"push",
+				"Git: Push"
+			],
+			[
+				"markdo",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"jek",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"preirew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"markdn",
+				"Set Syntax: Markdown"
+			],
+			[
+				"enable",
+				"Package Control: Enable Package"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"list",
+				"Package Control: List Packages"
+			],
+			[
+				"newpo",
+				"Jekyll: New post"
+			],
+			[
+				"markdown chea",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"prevew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"status",
+				"Git: Status"
+			],
+			[
+				"json",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"pre",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"pr",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"proote",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"wor",
+				"Word Wrap: Toggle"
+			],
+			[
+				"prompte",
+				"Markdown Preview: Open Markdown Cheat sheet"
+			],
+			[
+				"prome",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"PROME",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"promo",
+				"Jekyll: Promote draft to post..."
+			],
+			[
+				"url decode",
+				"StringEncode: URL Decode"
+			],
+			[
+				"rever",
+				"Permute Lines: Reverse"
+			],
+			[
+				"previoew",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"remove pa",
+				"Package Control: Remove Package"
+			],
+			[
+				"mak",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"jeky",
+				"Set Syntax: HTML (Jekyll)"
+			],
+			[
+				"pree",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"preety",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"packa",
+				"Package Control: Add Repository"
+			],
+			[
+				"markd",
+				"Set Syntax: Markdown"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"ma",
+				"Markdown Preview: Python Markdown: Preview in Browser"
+			],
+			[
+				"Snippet: ",
+				"Snippet: highlight"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"new",
+				"Jekyll: New post"
+			],
+			[
+				"Mark",
+				"Set Syntax: Markdown"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Remove Package"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"jel",
+				"Jekyll: New draft"
+			],
+			[
+				"newfil",
+				"ANF: New File"
+			],
+			[
+				"inster",
+				"Jekyll: Insert current datetime"
+			],
+			[
+				"ruby",
+				"Set Syntax: Ruby"
+			],
+			[
+				"Jek",
+				"Set Syntax: HTML (Jekyll)"
+			],
+			[
+				"Jeky",
+				"Set Syntax: Markdown (Jekyll)"
+			],
+			[
+				"Markdown",
+				"Set Syntax: Markdown"
+			],
+			[
+				"xiki",
+				"Create Xiki Buffer"
+			],
+			[
+				"Xiki",
+				"Set Syntax: Xiki"
+			],
+			[
+				"Yaml",
+				"Set Syntax: YAML"
+			],
+			[
+				"INsta",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 406.0
+	},
+	"console":
+	{
+		"height": 146.0,
+		"history":
+		[
+			"import urllib.request,os; pr='Preferences.sublime-settings'; ip='ignored_packages'; n='Package Control'; s=sublime.load_settings(pr); ig=s.get(ip); ig.append(n); s.set(ip,ig); sublime.save_settings('Preferences.sublime-settings'); pf=n+'.sublime-package'; urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler())); by=urllib.request.urlopen('https://packagecontrol.io/'+pf.replace(' ','%20')).read(); open(os.path.join(sublime.installed_packages_path(),pf),'wb').write(by); ig.remove(n); s.set(ip,ig); sublime.save_settings(pr); print('Package Control: 3.0.0 upgrade successful!')",
+			"print(\"=============================\")",
+			"print(\"adsf\")",
+			"print \"adsf\" ;",
+			"print == ;",
+			"print ==",
+			"printf =========",
+			"printf \"=========\"",
+			"clear",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts"
+	],
+	"file_history":
+	[
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/Jekyll/README.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-01-06-cminesweeper-windows-xp.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/infix-to-postfix.md",
+		"/D/Users/GaryNg-Win7/Desktop/gMinesweeperSolver7/.gitignore",
+		"/D/Users/GaryNg-Win7/Desktop/gPicasaUploader/gPicasaUploader/Extensions/SerializeHelper.cs",
+		"/D/Users/GaryNg-Win7/Desktop/gPicasaUploader/gPicasaUploader/Extensions/Base64ImageHelper.cs",
+		"/F/BAT软件/VB6/vb6/Work/Axon Project/Batch Tools/Batch Tools in C/Batch Tools In C/main.c",
+		"/C/Users/GaryNg/Downloads/WOW-tiny-demo/demo.bat",
+		"/D/Users/GaryNg-Win7/Desktop/speech.vbs",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_config.yml",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-08-28-how-to-setup-dropbox.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/how-to-setup-dropbox.md",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/F/Alarm Python/Alarm/alarm.py",
+		"/D/Users/GaryNg-Win7/Desktop/Sejarah K1/files.txt",
+		"/D/Users/GaryNg-Win7/Desktop/BSSPMLinksExtractor/BSSPMLinksExtractor/bin/Debug/BANKSOALAN/BAHASA CINA/BANK SOALAN SPM.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/Gary's Zone.sublime-project",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_site/2015/08/28/how-to-setup-dropbox/index.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2011-10-14-123.md",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+		"/C/Users/GaryNg/AppData/Roaming/FocusMe/registration.ini",
+		"/F/LiberKey/Apps/Regshot/App/Regshot/regshot.ini",
+		"/C/Users/GaryNg/AppData/Roaming/FocusMe/focusme.lic",
+		"/D/MoboUserData/Backup/2015-7-31-2-30-30-1438281030502.0(2013023)/contact.dat",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_layouts/default.html",
+		"/C/Lyrics/5 Seconds Of Summer - She Looks So Perfect.lrc",
+		"/C/Lyrics/Avicii - Wake Me Up.lrc",
+		"/D/MoboUserData/Backup/2015-7-31-2-30-30-1438281030502.0(2013023)/backup.dat",
+		"/D/Users/GaryNg-Win7/Desktop/theos/tweaktest/Makefile",
+		"/D/Users/GaryNg-Win7/Desktop/theos/tweaktest/theos",
+		"/C/Users/GaryNg/Desktop/theos/tweaktest/Makefile",
+		"/C/Program Files/desktop.ini",
+		"/C/Users/GaryNg/Downloads/cmder/README.md",
+		"/C/Users/desktop.ini",
+		"/D/Users/GaryNg-Win7/Desktop/CBS.log",
+		"/C/Windows/Logs/CBS/CBS.log",
+		"/F/Local KMS Server/vlmcsd/Tutorial.md",
+		"/F/Local KMS Server/vlmcsd/kmsserver.ini",
+		"/D/Win10/esd-decrypter-wimlib-6/decrypt.cmd",
+		"/F/Windows 10 Insider Preview/Windows 10 Insider Preview Build 10240/Keys.txt",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-10-09-dns.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-05-29-infix-to-postfix.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_includes/head.html",
+		"/D/Users/GaryNg-Win7/Desktop/gPicasaUploader/.gitignore",
+		"/D/Users/GaryNg-Win7/Desktop/SPOJSol/.gitignore",
+		"/L/song.txt",
+		"/D/Users/GaryNg-Win7/Desktop/BSSPMLinksExtractor/BSSPMLinksExtractor/bin/Debug/BANKSOALAN/KIMIA/BANK SOALAN SPM.html",
+		"/C/Users/GaryNg/.sqlmap/output/banksoalanspm.com/dump/banksoal_spm/user-f3649c95.csv",
+		"/D/Users/GaryNg-Win7/Desktop/BSSPMLinkExtractor/BSSPMLinkExtractor/Program.cs",
+		"/C/Users/GaryNg/.sqlmap/output/banksoalanspm.com/dump/banksoal_spm/admin.csv",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-01-05-cheat-engine-tutorial-5.md",
+		"/D/Users/GaryNg-Win7/Desktop/Geometry Wars 3 - Dimensions/3DMGAME.ini",
+		"/D/Users/GaryNg-Win7/Desktop/transfer-list.lst",
+		"/D/Users/GaryNg-Win7/Desktop/Sejarah - Bani Abbasiyah.pptx",
+		"/C/Users/GaryNg/Downloads/hashcat-0.49/help_crack.py",
+		"/C/Users/GaryNg/AppData/Local/Hardcoded Software/dupeGuru Music Edition/debug.log",
+		"/D/Users/GaryNg-Win7/Desktop/SAPSDownload/SAPSDownload/bin/Debug/980216015264.html",
+		"/D/迅雷下载/CyberLink PowerDirector Ultimate v13 0 2307 0 Multilingual Incl Keymaker READNFO-CORE/1_PowerDirector_v13_Ultimate/Custom.ini",
+		"/C/Program Files/Blender Foundation/Blender/2.74/scripts/addons/io_import_images_as_planes.py",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/minecraft-bukkit-server.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-01-05-cheat-engine-tutorial-4.md",
+		"/D/Users/GaryNg-Win7/Desktop/essaych/ExtractAll.bat",
+		"/D/Users/GaryNg-Win7/Desktop/essaych/.gitignore",
+		"/L/Tools/wifiphisher/wifiphisher.py",
+		"/L/Tools/dhcp3-server/dhcpd.conf",
+		"/D/Users/GaryNg-Win7/Desktop/GoogleTest/GoogleTest/Program.cs",
+		"/D/Users/GaryNg-Win7/Desktop/ConsoleApplication1/ConsoleApplication1/Program.cs",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-11-21-c-7if-statement-tostring.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_site/2013/08/11/notepadnotepadcmd/index.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2011-12-19-google-let-it-snow.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_includes/sidebar.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-03-17-testing.md",
+		"/C/Windows/System32/gatherNetworkInfo.vbs",
+		"/C/Users/GaryNg/AppData/Roaming/iFunbox_UserCache/temp_files/jailbreak.log",
+		"/C/Users/GaryNg/AppData/Roaming/iFunbox_UserCache/temp_files/jailbreak-1391830776.log",
+		"/C/Users/GaryNg/AppData/Roaming/iFunbox_UserCache/temp_files/00a4b4814abad51985c078cc8c5eee9d80032c89DeviceFestival.xml",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/User/Jekyll.sublime-settings",
+		"/C/Users/GaryNg/AppData/Local/Temp/~DF60CDF2DD3B8D0764.TMP",
+		"/C/Users/GaryNg/AppData/Local/Temp/+JXF951801240631237459.tmp",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-02-18-create-minecraft-server-with-tunngle.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-03-17-asd.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-01-16-cheat-engine-tutorial-6.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-01-05-cheat-engine-tutorial-5.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2015-02-18-create-minecraft-server-with-tunngle.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-01-05-cheat-engine-tutorial-4.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2014-12-17-cheat-engine-tutorial-3.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2014-12-17-cheat-engine-tutorial-3.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2014-12-12-cheat-engine-tutorial-2.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2014-12-12-cheat-engine-tutorial-2.md",
+		"/F/Sejarah.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-02-18-minecraft-server-with-tunggle.md",
+		"/D/Users/GaryNg-Win7/Desktop/Minecraft/server.properties",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-02-18-minecraft-server.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_includes/nuffnang.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-08-11-notepadnotepadcmd.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2014-12-09-cheat-engine-tutorial-1.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2014-12-09-cheat-engine-tutorial-1.md",
+		"/F/Tools/wifiphisher/wifiphisher.py",
+		"/D/Users/GaryNg-Win7/Desktop/gPicasaUploader/gPicasaUploader/bin/Debug/gpu-settings.json",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_includes/google-adsense.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_includes/comments.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/atom.xml",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_site/atom.xml",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/CNAME",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/adsense",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2015-01-04-asd.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_layouts/post.html",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/assets/css/custom.css",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/assets/css/poole.css",
+		"/C/Users/GaryNg/Downloads/Blogger _BAK-08-08-2013.xml",
+		"/D/KwDownload/Lyric/周杰伦&温岚-屋顶.lrc",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/Markdown.sublime-settings",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/User/Markdown.sublime-settings",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/archive.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2014-12-02-update-blog.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2014-12-11-github-ssh-keys.md",
+		"/C/Users/GaryNg/Downloads/semak.htm",
+		"/C/Users/GaryNg/_.profile",
+		"/D/Users/GaryNg-Win7/Desktop/gPicasaUploader/gPicasaUploader/bin/Debug/pu-settings.json",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2011-10-21-qrqr.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2014-12-09-cheat-engine-tutorial.md",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_drafts/2014-12-02-update-blog.md",
+		"/C/Users/GaryNg/.profile",
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/README.md",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/User/Bold and Italic Markers.tmPreferences",
+		"/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/User/Distraction Free.sublime-settings"
+	],
+	"find":
+	{
+		"height": 70.0
+	},
+	"find_in_files":
+	{
+		"height": 127.0,
+		"where_history":
+		[
+			"<project>",
+			"D:\\Users\\GaryNg-Win7\\Desktop\\Gary's Zone",
+			"<project>",
+			"D:\\Users\\GaryNg-Win7\\Desktop",
+			"D:\\Users\\GaryNg-Win7\\Desktop\\Gary's Zone",
+			"F:\\Jekyll\\Gary's Zone",
+			"C:\\Users\\ZhongBo\\Desktop\\Gary's Zone",
+			"C:\\Users\\ZhongBo\\Desktop\\JSites\\so-simple-theme-master",
+			"C:\\Users\\ZhongBo\\Desktop\\JSites\\hyde",
+			"C:\\Users\\ZhongBo\\Desktop\\JSites\\redcup",
+			"C:\\Users\\ZhongBo\\Desktop\\JSites\\hyde"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"CMD",
+			"link",
+			"-2",
+			"-1",
+			"-2",
+			"minesArrax",
+			"z",
+			"xx",
+			"y",
+			"x",
+			"ProcessMemoryReaderApi",
+			"Kertas 1 ",
+			"D-SEJARAH - ",
+			"_Skema ",
+			"_Soalan ",
+			"127.0.0.1",
+			"#",
+			"019",
+			" ",
+			"  ",
+			"	",
+			"		",
+			"   ",
+			"            ",
+			"\\s*",
+			"                ",
+			"                          ",
+			"                                     ",
+			"佛学",
+			"POQ",
+			"-s",
+			"-w",
+			"')'",
+			"'('",
+			"10.0.0.1",
+			"10",
+			"10.0.0.1",
+			"SSL_PORT",
+			"PORT",
+			"port",
+			"PORT",
+			"[]",
+			"Desktop",
+			"2015",
+			"['",
+			"D:",
+			"user",
+			"kbd",
+			"nuffnang",
+			"first",
+			"*",
+			"block",
+			"info",
+			"block",
+			"*",
+			"link",
+			"scroll",
+			"short",
+			"post_url",
+			"/",
+			"line",
+			"scroll",
+			"256x256",
+			"POST_PUBLISHED",
+			"##_#####我是分割线#####_",
+			"/>\n",
+			"##_#####我是分割线#####_",
+			"######_#####我是分割线#####_",
+			"line",
+			"域名",
+			"number",
+			"check",
+			"cancel",
+			"\\$\\|\\$",
+			"\\$\\|$",
+			"$|$",
+			"[\n  {\n    \"element_id\": 1,\n    \"element\": \"水\"\n  },\n  {\n    \"element_id\": 2,\n    \"element\": \"火\"\n  },\n  {\n    \"element_id\": 3,\n    \"element\": \"木\"\n  },\n  {\n    \"element_id\": 4,\n    \"element\": \"光\"\n  },\n  {\n    \"element_id\": 5,\n    \"element\": \"暗\"\n  }\n]",
+			"],",
+			"monster_id\nthumbnail\nfull_image\nname\nrace_id\nmonster_type_id\nrare\ncost 空间\nmax_level\nexp\nmin_hp\nmin_attack\nmin_heal\nmax_attack\nmax_heal\nskill_id\nleader_skill_id\nelement_id\nmonster_no",
+			"],",
+			"monster",
+			"PT Sans",
+			"serif",
+			"Fatface",
+			"count.js",
+			"=",
+			"+",
+			"post-meta",
+			" }}\"",
+			"garyngzhongbo.blogspot.com",
+			"章",
+			"第",
+			"cs",
+			"post",
+			"github.repo",
+			"site.author",
+			"post-date",
+			"line break",
+			"br",
+			"</strong>",
+			"<strong>",
+			"<br />",
+			"sidebar",
+			"search-field",
+			"search-form",
+			"clearfix",
+			"search-wrapper",
+			"scripts",
+			"include",
+			"search",
+			".post",
+			"css",
+			"search-overlay",
+			"include",
+			"public",
+			"block",
+			"draft",
+			"LICENSE",
+			"highligh",
+			"rdiscount"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"2",
+			"X",
+			" X",
+			"  ",
+			"minesArray",
+			"x",
+			"y",
+			"z",
+			"xx",
+			"",
+			"\\t",
+			"`)`",
+			"`(`",
+			" \n",
+			"\\\\",
+			"##_#####我是分割线#####_",
+			"\\n\\n",
+			"],\\n",
+			"\\n",
+			"\\n\\n",
+			"",
+			"**",
+			"\\n",
+			"\\n\\n",
+			"n",
+			"\\n\\n"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 2,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "_drafts/minesweeper-auto-solver-windows-7.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5718,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5358,
+								5358
+							]
+						],
+						"settings":
+						{
+							"parser": "markdown",
+							"syntax": "Packages/Jekyll/Syntaxes/Markdown (Jekyll).tmLanguage",
+							"target": "disk"
+						},
+						"translation.x": 0.0,
+						"translation.y": 2205.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "_drafts/2015-01-05-cheat-engine-tutorial-5.md",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 19051,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jekyll/Syntaxes/Markdown (Jekyll).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1980.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_posts/2015-12-29-minesweeper-auto-solver-windows-7.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5828,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1844,
+								1844
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Jekyll/Syntaxes/Markdown (Jekyll).tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1620.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/C/Users/GaryNg/AppData/Roaming/Sublime Text 3/Packages/MarkdownEditing/README.md",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 15800,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5735,
+								5735
+							]
+						],
+						"settings":
+						{
+							"parser": "markdown",
+							"syntax": "Packages/Jekyll/Syntaxes/Markdown (Jekyll).tmLanguage",
+							"target": "browser"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1215.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 77.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 130.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"output.git-commit":
+	{
+		"height": 122.0
+	},
+	"output.git-push":
+	{
+		"height": 122.0
+	},
+	"output.markdown":
+	{
+		"height": 118.0
+	},
+	"pinned_build_system": "",
+	"project": "Gary's Zone.sublime-project",
+	"replace":
+	{
+		"height": 114.0
+	},
+	"save_all_on_build": false,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"mineseeper",
+				"_posts\\2013-01-06-cminesweeper-windows-xp.md"
+			],
+			[
+				"chear",
+				"_drafts\\2014-12-09-cheat-engine-tutorial.md"
+			],
+			[
+				"",
+				"atom.xml"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 246.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

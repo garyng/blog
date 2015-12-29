@@ -1,0 +1,18 @@
+{
+	"folders":
+	[
+		{
+			"follow_symlinks": true,
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"Jekyll":
+		{
+			"default_post_layout": "post",
+			"drafts_path": "D:\\Users\\GaryNg-Win7\\Desktop\\Gary's Zone\\_drafts",
+			"posts_path": "D:\\Users\\GaryNg-Win7\\Desktop\\Gary's Zone\\_posts"
+		}
+	}
+}
