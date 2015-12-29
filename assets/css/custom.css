@@ -86,6 +86,15 @@ a {
   color: #9a9a9a;
 }
 
+
+/* 
+ * '... click to continue' text in the index.html
+ *
+ */
+.post-click-to-continue {
+  font-style: italic;
+}
+
 /* 
  * Tags
  *
