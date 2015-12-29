@@ -124,7 +124,8 @@ a.sidebar-nav-item:focus {
 .content {
   padding-top:    4rem;
   padding-bottom: 4rem;
-  overflow-x: auto
+  overflow-x: auto;
+  word-wrap: break-word;
 }
 
 @media (min-width: 48rem) {
