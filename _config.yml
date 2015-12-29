@@ -26,4 +26,4 @@ gems:
   - jekyll-sitemap
 
 # Style
-excerpt_separator: <!-- More -->
+excerpt_separator: '<!-- More -->'
