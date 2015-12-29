@@ -2,7 +2,7 @@
 layout: post
 title: '[C#][原创] Minesweeper Auto Solver （Windows 7 版本）'
 tags: ['C#','原创']
-image: 'https://lh3.googleusercontent.com/-4pFjlpaNz-k/VoGG933m6xI/AAAAAAAAIak/dqJXdOXixV0/s1600/29-12-2015_024830.png'
+image: ''
 description: 'C# 实现Windows 7 自动扫雷'
 author: 'Gary Ng'
 ---
@@ -16,7 +16,6 @@ author: 'Gary Ng'
 因为自己对逆向分析没有很了解，所以这个自动扫雷是参考别人逆向的成果和代码的：
 
 > 参考文献 ：
-> 
 > - [关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)
 > - [Win7AutoMineSweeper.cpp (Github)](https://github.com/xfgryujk/Win7AutoMineSweeper/blob/master/Win7AutoMineSweeper.cpp)
 
