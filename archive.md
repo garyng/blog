@@ -20,14 +20,10 @@ icon: "fa-bars"
      	<a href="{{ post.url }}">{{ post.title }}</a>
      	<div class="post-excerpt">
      		<info datetime="{{ page.date | date: "%Y-%m-%d" }}">
-          		{{ post.date | date: "%b %d" }}
-        	</info>
-          {% if post.content contains '<!-- More -->' %}
-            {{ post.content | split:'<!-- More -->' | first | strip_html }}
-          {% else %}
-            {{ post.excerpt | split:'</p>' | first | strip_html }}
-          {% endif %}
-          <a href="{{ post.url }}" class="post-more">Read More » </a>
+          	{{ post.date | date: "%b %d" }}
+        </info>
+            {{ post.excerpt | strip_html | truncatewords: 10 }}
+        <a href="{{ post.url }}" class="post-more">Read More » </a>
      	</div>
      </li>
   {% endfor %}
