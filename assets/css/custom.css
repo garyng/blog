@@ -120,9 +120,11 @@ info {
 
 /* 
  * Posts text shadow
- *
+ * Reduce padding
  *
  */
 .content {
   text-shadow: #909090 0.05em 0.05em 0.5em;
+  padding-top:    2rem;
+  padding-bottom: 2rem;
 }
