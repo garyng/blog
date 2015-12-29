@@ -11,7 +11,7 @@ tagline:          'Blog'
 description:      'Blog by GaryNg with tutorials, softwares and many more. Enjoy!'
 url:              'http://garyng.github.io'
 #url:              'http://garyszone.me'
-isBeta:           true
+version:          v1
 
 author:
   name:           'GaryNg'
