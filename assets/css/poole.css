@@ -165,7 +165,7 @@ pre {
   line-height: 1.4;
   white-space: pre;
   background-color: #f9f9f9;
-  overflow-x: scroll;
+  overflow-x: auto;
 }
 pre code {
   padding: 0;
