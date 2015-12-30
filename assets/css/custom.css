@@ -121,9 +121,21 @@ info {
 
 /*
  * Disable text-shadow in code highlighting
- *
+ * Set word wrap to normal to show scroll bar
  */
 code {
   text-shadow: none;
   word-wrap: normal;
+}
+
+/*
+ * Add code block header (show the languange of the code snippet)
+ *
+ */
+pre code:before{
+  content: attr(data-lang) " code";
+  display: block;
+  background-color: #e5e5e5;
+  margin: 0 -1rem 1rem -1rem;
+  padding: .25rem .5rem;
 }
