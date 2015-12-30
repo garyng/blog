@@ -118,3 +118,12 @@ info {
   padding-top:    2rem;
   padding-bottom: 2rem;
 }
+
+/*
+ * Disable text-shadow in code highlighting
+ *
+ */
+code {
+  text-shadow: none;
+  word-wrap: normal;
+}
