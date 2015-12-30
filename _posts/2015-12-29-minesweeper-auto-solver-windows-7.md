@@ -38,7 +38,8 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 而这个`Game`的结构如下（摘自[关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)）：
 
-```
+{% highlight text %}
+
 +8		DWORD
 +12		UIBoardCanvas *
 +16		Board* 
@@ -76,7 +77,8 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 +216	bool
 +217	bool
 +218	bool IsTimerEnabled
-```
+
+{% endhighlight %}
 
 所以`Game`类的`+16`（偏移`0x10`，如果你比较喜欢HEX的话）处是一个指向`Board`类的指针
 
@@ -84,7 +86,7 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 `Board`的结构如下：
 
-```
+{% highlight text %}
 +4		MineCount
 +8		Height
 +12		Width
@@ -95,7 +97,7 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 +40		HitY
 +44
 +68		MineArrayPointer
-```
+{% endhighlight %}
 
 找到了`Board`大概就可以拿到很多信息了
 比如说，`MineCount`：
@@ -120,12 +122,14 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 `ArrayA`的结构是这样的：
 
-```
+{% highlight text %}
 +0
 +4
 +8
 +12 ArrayBPointer[]
-```
+{% endhighlight %}
+
+
 
 `+12`处是一个指向类型为ArrayB的指针数组，长度为`Height`
 
@@ -133,12 +137,12 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 `ArrayB`的结构跟`ArrayA`大同小异：
 
-```
+{% highlight text %}
 +0
 +4
 +8
 +12 ByteArrayPointer[]
-```
+{% endhighlight %}
 
 `+12`处是一个指向一个类型为byte的指针数组，长度为`Width`
 
@@ -152,7 +156,9 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 （众表示这是啥？）
 额..就像multi level pointer那样吧
+
 储存地雷的变量的指针的指针的指针.....的指针...的指针...
+
 （可以去翻翻我的CE教程来看看xDD）
 
 如果搬到CE中呢，就是这样的（想上手CE看看这里的教程吧：[[教程][原创] Cheat Engine 6.4 Tutorial —— 闯关教程 #1]({% post_url 2014-12-09-cheat-engine-tutorial-1 %})）
