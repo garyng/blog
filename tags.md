@@ -10,19 +10,24 @@ icon: "fa-tags"
 
 {% capture site_tags %}
   {% for tag in site.tags %}
-    {{ tag[1].size | plus: 10000 }}#{{ tag[0] }}#{{ tag[1].size }}{% unless forloop.last %},{% endunless %}
+    {{ tag[1].size | plus: 10000 }}///{{ tag[0] }}///{{ tag[1].size }}{% unless forloop.last %},{% endunless %}
   {% endfor %}
 {% endcapture %}
 {% assign sorted_tags = site_tags | split:',' | sort %}
 
-
 <div id="tags">
   <ul>
+    {% assign loopindex = 0 %}
     {% for tag in sorted_tags reversed %}
+    {% if loopindex == 20 %}
+      {% break %}
+    {% else %}
       {% unless forloop.last %}
-        {% assign tagitems = tag | split:'#' %}
+        {% assign tagitems = tag | split:'///' %}
           <a class="tags-link" href="#{{ tagitems[1] | cgi_escape }}" style="font-size:{{ tagitems[2] | times:100 | divided_by:site.tags.size | plus: 100 }}%">{{ tagitems[1] }}<sup> {{ tagitems[2] }} </sup></a>
       {% endunless %}
+    {% endif %}
+    {% assign loopindex = loopindex | plus:1 %}
     {% endfor %}
   </ul>
 
