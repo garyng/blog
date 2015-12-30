@@ -27,3 +27,6 @@ gems:
 
 # Style
 excerpt_separator: '<!-- More -->'
+
+#Travis CI
+exclude:          [vendor]
