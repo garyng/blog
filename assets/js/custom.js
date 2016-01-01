@@ -14,7 +14,14 @@ function getAnalyticsData(){
 			processPageView(data.rows);
 		},
 		error: function(){
-			console.log('Failed to get page view from Google App Engine.');
+			$.ajax({
+				url: '/assets/json/pageviews.json',
+				dataType: 'json',
+				success: function(data){
+					console.log('Local pageviews data used')
+					processPageView(data.rows);
+				}
+			})
 		}
 
 	});
