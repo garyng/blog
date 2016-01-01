@@ -3,7 +3,7 @@ $(function(){
 });
 
 function getAnalyticsData(){
-	if (('.post-views').count > 0){
+	if ($('.post-views').count > 0){
 		return;
 	}
 	$.ajax({
@@ -33,16 +33,28 @@ function processPageView(dataRows){
 		return;
 	}
 
-	$('.post-title').each(function(){
-		var link = $(this).attr('data-link');
+	$('.archive-post-title').each(function(){
+		var link = $(this).attr('href');
 		if (link){
 			var len = dataRows.length;
 			for (var i = 0; i < len; i++) {
-				if (dataRows[i][0] === link){
-					console.log(dataRows[i]);
-					$(this).siblings('.post-meta').append('<div class="post-views"><span class="fa fa fa-eye"></span> ' + dataRows[i][1] + ' views</div>');
+				if (dataRows[i][0] === link)
+				{
+					$(this).siblings('.post-excerpt').children('.post-meta').append('<div class="post-views"><span class="fa fa fa-eye"></span> ' + dataRows[i][1] + ' </div>')
 				}
 			}
 		}
 	});
+	// $('.post-title').each(function(){
+	// 	var link = $(this).attr('data-link');
+	// 	if (link){
+	// 		var len = dataRows.length;
+	// 		for (var i = 0; i < len; i++) {
+	// 			if (dataRows[i][0] === link){
+	// 				console.log(dataRows[i]);
+	// 				$(this).siblings('.post-meta').append('<div class="post-views"><span class="fa fa fa-eye"></span> ' + dataRows[i][1] + ' views</div>');
+	// 			}
+	// 		}
+	// 	}
+	// });
 }
