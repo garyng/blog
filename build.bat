@@ -22,18 +22,17 @@ set CSS_PATH="assets\css"
 set CSS_FILES="poole.css" "syntax.css" "hyde.css" "custom.css"
 set CSS_MIN_FILE="custom.min.css"
 
-:: m -> only minify
-:: g -> only fetch
-
 echo ================================
 echo ^|^|  Gary's Zone build script  ^|^|
 echo ================================
 
+
 ::Check for ajaxminifier
+:checkajaxmin
 if not exist %AJAXMIN_PATH% (
-	echo [!] Microsoft Ajax Minifier not found
+	echo [-] Microsoft Ajax Minifier not found
 	echo [-] Please download and install from http://ajaxmin.codeplex.com/
-	echo [!] Quiting...
+	echo [-] Quiting...
 	goto :end
 ) else (
 	echo [*] AjaxMinifier found
@@ -41,13 +40,49 @@ if not exist %AJAXMIN_PATH% (
 	set path=%path%;%AJAXMIN_PATH%
 )
 
+::Minifying JS
+echo.
+echo [*] Minifying js files
+echo [*] Changing directory to %JS_PATH%
+pushd %JS_PATH%
+echo %SEPERATOR%
+%AJAX_MINIFIER_EXE% %JS_FILES% -out %JS_MIN_FILE%
+echo %SEPERATOR%
+if not %ERRORLEVEL% == 0 (
+	echo [-] Failed to minify js files
+) else (
+	echo [*] %JS_FILES% minified
+	echo [*] Minified js files are saved as %JS_MIN_FILE%
+)
+echo [*] Changing back directory
+popd
+echo [*] Done
+
+::Minifying CSS
+echo.
+echo [*] Minifying css files
+echo [*] Changing directory to %CSS_PATH%
+pushd %CSS_PATH%
+echo %SEPERATOR%
+%AJAX_MINIFIER_EXE% %CSS_FILES% -out %CSS_MIN_FILE%
+echo %SEPERATOR%
+if not %ERRORLEVEL% == 0 (
+	echo [-] Failed to minify css files
+) else (
+	echo [*] %CSS_FILES% minified
+	echo [*] Minified css files are saved as %CSS_MIN_FILE%
+)
+echo [*] Changing back directory
+popd
+echo [*] Done
+
 ::Check for curl
 %CURL_EXE% >nul 2>nul
 if %ERRORLEVEL% == 9009 (
-	echo [!] curl not found
+	echo [-] curl not found
 	echo [-] Please download from http://curl.haxx.se/download.html
 	echo [-] Save curl to current directory
-	echo [!] Quitting...
+	echo [-] Quitting...
 	goto :end
 ) else (
 	echo [*] curl found
@@ -62,51 +97,17 @@ echo %SEPERATOR%
 %CURL_EXE% -o %GA_JSON_FILE% %GA_JSON_URL%
 echo %SEPERATOR%
 if not %ERRORLEVEL% == 0 (
-	echo [!] Fetching Google Analytics pageviews data failed
+	echo [-] Fetching Google Analytics pageviews data failed
 	echo [-] Are you connected to the Internet?
-	echo [!] %GA_JSON_FILE% is not updated
+	echo [-] %GA_JSON_FILE% is not updated
 ) else (
 	echo [*] Fetched Google Analytics pageviews data
 	echo [*] Saved to %GA_JSON_FILE%
 )
 echo [*] Changing back directory
 popd
-
-::Minifying JS
-echo.
-echo [*] Minifying js files
-echo [*] Changing directory to %JS_PATH%
-pushd %JS_PATH%
-echo %SEPERATOR%
-%AJAX_MINIFIER_EXE% %JS_FILES% -out %JS_MIN_FILE%
-echo %SEPERATOR%
-if not %ERRORLEVEL% == 0 (
-	echo [!] Failed to minify js files
-) else (
-	echo [*] %JS_FILES% minified
-	echo [*] Minified js files are saved as %JS_MIN_FILE%
-)
-echo [*] Changing back directory
-popd
-
-::Minifying CSS
-echo.
-echo [*] Minifying css files
-echo [*] Changing directory to %%
-pushd %CSS_PATH%
-echo %SEPERATOR%
-%AJAX_MINIFIER_EXE% %CSS_FILES% -out %CSS_MIN_FILE%
-echo %SEPERATOR%
-if not %ERRORLEVEL% == 0 (
-	echo [!] Failed to minify css files
-) else (
-	echo [*] %CSS_FILES% minified
-	echo [*] Minified css files are saved as %CSS_MIN_FILE%
-)
-echo [*] Changing back directory
-popd
-
 echo [*] Done
+
 
 :end
 
