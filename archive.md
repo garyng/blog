@@ -17,11 +17,11 @@ icon: "fa-bars"
     {% endunless %}
 
      <li>
-     	<a href="{{ post.url }}">{{ post.title }}</a>
+     	<a href="{{ post.url }}" class="archive-post-title">{{ post.title }}</a>
      	<div class="post-excerpt">
-     		<info datetime="{{ page.date | date: "%Y-%m-%d" }}">
-          	{{ post.date | date: "%b %d" }}
-        </info>
+        <small class="post-meta">
+            <span class="post-date"><span class="fa fa-calendar"></span> {{ post.date | date: "%b %d" }}</span>
+        </small> 
             {{ post.excerpt | strip_html | truncatewords: 10 }}
         <a href="{{ post.url }}" class="post-more">Read More » </a>
      	</div>
