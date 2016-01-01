@@ -1,6 +1,13 @@
 $(function(){
+	assignScrollToTop();
 	getAnalyticsData();
 });
+
+function assignScrollToTop(){
+	$('a.pagination-item.current').click(function(){
+		$('html,body').animate({scrollTop: 0},'slow');
+	})
+}
 
 function getAnalyticsData(){
 	if ($('.post-views').count > 0){
@@ -26,8 +33,6 @@ function getAnalyticsData(){
 
 	});
 }
-
-
 function processPageView(dataRows){
 	if (dataRows === undefined){
 		return;
