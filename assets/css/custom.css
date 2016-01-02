@@ -64,7 +64,9 @@ a {
 }
 
 
-/* Meta data line below post title */
+/* 
+ * Meta data line below post title 
+ */
 .post-date,.post-comments-count, .post-comments, .post-tags, .post-views {
   display: inline;
   margin-top: -.5rem;
@@ -97,14 +99,11 @@ a.tags-link{
 }
 
 /* 
- * Info Date 
+ * post-meta
  *
- * The info date style inside post excerpt
+ * The post meta info style inside post excerpt
  */
-info {
-  display: inline-block;
-  padding-right: 0.5em;
-  color: #999;
+.post-excerpt .post-meta {
   font-style: italic;
 }
 
@@ -132,7 +131,7 @@ code {
  * Add code block header (show the languange of the code snippet)
  *
  */
-pre code:before{
+pre code:before {
   content: attr(data-lang) " code";
   display: block;
   background-color: #e5e5e5;
