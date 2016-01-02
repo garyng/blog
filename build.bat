@@ -15,7 +15,7 @@ set GA_JSON_FILE="pageviews.json"
 
 set JS_PATH="assets\js\"
 ::Multiple files: a.js b.js c.js (In order)
-set JS_FILES="jquery-2.1.4.min.js" "custom.js"
+set JS_FILES="custom.js"
 set JS_MIN_FILE="custom.min.js"
 
 set CSS_PATH="assets\css"
