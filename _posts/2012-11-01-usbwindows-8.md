@@ -219,5 +219,5 @@ Prompt，现在输入这个命令：
   
   
  激活Windows 8
-看这里》》{% post_url 2012-11-03-windows-8 %}
+看这里》》[[原创][教程] 激活Windows 8 （时间有限！）]({% post_url 2012-11-03-windows-8 %}) 
 
