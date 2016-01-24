@@ -69,7 +69,7 @@ Sidebar 的 `BETA!` 字样也除去了
 
 ---
 
-[Tags](http://{{ site.url }}/tags/)页面也做了大翻新，不再是以前那般显示所有的tags了
+[Tags]({{ site.url }}/tags/)页面也做了大翻新，不再是以前那般显示所有的tags了
 
 换成了只显示首20个帖子最多的Tags
 
@@ -81,7 +81,7 @@ Sidebar 的 `BETA!` 字样也除去了
 
 ---
 
-[Archive](http://{{ site.url }}/archive/)之中的`post excerpt` 也改了一点点，最大的翻新就是加入了从Google Analytics获取的pageviews
+[Archive]({{ site.url }}/archive/)之中的`post excerpt` 也改了一点点，最大的翻新就是加入了从Google Analytics获取的pageviews
 
 为了实现这个加入了jQuery，这个static site 也变得有点不static了（LOL）
 
