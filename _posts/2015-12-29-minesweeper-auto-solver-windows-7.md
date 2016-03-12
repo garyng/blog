@@ -11,12 +11,12 @@ author: 'Gary Ng'
 
 很久很久很久很久之后，我就写了这篇（PS:看回去之前的代码完全惨不忍睹啊）
 
-#原理解析
+# 原理解析
 
 因为自己对逆向分析没有很了解，所以这个自动扫雷是参考别人逆向的成果和代码的：
 
 > 参考文献 ：
-> 
+>
 > - [关于Win7扫雷逆向分析及外挂编写](http://www.0xaa55.com/thread-1380-1-1.html)
 > - [Win7AutoMineSweeper.cpp (Github)](https://github.com/xfgryujk/Win7AutoMineSweeper/blob/master/Win7AutoMineSweeper.cpp)
 
@@ -42,7 +42,7 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 +8		DWORD
 +12		UIBoardCanvas *
-+16		Board* 
++16		Board*
 +24		bool
 +25		bool
 +26		bool
@@ -70,10 +70,10 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 +196	bool
 +197	bool
 
-+200	Difficulty	
++200	Difficulty
 +204	Width 		
 +208	Height		
-+212	MineCount	
++212	MineCount
 +216	bool
 +217	bool
 +218	bool IsTimerEnabled
@@ -91,8 +91,8 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 +8		Height
 +12		Width
 +24		
-+28		float 
-+32		Difficulty	
++28		float
++32		Difficulty
 +36		HitX
 +40		HitY
 +44
@@ -148,7 +148,7 @@ Windows 7 版本的扫雷有一些比较重要的struct（Windows 7 版本的是
 
 而这里就是储存地雷的地方，`0` 是没有雷，`1`是有雷
 
-##所以是要怎么看(x,y)是不是雷？
+## 所以是要怎么看(x,y)是不是雷？
 
 给定坐标(x,y)，是不是雷就read 这个address（偏移量全部转为Hex了）：
 

@@ -92,10 +92,19 @@
 			}
 		},
 		{
-			"file": "_config.yml",
+			"contents": "1. SerializeHelper\n2. GZIPHelper",
 			"settings":
 			{
-				"buffer_size": 651,
+				"buffer_size": 32,
+				"line_ending": "Windows",
+				"name": "1. SerializeHelper"
+			}
+		},
+		{
+			"file": "_layouts/post.html",
+			"settings":
+			{
+				"buffer_size": 1647,
 				"line_ending": "Unix"
 			}
 		}
@@ -107,25 +116,69 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 182.0,
-		"last_filter": "install pa",
+		"height": 354.0,
+		"last_filter": "pre",
 		"selected_items":
 		[
 			[
-				"install pa",
+				"pre",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"wordw",
+				"Word Wrap: Toggle"
+			],
+			[
+				"C#",
+				"Set Syntax: C#"
+			],
+			[
+				"vb",
+				"Set Syntax: VB.NET"
+			],
+			[
+				"install",
 				"Package Control: Install Package"
+			],
+			[
+				"W",
+				"Word Wrap: Toggle"
+			],
+			[
+				"WO",
+				"Word Wrap: Toggle"
+			],
+			[
+				"word",
+				"Word Wrap: Toggle"
+			],
+			[
+				"pree",
+				"Pretty JSON: Format (Pretty Print) JSON"
+			],
+			[
+				"preview",
+				"Markdown Preview: Preview in Browser"
+			],
+			[
+				"pret",
+				"Pretty JSON: Format (Pretty Print) JSON"
 			],
 			[
 				"remove",
 				"Package Control: Remove Package"
 			],
 			[
-				"list",
-				"Package Control: List Unmanaged Packages"
+				"jekyll",
+				"Set Syntax: HTML (Jekyll)"
 			],
 			[
-				"install",
+				"install pa",
 				"Package Control: Install Package"
+			],
+			[
+				"list",
+				"Package Control: List Unmanaged Packages"
 			],
 			[
 				"draft",
@@ -140,24 +193,12 @@
 				"Jekyll: New post"
 			],
 			[
-				"preview",
-				"Markdown Preview: Preview in Browser"
-			],
-			[
 				"list pa",
 				"Package Control: List Packages"
 			],
 			[
 				"java",
 				"Set Syntax: JavaScript"
-			],
-			[
-				"pre",
-				"Pretty JSON: Format (Pretty Print) JSON"
-			],
-			[
-				"pret",
-				"Pretty JSON: Format (Pretty Print) JSON"
 			],
 			[
 				"todo",
@@ -178,10 +219,6 @@
 			[
 				"batch",
 				"Set Syntax: Batch File"
-			],
-			[
-				"jekyll",
-				"Set Syntax: HTML (Jekyll)"
 			],
 			[
 				"promo",
@@ -226,14 +263,6 @@
 			[
 				"C++",
 				"Set Syntax: C++"
-			],
-			[
-				"word",
-				"Word Wrap: Toggle"
-			],
-			[
-				"C#",
-				"Set Syntax: C#"
 			],
 			[
 				"lines",
@@ -516,10 +545,6 @@
 				"Set Syntax: HTML (Jekyll)"
 			],
 			[
-				"pree",
-				"Pretty JSON: Format (Pretty Print) JSON"
-			],
-			[
 				"preety",
 				"Pretty JSON: Format (Pretty Print) JSON"
 			],
@@ -606,18 +631,6 @@
 			[
 				"xiki",
 				"Create Xiki Buffer"
-			],
-			[
-				"Xiki",
-				"Set Syntax: Xiki"
-			],
-			[
-				"Yaml",
-				"Set Syntax: YAML"
-			],
-			[
-				"INsta",
-				"Package Control: Install Package"
 			]
 		],
 		"width": 406.0
@@ -662,15 +675,27 @@
 	"expanded_folders":
 	[
 		"/D/Users/GaryNg/Desktop/Gary's Zone",
-		"/D/Users/GaryNg/Desktop/Gary's Zone/_drafts",
-		"/D/Users/GaryNg/Desktop/Gary's Zone/_posts"
+		"/D/Users/GaryNg/Desktop/Gary's Zone/_layouts"
 	],
 	"file_history":
 	[
+		"/C/Users/ZhongBo/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
+		"/C/Users/ZhongBo/AppData/Local/Temp/360zip$Temp/360$1/Class1.cs",
+		"/D/Users/GaryNg/Desktop/Projects/gBloggerToJekyll/gBloggerToJekyll/PostConverter.cs",
+		"/D/Users/GaryNg/Desktop/Gary's Zone/_config.yml",
+		"/D/Users/GaryNg/Desktop/Projects/gBloggerToJekyll/gBloggerToJekyll/bin/Debug/gbtk-data.json",
+		"/C/Users/ZhongBo/.profile",
+		"/D/Users/GaryNg/Downloads/ColorListBox.vb",
+		"/C/Users/ZhongBo/AppData/Local/Temp/360zip$Temp/360$0/Form1.cs",
+		"/D/Users/GaryNg/Desktop/Projects/gPicasaUploader/gPicasaUploader/bin/Debug/gpu-UserSettings.json",
+		"/D/Users/GaryNg/Desktop/Projects/gPicasaUploader/.gitignore",
+		"/D/Users/GaryNg/Desktop/Projects/gPicasaUploader/gPicasaUploader/bin/Debug/gpu-Database.json",
+		"/H/Softwares + Configs/Sublime Text 3/Backup Settings/Packages/User/Preferences.sublime-settings",
+		"/D/Users/GaryNg/Desktop/Projects/gPicasaUploader/gPicasaUploader/bin/Debug/gpu-Database-Converted.json",
+		"/D/Users/GaryNg/Desktop/Gary's Zone/.travis.yml",
 		"/H/Softwares + Configs/Atom/packages.list",
 		"/D/Users/GaryNg/Desktop/Gary's Zone/_drafts/2014-12-17-cheat-engine-tutorial-3.md",
 		"/D/Users/GaryNg/Desktop/Gary's Zone/_drafts/rdiscount-syntax-note.md",
-		"/C/Users/ZhongBo/AppData/Roaming/Sublime Text 3/Packages/User/Preferences.sublime-settings",
 		"/C/Users/ZhongBo/AppData/Roaming/Sublime Text 3/Packages/Default/Preferences.sublime-settings",
 		"/C/Users/ZhongBo/AppData/Roaming/Sublime Text 3/Packages/User/Jekyll.sublime-settings",
 		"/D/Users/GaryNg/Desktop/Gary's Zone/_layouts/default.html",
@@ -781,20 +806,7 @@
 		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-05-24-vsvisual-studio-copy-code-as-html.md",
 		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-04-28-trackersbat500tracker_28.md",
 		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-02-17-andorxor.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-01-24-blog-post.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-12-16-youtube-video.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-12-16-cyoutube-video-grabberyoutube.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-12-10-blog-post.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-11-03-windows-8.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-11-01-usbwindows-8.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-10-17-blog-post.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-10-08-dynamic-views.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-10-07-google.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-10-06-webarchiveorg.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-09-09-cleanupvirus-virustool.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-09-01-ollydbg.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-08-20-blog-post.md",
-		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2012-07-23-calc-prank.md"
+		"/D/Users/GaryNg-Win7/Desktop/Gary's Zone/_posts/2013-01-24-blog-post.md"
 	],
 	"find":
 	{
@@ -826,6 +838,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"version",
+			"index",
+			"PhotoId\": \"\"",
+			"PhotoId\": \"",
+			"\"\"",
+			"Version",
 			"line",
 			"!",
 			"pagina",
@@ -947,13 +965,7 @@
 			"</strong>",
 			"<strong>",
 			"<br />",
-			"sidebar",
-			"search-field",
-			"search-form",
-			"clearfix",
-			"search-wrapper",
-			"scripts",
-			"include"
+			"sidebar"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -999,7 +1011,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -1028,32 +1040,65 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 1,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "_config.yml",
-					"semi_transient": true,
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 651,
+						"buffer_size": 32,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								108,
-								108
+								32,
+								32
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/YAML/YAML.sublime-syntax"
+							"auto_name": "1. SerializeHelper",
+							"color_scheme": "Packages/Color Scheme - Default/Monokai.tmTheme",
+							"default_dir": "D:\\Users\\GaryNg\\Desktop\\Gary's Zone",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "_layouts/post.html",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 1647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"color_scheme": "Packages/Material Theme/schemes/Material-Theme.tmTheme",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 180.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 0,
@@ -1167,7 +1212,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 303.0,
+	"side_bar_width": 301.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{
