@@ -58,21 +58,27 @@ author: GaryNg
 打开cmd  
 [![image](https://lh3.googleusercontent.com/-8T_S9TMVXos/VusA9Gt6TEI/AAAAAAAAJSo/8WbEdNB3sK08zB3-W2OrbUOP3u2EjMCywCHM/s800/18-03-2016_021303.png "image")](https://lh3.googleusercontent.com/-8T_S9TMVXos/VusA9Gt6TEI/AAAAAAAAJSo/8WbEdNB3sK08zB3-W2OrbUOP3u2EjMCywCHM/s1600/18-03-2016_021303.png)  
 输入  
-```bash
+
+{% highlight bash %}
 pushd C:\RubyDevKit
-```
+{% endhighlight %}
+
 
 然后输入：  
-```bash
+
+{% highlight bash %}
 ruby dk.rb init
-```
+{% endhighlight %}
+
 
 [![image](https://lh3.googleusercontent.com/-UoC-t9PImV0/VusBCjhNnbI/AAAAAAAAJTA/Cz55KiGOp3oFEcyjjl1WUAwBEpMceuSsgCHM/s800/18-03-2016_021750.png "image")](https://lh3.googleusercontent.com/-UoC-t9PImV0/VusBCjhNnbI/AAAAAAAAJTA/Cz55KiGOp3oFEcyjjl1WUAwBEpMceuSsgCHM/s1600/18-03-2016_021750.png)
 
 接下来是：  
-``` bash
+
+{% highlight bash %}
 ruby dk.rb install
-```
+{% endhighlight %}
+
 
 [![image](https://lh3.googleusercontent.com/-lKfimr1B0mQ/VusA_FmQqYI/AAAAAAAAJSw/hKWnHWfqyAURqXOjjH3CnF-Ho7oNNUgcgCHM/s800/18-03-2016_021939.png "image")](https://lh3.googleusercontent.com/-lKfimr1B0mQ/VusA_FmQqYI/AAAAAAAAJSw/hKWnHWfqyAURqXOjjH3CnF-Ho7oNNUgcgCHM/s1600/18-03-2016_021939.png)
 
@@ -81,9 +87,11 @@ ruby dk.rb install
 # Gems : github-pages
 现在就是安装github-pages的gem了  
 1、同样在cmd，输入：  
-```bash
+
+{% highlight bash %}
 gem install github-pages
-```
+{% endhighlight %}
+
 
 [![image](https://lh3.googleusercontent.com/-THqXeeKKqBI/VusBBErCtVI/AAAAAAAAJS4/35FuT862tPE7APHKh-LgbK78LzRCKalrACHM/s800/18-03-2016_024245.png "image")](https://lh3.googleusercontent.com/-THqXeeKKqBI/VusBBErCtVI/AAAAAAAAJS4/35FuT862tPE7APHKh-LgbK78LzRCKalrACHM/s1600/18-03-2016_024245.png)
 
