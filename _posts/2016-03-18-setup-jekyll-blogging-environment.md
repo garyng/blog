@@ -22,6 +22,7 @@ author: GaryNg
 
 笔者的机子是跑着Windows 7 Ultimate x86 (Virtual Box 虚拟机上的)  
 
+<!-- More -->
 
 # Ruby
 1、先到[RubyInstaller](http://rubyinstaller.org/downloads/)的官方网站下载适合的RubyInstaller  
