@@ -21,7 +21,7 @@ Clone了然后看了看source code （Python的）， 基本上摸清了作者�
 PS: Console 排版是个难度活...  （但是还是比GUI简单多了 xDD）  
 PPS: `\r` 字符可以让Console的光标跳到该行的最前端（突然想念起N年前玩批处理时用一堆`backspace`来实现动画的日子 xDD）
 
-直接上图吧（排版有时候还是渣渣的）：
+直接上图吧（~~排版有时候还是渣渣的~~ 排版的问题最新的commit已经解决掉了 xDDD）：
 
 [![image](https://lh3.googleusercontent.com/-cfryl4ahKcU/VvgQogdNleI/AAAAAAAAJUM/w_upEU4gpoE5AfL4Bba4GTWwSVMkSe37QCHM/s800/28-03-2016_004518.png "image")](https://lh3.googleusercontent.com/-cfryl4ahKcU/VvgQogdNleI/AAAAAAAAJUM/w_upEU4gpoE5AfL4Bba4GTWwSVMkSe37QCHM/s1600/28-03-2016_004518.png)
 
