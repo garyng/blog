@@ -1,2 +1,2 @@
 languange: ruby
-script: "jekyll build"
+script: "bundle exec jekyll build"
