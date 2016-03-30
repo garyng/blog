@@ -1,6 +1,8 @@
 # Permalinks
 permalink:        pretty
 
+highlighter:      rouge
+
 # Setup
 title:            Gary's Zone
 tagline:          'Blog'
