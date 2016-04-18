@@ -1,11 +1,15 @@
 ---
 layout: post
 title: '[教程] Proxifier突破区域限制'
-tags: ['原创','教程','Proxifier']
-description: '以Proxifier 来设置HTTP/HTTPS代理翻墙。'
+tags:
+  - 原创
+  - 教程
+  - Proxifier
+description: 以Proxifier 来设置HTTP/HTTPS代理翻墙。
 image: 'https://lh3.googleusercontent.com/-mbV7l_nJfcM/VxPlqE1OHnI/AAAAAAAAJVU/Si66OioLxOYEPHgLCMRp_huhgIm2beBkwCHM/s1600/17-04-2016_211859.png'
-author: 'GaryNg'
+author: GaryNg
 ---
+
 > 由于版权合约的限制，XX暂时不能对您所在的国家或地区提供服务。  
 > [![image](https://lh3.googleusercontent.com/-mbV7l_nJfcM/VxPlqE1OHnI/AAAAAAAAJVU/Si66OioLxOYEPHgLCMRp_huhgIm2beBkwCHM/s800/17-04-2016_211859.png "image")](https://lh3.googleusercontent.com/-mbV7l_nJfcM/VxPlqE1OHnI/AAAAAAAAJVU/Si66OioLxOYEPHgLCMRp_huhgIm2beBkwCHM/s1600/17-04-2016_211859.png)
 
