@@ -31,7 +31,7 @@ Proxifier 就是一个灰常灰常强大的梯子， 有了梯子，就可以翻
 好吧...  
 
 # 安装Proxifier
-1、下载，解压！
+1、下载，解压！  
 2、点开`ProxifierSetup.exe`安装！
 [![image](https://lh3.googleusercontent.com/-d8ZgYlfUutc/VxPlpAyZDkI/AAAAAAAAJVI/Grl-r7Dm1BIe_41_pJq3WIyABMkQYqcIwCHM/s800/17-04-2016_212837.png "image")](https://lh3.googleusercontent.com/-d8ZgYlfUutc/VxPlpAyZDkI/AAAAAAAAJVI/Grl-r7Dm1BIe_41_pJq3WIyABMkQYqcIwCHM/s1600/17-04-2016_212837.png)
 [![image](https://lh3.googleusercontent.com/-K8tNsJUBBNI/VxPlodmLPjI/AAAAAAAAJVA/RSwnOeAkxNARnhZLgPHy5mk71QmEQ5oFQCHM/s800/17-04-2016_212903.png "image")](https://lh3.googleusercontent.com/-K8tNsJUBBNI/VxPlodmLPjI/AAAAAAAAJVA/RSwnOeAkxNARnhZLgPHy5mk71QmEQ5oFQCHM/s1600/17-04-2016_212903.png)
@@ -53,14 +53,14 @@ Proxifier 就是一个灰常灰常强大的梯子， 有了梯子，就可以翻
 [![image](https://lh3.googleusercontent.com/-1ha1XbLvLW8/VxPlthxtvrI/AAAAAAAAJWI/Uvy3iq4EPScw5UIYMhyQFshhpr5RUdUXACHM/s800/18-04-2016_031119.png "image")](https://lh3.googleusercontent.com/-1ha1XbLvLW8/VxPlthxtvrI/AAAAAAAAJWI/Uvy3iq4EPScw5UIYMhyQFshhpr5RUdUXACHM/s1600/18-04-2016_031119.png)  
 2、先到这里：[http://cn-proxy.com/](http://cn-proxy.com/) 找到一个中国伺服器的代理IP 和 端口  
 [![image](https://lh3.googleusercontent.com/-imWka10pVEU/VxPluKl2yPI/AAAAAAAAJWU/I25I2h24NtwkE4-b1lC-wekQPRbpMa84gCHM/s800/18-04-2016_031342.png "image")](https://lh3.googleusercontent.com/-imWka10pVEU/VxPluKl2yPI/AAAAAAAAJWU/I25I2h24NtwkE4-b1lC-wekQPRbpMa84gCHM/s1600/18-04-2016_031342.png)
-这里就用IP`120.198.233.211`端口`8080`来例子  
+这里就用IP`120.198.233.211`端口`8080`来做为例子  
 3、现在点击Profile > Proxy Servers...  
 [![image](https://lh3.googleusercontent.com/-qtVnr_1I6q8/VxPluNKJFkI/AAAAAAAAJWQ/JQUFJa1bFcUZcumyVki4c_01psY0xXGQACHM/s800/18-04-2016_031445.png "image")](https://lh3.googleusercontent.com/-qtVnr_1I6q8/VxPluNKJFkI/AAAAAAAAJWQ/JQUFJa1bFcUZcumyVki4c_01psY0xXGQACHM/s1600/18-04-2016_031445.png)  
 4、点击Add  
 [![image](https://lh3.googleusercontent.com/-qu2wrUGw1Ns/VxPlu6njzFI/AAAAAAAAJWc/mvsdU6tZAtskHkSmAh1lv0T2EKSsfbHkACHM/s800/18-04-2016_031517.png "image")](https://lh3.googleusercontent.com/-qu2wrUGw1Ns/VxPlu6njzFI/AAAAAAAAJWc/mvsdU6tZAtskHkSmAh1lv0T2EKSsfbHkACHM/s1600/18-04-2016_031517.png)  
 5、输入IP 和 Port  
 然后选择Protocol 选择HTTP  
-然后在点击Check 来测试代理服务器  
+然后再点击Check 来测试代理服务器  
 [![image](https://lh3.googleusercontent.com/-Uv7JYoC6aJw/VxPlutZrl0I/AAAAAAAAJWg/RYdxudjOEAU7yifovNoRWeChjrXeS3WowCHM/s800/18-04-2016_031635.png "image")](https://lh3.googleusercontent.com/-Uv7JYoC6aJw/VxPlutZrl0I/AAAAAAAAJWg/RYdxudjOEAU7yifovNoRWeChjrXeS3WowCHM/s1600/18-04-2016_031635.png)  
 6、如果Proxifier显示`Error : connection to the proxy server was closed unexpectedly.`的话， 可以将测试目标改为百度（那儿上不到谷歌啊！）
 
@@ -86,12 +86,14 @@ Proxifier 就是一个灰常灰常强大的梯子， 有了梯子，就可以翻
 [![image](https://lh3.googleusercontent.com/-kMdbUeqYC78/VxPlxPrLSeI/AAAAAAAAJXI/xdj5dYwlvTcJSGtDnIZYfhvM92hNGn5ZACHM/s800/18-04-2016_032517.png "image")](https://lh3.googleusercontent.com/-kMdbUeqYC78/VxPlxPrLSeI/AAAAAAAAJXI/xdj5dYwlvTcJSGtDnIZYfhvM92hNGn5ZACHM/s1600/18-04-2016_032517.png)
 
 # 绕过QQ音乐地区限制
-我们就用QQ音乐开到吧， 基本上可以兼容所有的APP，也可以设置为全局代理。  
+我们就用QQ音乐开刀吧， 基本上可以兼容所有的APP，也可以设置为全局代理。  
 1、点击Profile > Proxification Rules...
 [![image](https://lh3.googleusercontent.com/-M0QwmVtEyIQ/VxPlxnhUpmI/AAAAAAAAJXQ/LqhiU55kaOY0y0OMGArvx7ue2JuZBTAJQCHM/s800/18-04-2016_032646.png "image")](https://lh3.googleusercontent.com/-M0QwmVtEyIQ/VxPlxnhUpmI/AAAAAAAAJXQ/LqhiU55kaOY0y0OMGArvx7ue2JuZBTAJQCHM/s1600/18-04-2016_032646.png)  
 2、如果要设置为全局代理的话（就是所有的网络连接都会通过proxy），将`Default`的`Action`改为`Proxy HTTP`， 像这样：  
 [![image](https://lh3.googleusercontent.com/-bOnbc3uAMjs/VxPlxxE-BkI/AAAAAAAAJXU/gW9BXQG6zC4PIFyFeRAd7Ax5Inri5APkQCHM/s800/18-04-2016_032822.png "image")](https://lh3.googleusercontent.com/-bOnbc3uAMjs/VxPlxxE-BkI/AAAAAAAAJXU/gW9BXQG6zC4PIFyFeRAd7Ax5Inri5APkQCHM/s1600/18-04-2016_032822.png)  
-如果只是要特定APP的话，点击下方的Add...  
+不过我们只要设置特定APP需要proxy  
+所以将Default rule 保留为`Direct`  
+然后点击下方的Add...  
 [![image](https://lh3.googleusercontent.com/-icfvryAZ0p0/VxPlyEvAK0I/AAAAAAAAJXk/IEzSY2icPTURFEi4Ymc-fcKvtY3-fMi3wCHM/s800/18-04-2016_032911.png "image")](https://lh3.googleusercontent.com/-icfvryAZ0p0/VxPlyEvAK0I/AAAAAAAAJXk/IEzSY2icPTURFEi4Ymc-fcKvtY3-fMi3wCHM/s1600/18-04-2016_032911.png)  
 放个名字吧， 这里是`QQMusic`  
 然后点击Browse...  
