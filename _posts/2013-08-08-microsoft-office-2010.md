@@ -7,7 +7,31 @@ tags:
   - 原创
   - 教程
   - Office
+image: 'https://lh3.googleusercontent.com/-91bffXWcFCc/VzGNP_q67PI/AAAAAAAAJZQ/wF-JLfi23f8fiqxmvjGNLRlh_wrY7m0mgCHM/s1600/10-05-2016_152458.png'
 ---
+
+# [10/5/2016 更新] Office 2016
+1、Microsoft Office 2016 Professional Plus VL x86/x64 ISO 下载地址  
+可以到mydigitallife forum 去看看：[http://forums.mydigitallife.info/threads/65644-Microsoft-Office-2016-Volume-License-ISO-Original-from-VLSC/page33?p=1153286&viewfull=1#post1153286](http://forums.mydigitallife.info/threads/65644-Microsoft-Office-2016-Volume-License-ISO-Original-from-VLSC/page33?p=1153286&viewfull=1#post1153286)  
+Magnet Link： [
+Microsoft Office 2016 Professional Plus VL x86/x64 ISO](magnet:?xt=urn:btih:15B5E810D44F5211FC7DD62845CE8E923F2F467F)  
+（选择x86 或者是 x64版本的）  
+[![image](https://lh3.googleusercontent.com/-fJulBtK4GwQ/VzGQYLgQQlI/AAAAAAAAJZc/8vM1fK7ZIhkmLaW5HgTB6fu8gqDJilO3gCHM/s800/10-05-2016_153948.png "image")](https://lh3.googleusercontent.com/-fJulBtK4GwQ/VzGQYLgQQlI/AAAAAAAAJZc/8vM1fK7ZIhkmLaW5HgTB6fu8gqDJilO3gCHM/s1600/10-05-2016_153948.png)
+
+2、Microsoft Toolkit 2.6 BETA 5  
+官方站点：[http://forums.mydigitallife.info/threads/28669-Microsoft-Toolkit-Official-KMS-Solution-for-Microsoft-Products](http://forums.mydigitallife.info/threads/28669-Microsoft-Toolkit-Official-KMS-Solution-for-Microsoft-Products)  
+Magnet Link：[Microsoft Toolkit 2.6 ETA 5](magnet:?xt=urn:btih:IDK76GZ6JUOAOLZ7K3A4ITFOQMHELTKE&dn=Microsoft%20Toolkit%202.6%20BETA%205%20Official%20Torrent&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=http%3A%2F%2Fannounce.torrentsmd.com%3A8080%2Fannounce.php&tr=udp%3A%2F%2Ftracker.istole.it%3A80%2Fannounce&tr=udp%3A%2F%2F12.rarbg.me%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.aletorrenty.pl%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.istole.it%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Fwww.eddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.btzoo.eu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&net=Public&net=I2P&net=Tor)  
+
+安装方法雷同，在Windows 10 上可以直接挂载ISO档案， 不必使用魔方虚拟光驱（双击ISO档案便可直接打开）  
+[![image](https://lh3.googleusercontent.com/-aDvtmN2ycdo/VzGNPeTsdeI/AAAAAAAAJZI/lCtj31o6vvc63dYiQr-y3ARC2hLDIObJwCHM/s800/10-05-2016_152156.png "image")](https://lh3.googleusercontent.com/-aDvtmN2ycdo/VzGNPeTsdeI/AAAAAAAAJZI/lCtj31o6vvc63dYiQr-y3ARC2hLDIObJwCHM/s1600/10-05-2016_152156.png)  
+
+[![image](https://lh3.googleusercontent.com/-t54BjvqzuGY/VzGNPebuS2I/AAAAAAAAJZM/pqXhRieE_kQ-pIAFh07YdB4QTiGMMuJJgCHM/s800/10-05-2016_152218.png "image")](https://lh3.googleusercontent.com/-t54BjvqzuGY/VzGNPebuS2I/AAAAAAAAJZM/pqXhRieE_kQ-pIAFh07YdB4QTiGMMuJJgCHM/s1600/10-05-2016_152218.png)  
+
+激活方法也是使用Microsoft Toolkit 激活即可  
+可以到File > Account 查看激活状态  
+[![image](https://lh3.googleusercontent.com/-91bffXWcFCc/VzGNP_q67PI/AAAAAAAAJZQ/wF-JLfi23f8fiqxmvjGNLRlh_wrY7m0mgCHM/s800/10-05-2016_152458.png "image")](https://lh3.googleusercontent.com/-91bffXWcFCc/VzGNP_q67PI/AAAAAAAAJZQ/wF-JLfi23f8fiqxmvjGNLRlh_wrY7m0mgCHM/s1600/10-05-2016_152458.png)  
+
+
 
 又为此折腾了两三天..  
 我之前下载了不知道什么版本的Office
@@ -45,27 +69,6 @@ Bit）：
 下载地址：[官方Torrent链接](magnet:?xt=urn:btih:F79514E32569A53A20BE42F854FC4D17240974D7&dn=Microsoft%20Toolkit%202.4.7%20Official%20Torrent&tr=udp%3a%2f%2ftracker.publicbt.com%3a80&tr=udp%3a%2f%2ftracker.istole.it%3a80%2fannounce&tr=udp%3a%2f%2ftracker.openbittorrent.com%3a80)    
 [MediaFire](http://www.mediafire.com/download/kjftx7ouaxrjypx/Microsoft_Toolkit.exe)    
 [MEGA](https://mega.co.nz/#!SRo2WaKC!CV1vghSx4JkaVs_H0rtKWROiWI1JQ37IZGvWq9qhnQo)  
-
-# [10/5/2016 更新] Office 2016
-1、Microsoft Office 2016 Professional Plus VL x86/x64 ISO 下载地址  
-可以到mydigitallife forum 去看看：[http://forums.mydigitallife.info/threads/65644-Microsoft-Office-2016-Volume-License-ISO-Original-from-VLSC/page33?p=1153286&viewfull=1#post1153286](http://forums.mydigitallife.info/threads/65644-Microsoft-Office-2016-Volume-License-ISO-Original-from-VLSC/page33?p=1153286&viewfull=1#post1153286)  
-Magnet Link： [
-magnet:?xt=urn:btih:15B5E810D44F5211FC7DD62845CE8E923F2F467F](magnet:?xt=urn:btih:15B5E810D44F5211FC7DD62845CE8E923F2F467F)  
-
-
-2、Microsoft Toolkit 2.6 BETA 5  
-官方站点：[http://forums.mydigitallife.info/threads/28669-Microsoft-Toolkit-Official-KMS-Solution-for-Microsoft-Products](http://forums.mydigitallife.info/threads/28669-Microsoft-Toolkit-Official-KMS-Solution-for-Microsoft-Products)  
-Magnet Link：[magnet:?xt=urn:btih:IDK76GZ6JUOAOLZ7K3A4ITFOQMHELTKE&dn=Microsoft%20Toolkit%202.6%20BETA%205%20Official%20Torrent&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=http%3A%2F%2Fannounce.torrentsmd.com%3A8080%2Fannounce.php&tr=udp%3A%2F%2Ftracker.istole.it%3A80%2Fannounce&tr=udp%3A%2F%2F12.rarbg.me%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.aletorrenty.pl%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.istole.it%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Fwww.eddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.btzoo.eu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&net=Public&net=I2P&net=Tor](magnet:?xt=urn:btih:IDK76GZ6JUOAOLZ7K3A4ITFOQMHELTKE&dn=Microsoft%20Toolkit%202.6%20BETA%205%20Official%20Torrent&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=http%3A%2F%2Fannounce.torrentsmd.com%3A8080%2Fannounce.php&tr=udp%3A%2F%2Ftracker.istole.it%3A80%2Fannounce&tr=udp%3A%2F%2F12.rarbg.me%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.aletorrenty.pl%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.istole.it%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969&tr=udp%3A%2F%2Fexodus.desync.com%3A6969&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80&tr=udp%3A%2F%2Ftracker.publicbt.com%3A80%2Fannounce&tr=udp%3A%2F%2Fwww.eddie4.nl%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2710%2Fannounce&tr=udp%3A%2F%2Fexplodie.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.com%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.btzoo.eu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.demonii.com%3A1337&net=Public&net=I2P&net=Tor)  
-
-安装方法雷同，在Windows 10 上可以直接挂载ISO档案， 不必使用魔方虚拟光驱（双击ISO档案便可直接打开）  
-[![image](https://lh3.googleusercontent.com/-aDvtmN2ycdo/VzGNPeTsdeI/AAAAAAAAJZI/lCtj31o6vvc63dYiQr-y3ARC2hLDIObJwCHM/s800/10-05-2016_152156.png "image")](https://lh3.googleusercontent.com/-aDvtmN2ycdo/VzGNPeTsdeI/AAAAAAAAJZI/lCtj31o6vvc63dYiQr-y3ARC2hLDIObJwCHM/s1600/10-05-2016_152156.png)  
-
-[![image](https://lh3.googleusercontent.com/-t54BjvqzuGY/VzGNPebuS2I/AAAAAAAAJZM/pqXhRieE_kQ-pIAFh07YdB4QTiGMMuJJgCHM/s800/10-05-2016_152218.png "image")](https://lh3.googleusercontent.com/-t54BjvqzuGY/VzGNPebuS2I/AAAAAAAAJZM/pqXhRieE_kQ-pIAFh07YdB4QTiGMMuJJgCHM/s1600/10-05-2016_152218.png)  
-
-激活方法也是使用Microsoft Toolkit 激活即可  
-可以到File > Account 查看激活状态  
-[![image](https://lh3.googleusercontent.com/-91bffXWcFCc/VzGNP_q67PI/AAAAAAAAJZQ/wF-JLfi23f8fiqxmvjGNLRlh_wrY7m0mgCHM/s800/10-05-2016_152458.png "image")](https://lh3.googleusercontent.com/-91bffXWcFCc/VzGNP_q67PI/AAAAAAAAJZQ/wF-JLfi23f8fiqxmvjGNLRlh_wrY7m0mgCHM/s1600/10-05-2016_152458.png)  
-
 
 # 【安装】  
 1、先打开 魔方虚拟光驱，然后加载Office 2010 的 ISO  
